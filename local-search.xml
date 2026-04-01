@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>离散数学第2章</title>
+    <link href="/2026/04/01/DM/charpter2/"/>
+    <url>/2026/04/01/DM/charpter2/</url>
+    
+    <content type="html"><![CDATA[<h1 id="charpter2-命题逻辑语义"><a href="#charpter2-命题逻辑语义" class="headerlink" title="charpter2 命题逻辑语义"></a>charpter2 命题逻辑语义</h1><h2 id="2-1-命题合式公式语义"><a href="#2-1-命题合式公式语义" class="headerlink" title="2.1 命题合式公式语义"></a>2.1 命题合式公式语义</h2><h3 id="命题逻辑公式的真值"><a href="#命题逻辑公式的真值" class="headerlink" title="命题逻辑公式的真值"></a>命题逻辑公式的真值</h3><blockquote><p>P∧Q的真值</p></blockquote><ul><li><p>def 2.1.1</p><ul><li>指派函数，简称指派，是一种从合式公式到集合{0,1}的函数，记作σ</li><li>σ:Q→ {0,1}</li></ul></li><li><p>def 2.1.2</p><ul><li>Q是命题变元，则Q的语义是指Q的真值。即σ(Q)&#x3D;Q^{σ},其中Q^σ∈{0,1}</li></ul></li><li><p>def 2.1.3 </p><ul><li>Q,R是命题变元，σ 是指派，合式公式联结词的语义指定为对应的逻辑运算<ul><li>.e.g (¬ Q)是合式公式，σ (¬ Q)&#x3D;¬σ(Q)</li></ul></li></ul></li><li><p>def 2.1.4</p><ul><li>若Q，R是合式公式，σ(Q⊨R)&#x3D;σ(Q)⊨σ(R)</li></ul></li><li><p>def  2.1.5</p><ul><li>若Q，R是合式公式，σ(Q⇔R)&#x3D;σ(Q)⇔σ(R)</li></ul></li><li><p>def 2.1.6</p><ul><li>如果真值指派σ使得σ(Q)&#x3D;1,则称σ满足Q</li><li>如果每个真值指派都满足Q，那么Q是有效式，永真式，重言式。</li><li>如果每个真值指派都不满足Q，那么Q是矛盾式，永假式，不可满足式。</li><li>如果至少有1个真值指派都满足Q，那么Q是可满足式。</li></ul></li></ul><h3 id="合式公式真值语义求值方法"><a href="#合式公式真值语义求值方法" class="headerlink" title="合式公式真值语义求值方法"></a>合式公式真值语义求值方法</h3><ul><li>指派函数求真值法</li><li>真值表求真值法</li><li>python程序求真值法</li></ul><h2 id="2-2推论式与等价式的语义"><a href="#2-2推论式与等价式的语义" class="headerlink" title="2.2推论式与等价式的语义"></a>2.2推论式与等价式的语义</h2><ul><li><p>def 2.2.1</p><ul><li>设Q和R都是合式公式,Q⊨R是推论式，若对于任意指派函数σ,σ(Q)⊨σ(R) 皆为真，则称Q语义推出R</li></ul></li><li><p>def 2.2.2</p><ul><li>设Γ是合式公式合集，R是合式公式，Γ⊨R是推论式，若对于任意指派函数σ,σ(Γ)⊨σ(R)</li></ul></li><li><p>def 2.2.3</p><ul><li>设Q_{1},Q_{2},Q_{3},⋯,Q_{n}是命题公式，Γ&#x3D;{Q_{1},Q_{2},⋯ Q_{n}},若对于任意指派函数σ,如果σ(Q_1),σ(Q_2),⋯,σ(Q_n)皆为真，则Γ(R)为真，则称Q_{1},Q_{2},Q_{3},⋯ ,Q_{n}语义推出R,记为Q_{1},Q_{2},Q_{3},⋯ ,Q_{n}⊨ R(也是推论式)。若R为空集，记作⊨ R。</li></ul></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>离散数学</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>DM</tag>
+      
+      <tag>笔记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>离散数学第1章</title>
+    <link href="/2026/04/01/DM/charpter1/"/>
+    <url>/2026/04/01/DM/charpter1/</url>
+    
+    <content type="html"><![CDATA[<h1 id="逻辑语言"><a href="#逻辑语言" class="headerlink" title="逻辑语言"></a>逻辑语言</h1><h2 id="1-1-逻辑运算"><a href="#1-1-逻辑运算" class="headerlink" title="1.1 逻辑运算"></a>1.1 逻辑运算</h2><ul><li><p>def 1.1.1 </p><ul><li>逻辑真值：{0,1},包括真和假</li><li>也叫做逻辑对象</li></ul></li><li><p>def 1.1.2</p><ul><li>表达逻辑真值的变量，叫做逻辑变量</li><li>一般用小写英文字母表示</li><li>在逻辑真值集合{0,1}上，定义合取、析取、否定、蕴含、互蕴含、异或运算，记作∧,∨,¬,→,↔</li></ul></li><li><p>def 1.1.3</p>  <center>   **表 1  ¬p真值表**   <center><table><thead><tr><th align="center">p</th><th align="center">¬p</th></tr></thead><tbody><tr><td align="center">0</td><td align="center">1</td></tr><tr><td align="center">1</td><td align="center">0</td></tr></tbody></table><hr>  </center></li><li><p>def 1.1.4</p>  <center><p>  <strong>表 2   p ∧ q真值表</strong></p><table><thead><tr><th align="center">p</th><th align="center">q</th><th align="center">p ∧ q</th></tr></thead><tbody><tr><td align="center">0</td><td align="center">0</td><td align="center">0</td></tr><tr><td align="center">0</td><td align="center">1</td><td align="center">0</td></tr><tr><td align="center">1</td><td align="center">0</td><td align="center">0</td></tr><tr><td align="center">1</td><td align="center">1</td><td align="center">1</td></tr></tbody></table><hr>  </center></li><li><p>def 1.1.5</p>  <center><p>  <strong>表 3   p ∨ q真值表</strong></p><table><thead><tr><th align="center">p</th><th align="center">q</th><th align="center">p ∨ q</th></tr></thead><tbody><tr><td align="center">0</td><td align="center">0</td><td align="center">0</td></tr><tr><td align="center">0</td><td align="center">1</td><td align="center">1</td></tr><tr><td align="center">1</td><td align="center">0</td><td align="center">1</td></tr><tr><td align="center">1</td><td align="center">1</td><td align="center">1</td></tr></tbody></table><hr>  </center></li><li><p>def 1.1.6</p>  <center><p>  <strong>表 4   p → q真值表</strong></p><table><thead><tr><th align="center">p</th><th align="center">q</th><th align="center">p → q</th></tr></thead><tbody><tr><td align="center">0</td><td align="center">0</td><td align="center">1</td></tr><tr><td align="center">0</td><td align="center">1</td><td align="center">1</td></tr><tr><td align="center">1</td><td align="center">0</td><td align="center">0</td></tr><tr><td align="center">1</td><td align="center">1</td><td align="center">1</td></tr></tbody></table><hr>  </center></li><li><p>def 1.1.7</p>  <center><p>  <strong>表 5   p ↔ q真值表</strong></p><table><thead><tr><th align="center">p</th><th align="center">q</th><th align="center">p ↔ q</th></tr></thead><tbody><tr><td align="center">0</td><td align="center">0</td><td align="center">1</td></tr><tr><td align="center">0</td><td align="center">1</td><td align="center">0</td></tr><tr><td align="center">1</td><td align="center">0</td><td align="center">0</td></tr><tr><td align="center">1</td><td align="center">1</td><td align="center">1</td></tr></tbody></table><hr>  </center></li><li><p>def 1.1.8</p>  <center><p>  <strong>表 6 p ⊕ q真值表</strong></p><table><thead><tr><th align="center">p</th><th align="center">q</th><th align="center">p ⊕ q</th></tr></thead><tbody><tr><td align="center">0</td><td align="center">0</td><td align="center">0</td></tr><tr><td align="center">0</td><td align="center">1</td><td align="center">1</td></tr><tr><td align="center">1</td><td align="center">0</td><td align="center">1</td></tr><tr><td align="center">1</td><td align="center">1</td><td align="center">0</td></tr></tbody></table><hr>  </center></li><li><p>def 1.1.9</p>  <center><p>  <strong>表 7   p &#x3D; q真值表</strong></p><table><thead><tr><th align="center">p</th><th align="center">q</th><th align="center">p &#x3D; q</th></tr></thead><tbody><tr><td align="center">0</td><td align="center">0</td><td align="center">1</td></tr><tr><td align="center">0</td><td align="center">1</td><td align="center">0</td></tr><tr><td align="center">1</td><td align="center">0</td><td align="center">0</td></tr><tr><td align="center">1</td><td align="center">1</td><td align="center">1</td></tr></tbody></table><hr>  </center></li><li><p>def 1.1.10</p>  <center><p>  <strong>表 8  p ⊨ q真值表</strong></p><table><thead><tr><th align="center">p</th><th align="center">q</th><th align="center">p ⊨ q</th></tr></thead><tbody><tr><td align="center">0</td><td align="center">0</td><td align="center">1</td></tr><tr><td align="center">0</td><td align="center">1</td><td align="center">1</td></tr><tr><td align="center">1</td><td align="center">0</td><td align="center">0</td></tr><tr><td align="center">1</td><td align="center">1</td><td align="center">1</td></tr></tbody></table><hr>  </center></li><li><p>def 1.1.11</p><ul><li>逻辑域包括<ul><li>逻辑真值集合</li><li>逻辑运算</li><li>逻辑关系</li></ul></li></ul></li></ul><h2 id="1-2-命题逻辑合式公式"><a href="#1-2-命题逻辑合式公式" class="headerlink" title="1.2 命题逻辑合式公式"></a>1.2 命题逻辑合式公式</h2><h3 id="1-2-1"><a href="#1-2-1" class="headerlink" title="1.2.1"></a>1.2.1</h3><p>def 1.2.1</p><pre><code class="hljs">1. Q,R是合式公式2.『逻辑运算（合式公式）』是合式公式3. 以上两个步骤有限次迭代的是合式公式</code></pre><p>def 1.2.2</p><ul><li>满足1.2.1的第一条，则Q⊨R是推论式</li><li>Q为前提，R为结论</li></ul><p>def 1.2.5</p><ul><li>满足1.2.1的第一条，则Q↔R是等价式</li></ul><p>def 1.2.6</p><ul><li>所有的命题合式公式集合构成命题逻辑语言，记为L。</li></ul><p>def 1.2.7</p><ul><li>复杂度计算<blockquote><p>此处见书籍13页</p></blockquote></li></ul><h3 id="1-2-2-公式变换"><a href="#1-2-2-公式变换" class="headerlink" title="1.2.2 公式变换"></a>1.2.2 公式变换</h3><blockquote><p>代换式，替换式，对偶式</p></blockquote><h2 id="1-3-谓词逻辑合式公式"><a href="#1-3-谓词逻辑合式公式" class="headerlink" title="1.3 谓词逻辑合式公式"></a>1.3 谓词逻辑合式公式</h2><h3 id="1-3-1-谓词与量词"><a href="#1-3-1-谓词与量词" class="headerlink" title="1.3.1 谓词与量词"></a>1.3.1 谓词与量词</h3><p>def 1.3.1</p><blockquote><p>n元谓词可以表示为Q(x_1,x_2,…,x_n)称x_1到x_n具有Q关系&#x2F;Q性质</p></blockquote><p>def 1.3.3</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">└── 一阶谓词逻辑语言<br>    ├── 逻辑符号集合<br>    │   ├── 变元符号集合，x_1,x_2等<br>    │   ├── 量词集合，∀,∃等<br>    │   ├── 逗号和括号<br>    │   └── 联结词集合，→，∨，∧等<br>    └── 非逻辑符号集合<br>        ├── 个体常元<br>        ├── 函词<br>        └── 谓词<br></code></pre></td></tr></table></figure><p>def 1.3.4</p><ul><li>个体常元，个体变元是项；</li><li>n元函词输入项后输出是项。</li></ul><h2 id="1-3-2-合式公式"><a href="#1-3-2-合式公式" class="headerlink" title="1.3.2 合式公式"></a>1.3.2 合式公式</h2><p>def 1.3.5</p><ul><li>『谓词（n个项）』是谓词合式公式</li><li>『逻辑运算（n个谓词合式公式）』是谓词合式公式</li><li>『量词（和施工时）』是谓词合式公式</li><li>以上步骤重复有限次</li></ul><p>def 1.3.6,def 1.3.7</p><ul><li>谓词推论式，谓词等价式</li></ul><p>def 1.3.8</p><p>* </p>]]></content>
+    
+    
+    <categories>
+      
+      <category>离散数学</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>DM</tag>
+      
+      <tag>笔记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="/2026/04/01/hello-world/"/>
+    <url>/2026/04/01/hello-world/</url>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  
+</search>
