@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>ROS2 常用命令</title>
+    <link href="/2026/04/02/Robot/ROS2%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <url>/2026/04/02/Robot/ROS2%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    
+    <content type="html"><![CDATA[<h1 id="ROS2-常用命令"><a href="#ROS2-常用命令" class="headerlink" title="ROS2 常用命令"></a>ROS2 常用命令</h1><h2 id="ros2-daemon"><a href="#ros2-daemon" class="headerlink" title="ros2 daemon"></a>ros2 daemon</h2><ul><li>ros2 daemon是各种守护进程相关命令的前缀,控制ROS２的守护进程,有以下三个子命令:<ul><li>start:    如果守护进程未运行启动守护进程</li><li>status:   输出守护进程的状态:</li><li>stop:     如果守护进程正在运行,停止守护进程.</li></ul></li></ul><h2 id="ros2-msg"><a href="#ros2-msg" class="headerlink" title="ros2 msg"></a>ros2 msg</h2><ul><li>list:输出可用的消息类型列表</li><li>package:输出一个包内可用的消息类型列表</li><li>packages:输出包含消息的包列表</li><li>show:显示输出消息定义</li></ul><h2 id="ros2-node"><a href="#ros2-node" class="headerlink" title="ros2 node"></a>ros2 node</h2><ul><li>list: 输出节点相关信息</li><li>info</li></ul><h2 id="ros2-pkg"><a href="#ros2-pkg" class="headerlink" title="ros2 pkg"></a>ros2 pkg</h2><blockquote><p>输出安装包信息.</p></blockquote><ul><li>executables:输出特定于软件包的可执行文件列表</li><li>list:输出可用软件包列表</li><li>prefix:输出包的前缀路径.</li></ul><h2 id="ros2-run"><a href="#ros2-run" class="headerlink" title="ros2 run"></a>ros2 run</h2><blockquote><p>ros2 run [-h] [–prefix PREFIX] package_name executable_name</p></blockquote><ul><li>package_name:ROS包名称</li><li>executable_name:可执行文件名称</li><li>argv:将任意参数传递给可执行文件</li></ul><p>可选参数如下:</p><pre><code class="hljs">-h --help:显示此帮助消息并退出--prefix:在可执行文件之前的前缀命令包含空格的命令必须包含在引号中</code></pre><h2 id="ros2-security"><a href="#ros2-security" class="headerlink" title="ros2 security"></a>ros2 security</h2><p>ros2 security包含各种安全进程相关的子命令.<br>命令格式和参数如下:</p><ul><li>create_key:创建秘钥.</li><li>create_keystore:创建密钥库</li><li>create_permission:创建许可</li><li>distribute_key:分配密钥</li><li>list_key:列出表键</li></ul><h2 id="ros2-service"><a href="#ros2-service" class="headerlink" title="ros2 service"></a>ros2 service</h2><p>ros2 service包含“ros２servicecall”和“ros２servicelist”两条子命令.其中“ros２servicecall”调用一个服务该命令的位置参数包括以下三个参数</p><ul><li>service_name:调用的ROS服务名称(如“&#x2F;add_two_ints”)</li><li>service_type:ROS服务类型(如“std_srvs&#x2F;Empty”)</li><li>values:用YAML格式填充服务请求的值(如“{a:１,b:２}”),否则,将以默认值发布服务请求.</li></ul><p>“ros2 service list”子命令输出可用服务的列表,该命令的可选参数如下:</p><ul><li>–spintime:发现服务的自旋时间</li><li>-t:显示服务补充信息</li><li>-c:显示发现的服务数量</li></ul><h2 id="ros2-srv"><a href="#ros2-srv" class="headerlink" title="ros2 srv"></a>ros2 srv</h2><p>ros2 srv包含各种srv进程相关的子命令,可选命令如下:</p><ul><li>list:.输出可用服务类型列表</li><li>package:输出一个包中可用服务类型列表</li><li>packages:输出包含服务的包列表</li><li>show:输出服务定义</li></ul><h2 id="ros2-topic"><a href="#ros2-topic" class="headerlink" title="ros2 topic"></a>ros2 topic</h2><p>ros2 topic是各种topic进程相关的子命令的前缀</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>机器人</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>ROS2</tag>
+      
+      <tag>机器人</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>离散数学第2章</title>
     <link href="/2026/04/01/DM/charpter2/"/>
     <url>/2026/04/01/DM/charpter2/</url>
