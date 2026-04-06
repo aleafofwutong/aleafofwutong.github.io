@@ -19,25 +19,25 @@
   <meta name="author" content="aleafofwutong">
   <meta name="keywords" content="">
   
-    <meta name="description" content="ROS2 常用命令ros2 daemon ros2 daemon是各种守护进程相关命令的前缀,控制ROS２的守护进程,有以下三个子命令: start:    如果守护进程未运行启动守护进程 status:   输出守护进程的状态: stop:     如果守护进程正在运行,停止守护进程.    ros2 msg list:输出可用的消息类型列表 package:输出一个包内可用的消息类型列表 pa">
+    <meta name="description" content="gdb调试工具生成含有调试信息的可执行文件1234gcc -g -o0 main.c -o main #建议linux系统使用，更方便g++ -g -O0 main.cpp -o main# -o0:不优化# -g：输出调试信息  具体运行参数12345678910111213141516# 基础格式gdb [启动参数] 可执行文件 [core文件&#x2F;进程PID]# 1. 最常用核心参数-tui">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ROS2 常用命令">
-<meta property="og:url" content="http://aleafofwutong.github.io/2026/04/02/Robot/ROS2%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:title" content="gdb手册">
+<meta property="og:url" content="http://aleafofwutong.github.io/2026/04/04/Linux/gdb/index.html">
 <meta property="og:site_name" content="A Leaf of Wutong">
-<meta property="og:description" content="ROS2 常用命令ros2 daemon ros2 daemon是各种守护进程相关命令的前缀,控制ROS２的守护进程,有以下三个子命令: start:    如果守护进程未运行启动守护进程 status:   输出守护进程的状态: stop:     如果守护进程正在运行,停止守护进程.    ros2 msg list:输出可用的消息类型列表 package:输出一个包内可用的消息类型列表 pa">
+<meta property="og:description" content="gdb调试工具生成含有调试信息的可执行文件1234gcc -g -o0 main.c -o main #建议linux系统使用，更方便g++ -g -O0 main.cpp -o main# -o0:不优化# -g：输出调试信息  具体运行参数12345678910111213141516# 基础格式gdb [启动参数] 可执行文件 [core文件&#x2F;进程PID]# 1. 最常用核心参数-tui">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://aleafofwutong.github.io/img/qieerqian.jpeg">
-<meta property="article:published_time" content="2026-04-01T20:19:49.000Z">
-<meta property="article:modified_time" content="2026-04-03T17:13:42.087Z">
+<meta property="og:image" content="http://aleafofwutong.github.io/img/akame4.jpg">
+<meta property="article:published_time" content="2026-04-03T16:40:35.000Z">
+<meta property="article:modified_time" content="2026-04-05T12:04:03.363Z">
 <meta property="article:author" content="aleafofwutong">
-<meta property="article:tag" content="ROS2">
-<meta property="article:tag" content="机器人">
+<meta property="article:tag" content="C语言">
+<meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://aleafofwutong.github.io/img/qieerqian.jpeg">
+<meta name="twitter:image" content="http://aleafofwutong.github.io/img/akame4.jpg">
   
   
   
-  <title>ROS2 常用命令 - A Leaf of Wutong</title>
+  <title>gdb手册 - A Leaf of Wutong</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -383,7 +383,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="ROS2 常用命令"></span>
+            <span id="subtitle" data-typed-text="gdb手册"></span>
           
         </div>
 
@@ -394,8 +394,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-04-02 04:19" pubdate>
-          April 2, 2026 am
+        <time datetime="2026-04-04 00:40" pubdate>
+          April 4, 2026 am
         </time>
       </span>
     
@@ -406,7 +406,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k words
+          1.9k words
         
       </span>
     
@@ -417,7 +417,7 @@
         
         
         
-          10 mins
+          16 mins
         
       </span>
     
@@ -468,53 +468,17 @@
     
     <div class="category row nomargin-x">
       <a class="category-item 
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="机器人"
-        id="heading-1f0975918788df2b625e97b5bcf6360b" role="tab" data-toggle="collapse" href="#collapse-1f0975918788df2b625e97b5bcf6360b"
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="tools"
+        id="heading-4a931512ce65bdc9ca6808adf92d8783" role="tab" data-toggle="collapse" href="#collapse-4a931512ce65bdc9ca6808adf92d8783"
         aria-expanded="true"
       >
-        机器人
-        <span class="list-group-count">(2)</span>
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      
-      <div class="category-collapse collapse show" id="collapse-1f0975918788df2b625e97b5bcf6360b"
-           role="tabpanel" aria-labelledby="heading-1f0975918788df2b625e97b5bcf6360b">
-        
-        
-          
-          
-  <div class="category-post-list">
-    
-    
-      
-      
-        <a href="/2026/04/02/Robot/ROS2%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="ROS2 常用命令"
-           class="list-group-item list-group-item-action
-           active">
-          <span class="category-post">ROS2 常用命令</span>
-        </a>
-      
-    
-  </div>
-
-          
-  
-    
-    
-    
-    <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="机器视觉"
-        id="heading-8853aa830ce66efa471b78b11ce99c6a" role="tab" data-toggle="collapse" href="#collapse-8853aa830ce66efa471b78b11ce99c6a"
-        aria-expanded="false"
-      >
-        机器视觉
+        tools
         <span class="list-group-count">(1)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse " id="collapse-8853aa830ce66efa471b78b11ce99c6a"
-           role="tabpanel" aria-labelledby="heading-8853aa830ce66efa471b78b11ce99c6a">
+      <div class="category-collapse collapse show" id="collapse-4a931512ce65bdc9ca6808adf92d8783"
+           role="tabpanel" aria-labelledby="heading-4a931512ce65bdc9ca6808adf92d8783">
         
         
           
@@ -523,19 +487,15 @@
     
       
       
-        <a href="/2026/04/06/opencv/opencv_line_detector/" title="OpenCV_Line_Detect"
+        <a href="/2026/04/04/Linux/gdb/" title="gdb手册"
            class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">OpenCV_Line_Detect</span>
+           active">
+          <span class="category-post">gdb手册</span>
         </a>
       
     
   </div>
 
-        
-      </div>
-    </div>
-  
         
       </div>
     </div>
@@ -552,12 +512,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">ROS2 常用命令</h1>
+            <h1 id="seo-header">gdb手册</h1>
             
               <p id="updated-time" class="note note-info" style="display: none">
                 
                   
-                    Last updated on 2026-04-04T01:13:42+08:00
+                    Last updated on 2026-04-05T20:04:03+08:00
                   
                   
 
@@ -567,72 +527,59 @@
             
               <div class="markdown-body">
                 
-                <h1 id="ROS2-常用命令"><a href="#ROS2-常用命令" class="headerlink" title="ROS2 常用命令"></a>ROS2 常用命令</h1><h2 id="ros2-daemon"><a href="#ros2-daemon" class="headerlink" title="ros2 daemon"></a>ros2 daemon</h2><ul>
-<li>ros2 daemon是各种守护进程相关命令的前缀,控制ROS２的守护进程,有以下三个子命令:<ul>
-<li>start:    如果守护进程未运行启动守护进程</li>
-<li>status:   输出守护进程的状态:</li>
-<li>stop:     如果守护进程正在运行,停止守护进程.</li>
+                <h1 id="gdb调试工具"><a href="#gdb调试工具" class="headerlink" title="gdb调试工具"></a>gdb调试工具</h1><h2 id="生成含有调试信息的可执行文件"><a href="#生成含有调试信息的可执行文件" class="headerlink" title="生成含有调试信息的可执行文件"></a>生成含有调试信息的可执行文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">gcc -g -o0 main.c -o main <span class="hljs-comment">#建议linux系统使用，更方便</span><br>g++ -g -O0 main.cpp -o main<br><span class="hljs-comment"># -o0:不优化</span><br><span class="hljs-comment"># -g：输出调试信息</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="具体运行参数"><a href="#具体运行参数" class="headerlink" title="具体运行参数"></a>具体运行参数</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 基础格式</span><br>gdb [启动参数] 可执行文件 [core文件/进程PID]<br><br><span class="hljs-comment"># 1. 最常用核心参数</span><br>-tui             <span class="hljs-comment"># 开启可视化源码窗口（调试首选）</span><br>-q / --quiet     <span class="hljs-comment"># 安静启动，不显示版权冗余信息</span><br>--args           <span class="hljs-comment"># 给被调试程序传递参数（gdb --args ./main 10 20）</span><br>-p PID           <span class="hljs-comment"># 附加到正在运行的进程（gdb -p 12345）</span><br>-ex <span class="hljs-string">&quot;命令&quot;</span>       <span class="hljs-comment"># 启动后自动执行 GDB 命令（-ex &quot;b main&quot; -ex &quot;run&quot;）</span><br>-batch           <span class="hljs-comment"># 批处理模式，执行完自动退出（脚本用）</span><br><br><span class="hljs-comment"># 2. 高频组合命令（直接用）</span><br>gdb -q -tui ./main              <span class="hljs-comment"># 安静+可视化启动</span><br>gdb -q --args ./main 100 200    <span class="hljs-comment"># 带程序参数启动</span><br>gdb -q -tui -ex <span class="hljs-string">&quot;b main&quot;</span> -ex <span class="hljs-string">&quot;r&quot;</span> ./main  <span class="hljs-comment"># 可视化+自动断 main+运行</span><br>gdb ./main core.12345           <span class="hljs-comment"># 调试崩溃 core 文件</span><br></code></pre></td></tr></table></figure>
+
+
+<h2 id="具体使用"><a href="#具体使用" class="headerlink" title="具体使用"></a>具体使用</h2><ul>
+<li>基础功能</li>
 </ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#====#</span><br><span class="hljs-comment"># 最常用</span><br>r           <span class="hljs-comment"># ==run</span><br>n           <span class="hljs-comment"># ==next,下一行</span><br>c           <span class="hljs-comment"># ==continue,执行到第一个遇见的断点</span><br>p n         <span class="hljs-comment"># ==print n, 打印n的值</span><br>finish      <span class="hljs-comment"># 运行完当前函数，返回到调用处</span><br>b 行号      <span class="hljs-comment"># ==break，在某一行设置断点</span><br>q           <span class="hljs-comment"># ==quit,退出gdb</span><br>i b         <span class="hljs-comment"># ==info,查看断点</span><br><br><span class="hljs-comment"># 次级常用</span><br>p *arr@50       <span class="hljs-comment"># 打印数组前五十个（数组专用）</span><br><br>list            <span class="hljs-comment"># l，显示当前代码</span><br>list 行号       <span class="hljs-comment"># 显示某行附近代码</span><br><span class="hljs-comment"># 这俩不如带-tui来得划算</span><br>display 变量    <span class="hljs-comment"># 每步都自动打印</span><br>b 函数名        <span class="hljs-comment"># 在函数入口设置断点</span><br><span class="hljs-keyword">until</span> 行号      <span class="hljs-comment"># 执行到某一行（跳过循环神器</span><br><span class="hljs-built_in">kill</span>            <span class="hljs-comment"># 提前结束</span><br><br><span class="hljs-comment"># 其他不常用命令</span><br>info breakpoints  <span class="hljs-comment"># 查看所有断点</span><br>delete 断点编号    <span class="hljs-comment"># 删除指定断点</span><br>delete             <span class="hljs-comment"># 删除所有断点</span><br>b 文件名:行号       <span class="hljs-comment"># 多文件调试</span><br>info breakpoints   <span class="hljs-comment"># i b，查看所有断点</span><br><span class="hljs-built_in">disable</span> 断点编号    <span class="hljs-comment"># 禁用断点</span><br><span class="hljs-built_in">enable</span> 断点编号     <span class="hljs-comment"># 启用断点</span><br>list 函数名         <span class="hljs-comment"># 显示函数代码</span><br>disassemble 函数名  <span class="hljs-comment"># 查看汇编代码</span><br>p/x 变量            <span class="hljs-comment"># 十六进制</span><br>p/d 变量            <span class="hljs-comment"># 十进制</span><br>p/c 变量            <span class="hljs-comment"># 字符</span><br>p/f 变量            <span class="hljs-comment"># 浮点数</span><br>info display        <span class="hljs-comment"># 查看监控</span><br>undisplay 编号      <span class="hljs-comment"># 取消监控</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>进阶功能</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 栈</span><br>bt          <span class="hljs-comment"># 查看函数调用栈（哪里崩溃）</span><br>frame 编号  <span class="hljs-comment"># 跳转到某一层栈</span><br>up          <span class="hljs-comment"># 上一层栈</span><br>down        <span class="hljs-comment"># 下一层栈</span><br><br><span class="hljs-comment"># 内存</span><br>x /10xw 地址   <span class="hljs-comment"># 以16进制查看10个32位数据</span><br>x /20dw 地址   <span class="hljs-comment"># 以10进制查看20个</span><br>x /s 地址      <span class="hljs-comment"># 查看字符串</span><br><br><span class="hljs-comment"># 强行修改</span><br><span class="hljs-built_in">set</span> var 变量=值<br><span class="hljs-built_in">set</span> var i=10<br><span class="hljs-built_in">set</span> var arr[0]=100<br><br><span class="hljs-comment"># 多文件调试</span><br>info <span class="hljs-built_in">functions</span>    <span class="hljs-comment"># 查看所有函数</span><br>info variables    <span class="hljs-comment"># 查看全局变量</span><br><span class="hljs-built_in">cd</span> 目录           <span class="hljs-comment"># 切换目录</span><br>path 目录         <span class="hljs-comment"># 添加符号路径</span><br><br><span class="hljs-comment"># 崩溃调试</span><br><span class="hljs-built_in">ulimit</span> -c unlimited<br>gdb ./main core.xxx<br><br>bt full  <span class="hljs-comment"># 查看崩溃现场</span><br><span class="hljs-comment"># 当然，只能看代码的崩溃现场，不是调试时你的崩溃现场……</span><br></code></pre></td></tr></table></figure>
+
+
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>set print array on</p>
+<blockquote>
+<p>设置数组打印格式</p>
+</blockquote>
+<p>set print sevenbit-strings on   </p>
+<blockquote>
+<p>字符串正常显示</p>
+</blockquote>
+<p>set print pretty on             </p>
+<blockquote>
+<p>结构体自动缩进、格式化（超级美观！）</p>
+</blockquote>
+<p>set print array-indexes on</p>
+<blockquote>
+<p>设置打印数组下标</p>
+</blockquote>
+<p>set print elements 200</p>
+<blockquote>
+<p>数组只打印前200个</p>
+</blockquote>
+<p>set print elements 0</p>
+<blockquote>
+<p>打印所有元素（不推荐，易刷屏）</p>
+</blockquote>
+<ul>
+<li><p>不常用</p>
+<p>  set print array-indexes on      # 显示数组下标 [0] [1]</p>
+<p>  set print repeats 0             # 连续相同值合并显示（比如 0x00… 100 times）</p>
+<p>  set print union on              # 联合体也美化</p>
+<p>  set print object on             # 指针自动解引用显示真实类型</p>
+<p>  set print static-members on     # 显示静态成员</p>
+<p>  set print vtbl on               # 显示虚函数表</p>
+<p>  set print demangle on           # 自动还原C++函数名</p>
 </li>
 </ul>
-<h2 id="ros2-msg"><a href="#ros2-msg" class="headerlink" title="ros2 msg"></a>ros2 msg</h2><ul>
-<li>list:输出可用的消息类型列表</li>
-<li>package:输出一个包内可用的消息类型列表</li>
-<li>packages:输出包含消息的包列表</li>
-<li>show:显示输出消息定义</li>
-</ul>
-<h2 id="ros2-node"><a href="#ros2-node" class="headerlink" title="ros2 node"></a>ros2 node</h2><ul>
-<li>list: 输出节点相关信息</li>
-<li>info</li>
-</ul>
-<h2 id="ros2-pkg"><a href="#ros2-pkg" class="headerlink" title="ros2 pkg"></a>ros2 pkg</h2><blockquote>
-<p>输出安装包信息.</p>
-</blockquote>
-<ul>
-<li>executables:输出特定于软件包的可执行文件列表</li>
-<li>list:输出可用软件包列表</li>
-<li>prefix:输出包的前缀路径.</li>
-</ul>
-<h2 id="ros2-run"><a href="#ros2-run" class="headerlink" title="ros2 run"></a>ros2 run</h2><blockquote>
-<p>ros2 run [-h] [–prefix PREFIX] package_name executable_name</p>
-</blockquote>
-<ul>
-<li>package_name:ROS包名称</li>
-<li>executable_name:可执行文件名称</li>
-<li>argv:将任意参数传递给可执行文件</li>
-</ul>
-<p>可选参数如下:</p>
-<pre><code class="hljs">-h --help:显示此帮助消息并退出
---prefix:在可执行文件之前的前缀命令包含空格的命令必须包含在引号中
-</code></pre>
-<h2 id="ros2-security"><a href="#ros2-security" class="headerlink" title="ros2 security"></a>ros2 security</h2><p>ros2 security包含各种安全进程相关的子命令.<br>命令格式和参数如下:</p>
-<ul>
-<li>create_key:创建秘钥.</li>
-<li>create_keystore:创建密钥库</li>
-<li>create_permission:创建许可</li>
-<li>distribute_key:分配密钥</li>
-<li>list_key:列出表键</li>
-</ul>
-<h2 id="ros2-service"><a href="#ros2-service" class="headerlink" title="ros2 service"></a>ros2 service</h2><p>ros2 service包含“ros２servicecall”和“ros２servicelist”两条子命令.其中“ros２servicecall”调用一个服务该命令的位置参数包括以下三个参数</p>
-<ul>
-<li>service_name:调用的ROS服务名称(如“&#x2F;add_two_ints”)</li>
-<li>service_type:ROS服务类型(如“std_srvs&#x2F;Empty”)</li>
-<li>values:用YAML格式填充服务请求的值(如“{a:１,b:２}”),否则,将以默认值发布服务请求.</li>
-</ul>
-<p>“ros2 service list”子命令输出可用服务的列表,该命令的可选参数如下:</p>
-<ul>
-<li>–spintime:发现服务的自旋时间</li>
-<li>-t:显示服务补充信息</li>
-<li>-c:显示发现的服务数量</li>
-</ul>
-<h2 id="ros2-srv"><a href="#ros2-srv" class="headerlink" title="ros2 srv"></a>ros2 srv</h2><p>ros2 srv包含各种srv进程相关的子命令,可选命令如下:</p>
-<ul>
-<li>list:.输出可用服务类型列表</li>
-<li>package:输出一个包中可用服务类型列表</li>
-<li>packages:输出包含服务的包列表</li>
-<li>show:输出服务定义</li>
-</ul>
-<h2 id="ros2-topic"><a href="#ros2-topic" class="headerlink" title="ros2 topic"></a>ros2 topic</h2><p>ros2 topic是各种topic进程相关的子命令的前缀</p>
+<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">回车 = 重复上一条命令<br>Ctrl + L = 清屏<br>Ctrl + C = 中断程序<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -651,7 +598,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="category-chain-item">机器人</a>
+  <a href="/categories/tools/" class="category-chain-item">tools</a>
   
   
 
@@ -666,9 +613,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/ROS2/" class="print-no-link">#ROS2</a>
+        <a href="/tags/linux/" class="print-no-link">#linux</a>
       
-        <a href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="print-no-link">#机器人</a>
+        <a href="/tags/C%E8%AF%AD%E8%A8%80/" class="print-no-link">#C语言</a>
       
     </div>
   
@@ -680,8 +627,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>ROS2 常用命令</div>
-      <div>http://aleafofwutong.github.io/2026/04/02/Robot/ROS2常用命令/</div>
+      <div>gdb手册</div>
+      <div>http://aleafofwutong.github.io/2026/04/04/Linux/gdb/</div>
     </div>
     <div class="license-meta">
       
@@ -693,13 +640,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>April 2, 2026</div>
+          <div>April 4, 2026</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>Updated on</div>
-          <div>April 4, 2026</div>
+          <div>April 5, 2026</div>
         </div>
       
       
@@ -742,9 +689,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2026/04/04/Linux/gdb/" title="gdb手册">
+                      <a href="/2026/04/06/opencv/opencv_line_detector/" title="OpenCV_Line_Detect">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">gdb手册</span>
+                        <span class="hidden-mobile">OpenCV_Line_Detect</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -752,8 +699,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2026/04/01/DM/charpter2/" title="离散数学第2章">
-                        <span class="hidden-mobile">离散数学第2章</span>
+                      <a href="/2026/04/02/Robot/ROS2%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="ROS2 常用命令">
+                        <span class="hidden-mobile">ROS2 常用命令</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

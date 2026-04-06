@@ -1,0 +1,1159 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.jpg">
+  <link rel="icon" href="/img/fluid.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="aleafofwutong">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="直线拟合-opencv基础部分视频流打开 用opencv调用打开  1234567891011121314151617181920import cv2import numpycolor_cap &#x3D; cv2.VideoCapture(0)            #0:自带摄像头            #1、2：外接摄像头            #-1：默认            #Video_pat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenCV_Line_Detect">
+<meta property="og:url" content="http://aleafofwutong.github.io/2026/04/06/opencv/opencv_line_detector/index.html">
+<meta property="og:site_name" content="A Leaf of Wutong">
+<meta property="og:description" content="直线拟合-opencv基础部分视频流打开 用opencv调用打开  1234567891011121314151617181920import cv2import numpycolor_cap &#x3D; cv2.VideoCapture(0)            #0:自带摄像头            #1、2：外接摄像头            #-1：默认            #Video_pat">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://aleafofwutong.github.io/img/qieerqian2.png">
+<meta property="article:published_time" content="2026-04-06T08:00:00.000Z">
+<meta property="article:modified_time" content="2026-04-06T11:59:42.340Z">
+<meta property="article:author" content="aleafofwutong">
+<meta property="article:tag" content="open cv">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://aleafofwutong.github.io/img/qieerqian2.png">
+  
+  
+  
+  <title>OpenCV_Line_Detect - A Leaf of Wutong</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/.banner%20%7B%0A%20%20position:%20relative;%0A%7D%0A.banner::before%20%7B%0A%20%20content:%20'';%0A%20%20position:%20absolute;%0A%20%20top:%200;%0A%20%20left:%200;%0A%20%20width:%20100%25;%0A%20%20height:%20100%25;%0A%20%20background:%20linear-gradient(135deg,%20rgba(0,0,0,0.8),%20rgba(180,0,0,0.6));%0A%20%20z-index:%201;%0A%7D%0A.banner%20.content%20%7B%0A%20%20position:%20relative;%0A%20%20z-index:%202;%0A%7D%0A.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"aleafofwutong.github.io","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":true,"scope":["home","post","category","tag","page",404,"links","about"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"06a178930a799545e3c94c375a36ee13","google":{"measurement_id":"G-K6XQ7XRYB3"},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?06a178930a799545e3c94c375a36ee13";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=G-K6XQ7XRYB3", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', 'G-K6XQ7XRYB3');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 95vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>A Leaf of Wutong</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>Links</span>
+              </a>
+            </li>
+          
+        
+          
+          
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>Home</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>Archives</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>Categories</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>Tags</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>About</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/links/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-link-fill"></i>
+                  <span>Links</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>Search</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="Light"
+               data-label-dark="Dark">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">Dark</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/akame2.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="OpenCV_Line_Detect"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-04-06 16:00" pubdate>
+          April 6, 2026 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          10k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          87 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="机器人"
+        id="heading-1f0975918788df2b625e97b5bcf6360b" role="tab" data-toggle="collapse" href="#collapse-1f0975918788df2b625e97b5bcf6360b"
+        aria-expanded="true"
+      >
+        机器人
+        <span class="list-group-count">(2)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-1f0975918788df2b625e97b5bcf6360b"
+           role="tabpanel" aria-labelledby="heading-1f0975918788df2b625e97b5bcf6360b">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2026/04/02/Robot/ROS2%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="ROS2 常用命令"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">ROS2 常用命令</span>
+        </a>
+      
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="机器视觉"
+        id="heading-8853aa830ce66efa471b78b11ce99c6a" role="tab" data-toggle="collapse" href="#collapse-8853aa830ce66efa471b78b11ce99c6a"
+        aria-expanded="true"
+      >
+        机器视觉
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-8853aa830ce66efa471b78b11ce99c6a"
+           role="tabpanel" aria-labelledby="heading-8853aa830ce66efa471b78b11ce99c6a">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2026/04/06/opencv/opencv_line_detector/" title="OpenCV_Line_Detect"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">OpenCV_Line_Detect</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">OpenCV_Line_Detect</h1>
+            
+              <p id="updated-time" class="note note-info" style="display: none">
+                
+                  
+                    Last updated on 2026-04-06T19:59:42+08:00
+                  
+                  
+
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="直线拟合-opencv"><a href="#直线拟合-opencv" class="headerlink" title="直线拟合-opencv"></a>直线拟合-opencv</h1><h2 id="基础部分"><a href="#基础部分" class="headerlink" title="基础部分"></a>基础部分</h2><h3 id="视频流打开"><a href="#视频流打开" class="headerlink" title="视频流打开"></a>视频流打开</h3><blockquote>
+<p>用opencv调用打开</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> numpy<br>color_cap = cv2.VideoCapture(<span class="hljs-number">0</span>)<br><br>            <span class="hljs-comment">#0:自带摄像头</span><br>            <span class="hljs-comment">#1、2：外接摄像头</span><br>            <span class="hljs-comment">#-1：默认</span><br><br>            <span class="hljs-comment">#Video_path = rgb.mp4</span><br>            <span class="hljs-comment">#cv2.VideoCapture(Video_path)</span><br><br>            <span class="hljs-comment">#cv2.VideoCapture(Video_path,cv2.V4L2)</span><br>            <span class="hljs-comment">#linux系统用，Video for Linux 2 </span><br>            <span class="hljs-comment">#cv2.VideoCapture(Video_path,cv2.CAP_DSHOW)</span><br>            <span class="hljs-comment">#windows系统，Capture DirectShow</span><br><br>            <span class="hljs-comment">#如果用realsense等相机,请参考官方文档</span><br><br><span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> color_cap.isOpened():<br>    <span class="hljs-keyword">raise</span> RuntimeError(<span class="hljs-string">f&quot;无法打开RGB视频: <span class="hljs-subst">&#123;color_path&#125;</span>&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="基于点集的直线拟合"><a href="#基于点集的直线拟合" class="headerlink" title="基于点集的直线拟合"></a>基于点集的直线拟合</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">line = cv2.fitLine(<br>    points,            <span class="hljs-comment">#点集,格式为(N,2)或(N,1,2)</span><br>    distType,          <span class="hljs-comment">#距离类型（决定鲁棒性）</span><br>    param,             <span class="hljs-comment">#一般填 0</span><br>    reps,            <span class="hljs-comment">#半径精度 0.01</span><br>    aeps             <span class="hljs-comment">#角度精度 0.01</span><br>)<br>            <span class="hljs-comment">#此方法返回的是一条直线上一点+向量！与后面的返回结果有区别！</span><br>            <span class="hljs-comment">#返回的只有一条直线！</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="霍夫直线检测"><a href="#霍夫直线检测" class="headerlink" title="霍夫直线检测"></a>霍夫直线检测</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    res,color_frame = color_cap.read()<br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> res:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;结束&quot;</span>)<br>    frame = cv2.cvtColor(color_frame,cv2.BGR2GRAY)<br>    edge = cv2.Canny(frame, threshold1=<span class="hljs-number">50</span>,threshold2=<span class="hljs-number">150</span>,apertureSize=<span class="hljs-number">3</span>,L2gradient=<span class="hljs-literal">False</span>)<br>    lines = cv2.HoughLinesP(edge, rho=<span class="hljs-number">1</span>,theta=np.pi/<span class="hljs-number">180</span>,threshold=<span class="hljs-number">80</span>,minLineLength=<span class="hljs-number">80</span>,maxLineGap=<span class="hljs-number">100</span>)<br>    <span class="hljs-keyword">if</span> lines <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span>:<br>        <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> lines:<br>            x1,y1,x2,y2=line[<span class="hljs-number">0</span>]<br>            cv2.line(frame,(x1,y1),(x2,y2),(<span class="hljs-number">255</span>,<span class="hljs-number">255</span>,<span class="hljs-number">0</span>),<span class="hljs-number">2</span>)<br>    cv2.imshow(<span class="hljs-string">&quot;HoughLine&quot;</span>,frame)<br></code></pre></td></tr></table></figure>
+<h3 id="LSD直线检测"><a href="#LSD直线检测" class="headerlink" title="LSD直线检测"></a>LSD直线检测</h3><ul>
+<li>需要安装</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install opencv-contrib-python<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>首先需要建立一个lsd检测器类</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python">lsd = cv2.createLineSegmentDetector(<br>    refine=cv2.LSD_REFINE_ADV,  <br>            <span class="hljs-comment">#精炼模式：NONE/STD/ADV（无/标准/高等）</span><br>    scale=<span class="hljs-number">0.8</span>,                  <span class="hljs-comment">#图像缩放（0~1，越小越快）</span><br>    sigma_scale=<span class="hljs-number">0.6</span>,            <span class="hljs-comment">#高斯模糊sigma</span><br>    quant=<span class="hljs-number">2.0</span>,                  <span class="hljs-comment">#梯度量化误差,控制怎样大的颜色变化算边缘</span><br>    ang_th=<span class="hljs-number">22.5</span>,                <span class="hljs-comment">#角度容忍度（度）,即偏离多少度还能算同一条直线</span><br>    log_eps=<span class="hljs-number">0.0</span>,                <span class="hljs-comment">#NFA阈值（ADV模式用）</span><br>    density_th=<span class="hljs-number">0.7</span>              <span class="hljs-comment">#线段点密度阈值,多密才算直线</span><br>)<br><br></code></pre></td></tr></table></figure>
+<ul>
+<li>然后视频流建议使用lab格式</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    res,color_frame = color_cap.read()<br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> res:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;no frame,check your device!&quot;</span>)<br>    frame = cv2.cvtColor(color_frame,cv2.COLOR_BGR2LAB)<br>    edge = lsd.detect(frame)[<span class="hljs-number">0</span>]<br>    cv2.imshow(<span class="hljs-string">&quot;lsd_demo&quot;</span>,edge)<br></code></pre></td></tr></table></figure>
+
+<h3 id="FSD检测"><a href="#FSD检测" class="headerlink" title="FSD检测"></a>FSD检测</h3><ul>
+<li>fsd检测器</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">fld = cv2.ximgproc.createFastLineDetector(<br>    length_threshold=<span class="hljs-number">10</span>,            <span class="hljs-comment">#长度阈值,长于此值被纳入</span><br>    distance_threshold=<span class="hljs-number">3.5</span>,            <span class="hljs-comment">#距离阈值,俩直线距离小于该值算作一条</span><br>    canny_th1=<span class="hljs-number">10.0</span>,             <span class="hljs-comment">#和Hough圆检测的俩参数类似,一个较小值,一个较大值,低于较小值直接丢弃,大于较大值直接算入,中间值部分视与大于较大值的直线确定</span><br>    canny_th2=<span class="hljs-number">18.0</span>,<br>    canny_aperture_size=<span class="hljs-number">3</span>,<br>    do_merge=<span class="hljs-literal">True</span><br>)<br></code></pre></td></tr></table></figure>
+<ul>
+<li>接入视频流</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    res,color_frame = color_cap.read()<br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> res:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;no frame,check your device!&quot;</span>)<br>    frame = cv2.cvtColor(color_frame,cv2.COLOR_BGR2LAB)<br>    edge = fsd.detect(frame)[<span class="hljs-number">0</span>]<br>    cv2.imshow(<span class="hljs-string">&quot;fsd_demo&quot;</span>,edge)<br></code></pre></td></tr></table></figure>
+
+<h2 id="进阶部分"><a href="#进阶部分" class="headerlink" title="进阶部分"></a>进阶部分</h2><h3 id="Edge-Drawing-Lines检测"><a href="#Edge-Drawing-Lines检测" class="headerlink" title="Edge Drawing Lines检测"></a>Edge Drawing Lines检测</h3><ul>
+<li>安装</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install opencv-contrib-python --upgrade<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>初始化</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br>ed = cv2.ximgproc.createEdgeDrawing()<br><br>params = cv2.ximgproc.EdgeDrawing_Params()<br>params.GradientThresholdValue = <span class="hljs-number">20</span>            <span class="hljs-comment">#梯度阈值：低于此值不算边缘（降噪）</span><br>params.EdgeDetectionOperator = cv2.ximgproc.EDGE_DRAWING_SOBEL            <span class="hljs-comment">#梯度算子：SOBEL/SCHARR/PREWITT</span><br>params.MinPathLength = <span class="hljs-number">15</span>             <span class="hljs-comment">#最小边缘链长度（过滤短噪声）</span><br>params.MinLineLength = <span class="hljs-number">30</span>              <span class="hljs-comment">#最小直线长度（过滤短线）</span><br>params.MaxDistanceBetweenPoints = <span class="hljs-number">3.0</span>            <span class="hljs-comment">#点到拟合直线最大距离（控制直线精度）</span><br>params.MaxError = <span class="hljs-number">2.0</span>                 <span class="hljs-comment">#拟合最大误差（像素）</span><br>params.NFAValidation = <span class="hljs-literal">True</span>            <span class="hljs-comment">#开启NFA验证（过滤误检，强烈建议开）</span><br>params.PFmode = <span class="hljs-literal">False</span>                  <span class="hljs-comment">#概率森林模式：True更准、更慢</span><br>ed.setParams(params)<br></code></pre></td></tr></table></figure>
+<ul>
+<li>使用</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    res,frame=color_cap.read()<br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> frame:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;no frame received, please check  your devices!&quot;</span>)<br>    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)<br>    ed.detectEdges(gray)<br>    lines = ed.detectLines()            <span class="hljs-comment">#输出N×4数组,且每行为[x1,y1,x2,y2]</span><br><br>            <span class="hljs-comment">#可选功能：获取边缘图像/边缘段</span><br>    edge_img = ed.getEdgeImage()            <span class="hljs-comment">#二值边缘图</span><br>    segments = ed.getSegments()            <span class="hljs-comment">#所有边缘链（点集）</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="RANSAC-直线拟合"><a href="#RANSAC-直线拟合" class="headerlink" title="RANSAC 直线拟合"></a>RANSAC 直线拟合</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> RANSACRegressor<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">ransac_find_multi_lines</span>(<span class="hljs-params">points, min_samples=<span class="hljs-number">4</span>, residual_threshold=<span class="hljs-number">2.0</span>, max_trials=<span class="hljs-number">1000</span></span>):<br>    lines = []<br>    remain_pts = points.copy()<br><br>    <span class="hljs-keyword">while</span> <span class="hljs-built_in">len</span>(remain_pts) &gt; min_samples:<br>        <span class="hljs-keyword">try</span>:<br>            ransac = RANSACRegressor(<br>                min_samples=min_samples,<br>                residual_threshold=residual_threshold,<br>                max_trials=max_trials<br>            )<br>            ransac.fit(remain_pts[:, <span class="hljs-number">0</span>].reshape(-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), remain_pts[:, <span class="hljs-number">1</span>])<br><br>            inlier_mask = ransac.inlier_mask_<br>            inliers = remain_pts[inlier_mask]<br>            outliers = remain_pts[~inlier_mask]<br><br>            <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(inliers) &lt; <span class="hljs-number">5</span>:<br>                <span class="hljs-keyword">break</span><br><br>            <span class="hljs-comment">#拟合方向</span><br>            vx, vy, cx, cy = cv2.fitLine(<br>                inliers.astype(np.float32),<br>                cv2.DIST_HUBER, <span class="hljs-number">0</span>, <span class="hljs-number">0.01</span>, <span class="hljs-number">0.01</span><br>            ).flatten()<br><br>            <span class="hljs-comment">#用内点在方向向量上的投影范围确定线段端点（无固定长度）</span><br>            p0=np.array([cx, cy],dtype=np.float32)<br>            v=np.array([vx, vy],dtype=np.float32)<br>            v=v/(np.linalg.norm(v)+<span class="hljs-number">1e-12</span>)            <span class="hljs-comment">#单位化</span><br>            proj = (inliers - p0) @ v            <span class="hljs-comment">#每个内点在方向上的标量投影</span><br>            t_min, t_max = proj.<span class="hljs-built_in">min</span>(), proj.<span class="hljs-built_in">max</span>()<br>            p1 = p0 + t_min * v<br>            p2 = p0 + t_max * v<br>            x1, y1 = <span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>, np.<span class="hljs-built_in">round</span>(p1))<br>            x2, y2 = <span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>, np.<span class="hljs-built_in">round</span>(p2))<br>            lines.append([x1, y1, x2, y2])<br>            remain_pts = outliers<br>        <span class="hljs-keyword">except</span> Exception:<br>            <span class="hljs-keyword">break</span><br>    <span class="hljs-keyword">return</span> lines<br></code></pre></td></tr></table></figure>
+
+<h2 id="高级部分-他山之石，可以攻玉"><a href="#高级部分-他山之石，可以攻玉" class="headerlink" title="高级部分 他山之石，可以攻玉"></a>高级部分 <strong>他山之石，可以攻玉</strong></h2><hr>
+<h3 id="M-LSD的部署与使用"><a href="#M-LSD的部署与使用" class="headerlink" title="M-LSD的部署与使用"></a>M-LSD的部署与使用</h3><p>比较强的一个</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 这里不推荐tensorflow版，历史包袱太重</span><br>git <span class="hljs-built_in">clone</span> https://github.com/lhwcv/mlsd_pytorch.git<br>pip install -r requirements.txt<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>按照README里面的工具跑完demo后可以想办法接入自己的项目</p>
+</blockquote>
+<p>其他几个比较好的项目一并推荐</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/cvg/DeepLSD">DeepLSD（CVPR 2023）</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/zhou13/lcnn">LCNN（Line-CNN，ICCV 2019</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Siyuada7/TP-LSD">TP-LSD(ECCV 2020)</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/cvg/SOLD2">SOLD2 (ICCV 2021)</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/viplab/LETR">LETR(Line Detection with Transformers，ECCV 2022)</a></li>
+</ul>
+<h3 id="与YOLO-seg的联合使用"><a href="#与YOLO-seg的联合使用" class="headerlink" title="与YOLO-seg的联合使用"></a>与YOLO-seg的联合使用</h3><ul>
+<li>准备</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install ultalytics<br></code></pre></td></tr></table></figure>
+<ul>
+<li>训练好YOLO-seg后使用</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch <br><span class="hljs-keyword">import</span> itertools<br><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> numpy<br><span class="hljs-keyword">import</span> time<br><span class="hljs-keyword">if</span> torch.cuda.is_available():<br>    torch.backends.cudnn.benchmark = <span class="hljs-literal">True</span><br><span class="hljs-keyword">from</span> ultralytics <span class="hljs-keyword">import</span> YOLO<br><br><span class="hljs-keyword">from</span> utils <span class="hljs-keyword">import</span> get_frame <span class="hljs-comment"># 此处请自己实现该功能</span><br><br>model=YOLO(<span class="hljs-string">&#x27;best.pt&#x27;</span>) <span class="hljs-comment">#后期用onnx，engine等更快</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">build_binary_mask</span>(<span class="hljs-params">result, cls_id=<span class="hljs-literal">None</span>, conf_thres=<span class="hljs-number">0.5</span>, img_shape=<span class="hljs-literal">None</span></span>):<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    从 ultralytics 单帧结果中提取二值mask</span><br><span class="hljs-string">    cls_id: 只保留某个类别（可选）</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-keyword">if</span> result.masks <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span><br>    h, w = img_shape[:<span class="hljs-number">2</span>]<br>    final_mask = np.zeros((h, w), dtype=np.uint8)<br>    boxes = result.boxes<br>    masks = result.masks.data.cpu().numpy()  <span class="hljs-comment">#[N, Hm, Wm]</span><br>    <span class="hljs-keyword">for</span> i, m <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(masks):<br>        conf = <span class="hljs-built_in">float</span>(boxes.conf[i].item())<br>        cid = <span class="hljs-built_in">int</span>(boxes.cls[i].item())<br>        <span class="hljs-keyword">if</span> conf &lt; conf_thres:<br>            <span class="hljs-keyword">continue</span><br>        <span class="hljs-keyword">if</span> cls_id <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span> <span class="hljs-keyword">and</span> cid != cls_id:<br>            <span class="hljs-keyword">continue</span><br>        <span class="hljs-comment">#m是模型输出尺寸，需resize回原图</span><br>        m = cv2.resize(m, (w, h), interpolation=cv2.INTER_NEAREST)<br>        m_bin = (m &gt; <span class="hljs-number">0.5</span>).astype(np.uint8) * <span class="hljs-number">255</span><br>        final_mask = cv2.bitwise_or(final_mask, m_bin)<br><br>    <span class="hljs-keyword">return</span> final_mask<br><span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> RANSACRegressor<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">ransac_find_multi_lines</span>(<span class="hljs-params">points, min_samples=<span class="hljs-number">4</span>, residual_threshold=<span class="hljs-number">2.0</span>, max_trials=<span class="hljs-number">1000</span></span>):<br>    lines = []<br>    remain_pts = points.copy()<br><br>    <span class="hljs-keyword">while</span> <span class="hljs-built_in">len</span>(remain_pts) &gt; min_samples:<br>        <span class="hljs-keyword">try</span>:<br>            ransac = RANSACRegressor(<br>                min_samples=min_samples,<br>                residual_threshold=residual_threshold,<br>                max_trials=max_trials<br>            )<br>            ransac.fit(remain_pts[:, <span class="hljs-number">0</span>].reshape(-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), remain_pts[:, <span class="hljs-number">1</span>])<br><br>            inlier_mask = ransac.inlier_mask_<br>            inliers = remain_pts[inlier_mask]<br>            outliers = remain_pts[~inlier_mask]<br><br>            <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(inliers) &lt; <span class="hljs-number">8</span>:<br>                <span class="hljs-keyword">break</span><br>            vx, vy, cx, cy = cv2.fitLine(<br>                inliers.astype(np.float32),<br>                cv2.DIST_HUBER, <span class="hljs-number">0</span>, <span class="hljs-number">0.01</span>, <span class="hljs-number">0.01</span><br>            ).flatten()<br>            p0 = np.array([cx, cy], dtype=np.float32)<br>            v = np.array([vx, vy], dtype=np.float32)<br>            v = v / (np.linalg.norm(v) + <span class="hljs-number">1e-12</span>)<br>            proj = (inliers - p0) @ v<br>            t_min, t_max = proj.<span class="hljs-built_in">min</span>(), proj.<span class="hljs-built_in">max</span>()<br>            p1 = p0 + t_min * v<br>            p2 = p0 + t_max * v<br>            x1, y1 = <span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>, np.<span class="hljs-built_in">round</span>(p1))<br>            x2, y2 = <span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>, np.<span class="hljs-built_in">round</span>(p2))<br>            lines.append([x1, y1, x2, y2])<br>            remain_pts = outliers<br>        <span class="hljs-keyword">except</span> Exception:<br>            <span class="hljs-keyword">break</span><br><br>    <span class="hljs-keyword">return</span> lines<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">detect_lines_in_seg</span>(<span class="hljs-params">frame, model, cls_id=<span class="hljs-literal">None</span>, conf_thres=<span class="hljs-number">0.5</span></span>):<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    返回:</span><br><span class="hljs-string">      lines: [[x1,y1,x2,y2], ...]</span><br><span class="hljs-string">      vis: 可视化图</span><br><span class="hljs-string">      mask: 目标掩膜</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    vis = frame.copy()<br>    results = model.predict(frame, verbose=<span class="hljs-literal">False</span>, conf=conf_thres)<br>    result = results[<span class="hljs-number">0</span>]<br><br>    mask = build_binary_mask(result, cls_id=cls_id, conf_thres=conf_thres, img_shape=frame.shape)<br>    <span class="hljs-keyword">if</span> mask <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:<br>        <span class="hljs-keyword">return</span> [], vis, <span class="hljs-literal">None</span><br>    <span class="hljs-comment"># 只保留mask内区域</span><br>    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)<br>    roi = cv2.bitwise_and(gray, gray, mask=mask)<br>    <span class="hljs-comment"># 边缘</span><br>    edge = cv2.Canny(roi, <span class="hljs-number">50</span>, <span class="hljs-number">150</span>, apertureSize=<span class="hljs-number">3</span>)<br>    <span class="hljs-comment"># 取边缘点</span><br>    ys, xs = np.where(edge &gt; <span class="hljs-number">0</span>)<br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(xs) &lt; <span class="hljs-number">20</span>:<br>        <span class="hljs-keyword">return</span> [], vis, mask<br>    pts = np.stack([xs, ys], axis=<span class="hljs-number">1</span>).astype(np.float32)<br>    <span class="hljs-comment"># 多线拟合</span><br>    lines = ransac_find_multi_lines(<br>        pts, min_samples=<span class="hljs-number">4</span>, residual_threshold=<span class="hljs-number">2.0</span>, max_trials=<span class="hljs-number">1000</span><br>    )<br>    <span class="hljs-comment"># 可视化</span><br>    cv2.polylines(vis, [np.column_stack(np.where(mask &gt; <span class="hljs-number">0</span>)[::-<span class="hljs-number">1</span>]).reshape(-<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>)], <span class="hljs-literal">False</span>, (<span class="hljs-number">0</span>,<span class="hljs-number">255</span>,<span class="hljs-number">0</span>), <span class="hljs-number">1</span>) <span class="hljs-keyword">if</span> np.count_nonzero(mask) &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-literal">None</span><br>    <span class="hljs-keyword">for</span> (x1, y1, x2, y2) <span class="hljs-keyword">in</span> lines:<br>        cv2.line(vis, (x1, y1), (x2, y2), (<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>), <span class="hljs-number">2</span>)<br>        angle = np.degrees(np.arctan2(y2 - y1, x2 - x1))<br>        cv2.putText(vis, <span class="hljs-string">f&quot;<span class="hljs-subst">&#123;angle:<span class="hljs-number">.1</span>f&#125;</span> deg&quot;</span>, (x1, y1 - <span class="hljs-number">8</span>), cv2.FONT_HERSHEY_SIMPLEX, <span class="hljs-number">0.5</span>, (<span class="hljs-number">0</span>,<span class="hljs-number">255</span>,<span class="hljs-number">255</span>), <span class="hljs-number">1</span>)<br><br>    <span class="hljs-keyword">return</span> lines, vis, mask<br>cap = cv2.VideoCapture(<span class="hljs-number">0</span>)<br><br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    ok, frame = cap.read()<br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> ok:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;no frame, check your device!&quot;</span>)<br>        <span class="hljs-keyword">break</span><br><br>    lines, vis, mask = detect_lines_in_seg(frame, model, cls_id=<span class="hljs-literal">None</span>, conf_thres=<span class="hljs-number">0.4</span>)<br>    <span class="hljs-keyword">if</span> mask <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span>:<br>        cv2.imshow(<span class="hljs-string">&quot;mask&quot;</span>, mask)<br>    cv2.imshow(<span class="hljs-string">&quot;yolo_seg_line&quot;</span>, vis)<br>    key = cv2.waitKey(<span class="hljs-number">1</span>) &amp; <span class="hljs-number">0xFF</span><br>    <span class="hljs-keyword">if</span> key == <span class="hljs-number">27</span> <span class="hljs-keyword">or</span> key == <span class="hljs-built_in">ord</span>(<span class="hljs-string">&#x27;q&#x27;</span>):<br>        <span class="hljs-keyword">break</span><br>cap.release()<br>cv2.destroyAllWindows()<br></code></pre></td></tr></table></figure>
+<ul>
+<li>或者</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">from</span> ultralytics <span class="hljs-keyword">import</span> YOLO<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">infer_mlsd</span>(<span class="hljs-params">image_bgr</span>):<br>    <span class="hljs-comment"># <span class="hljs-doctag">TODO:</span> 替换成你项目里的 mlsd 推理代码，或者上面推荐的项目</span><br>    <span class="hljs-keyword">return</span> [] <span class="hljs-comment"># 要返回lines: [[x1,y1,x2,y2,score], ...]</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">build_binary_mask</span>(<span class="hljs-params">result, cls_id=<span class="hljs-literal">None</span>, conf_thres=<span class="hljs-number">0.4</span>, img_shape=<span class="hljs-literal">None</span></span>):<br>    <span class="hljs-keyword">if</span> result.masks <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span><br>    h, w = img_shape[:<span class="hljs-number">2</span>]<br>    out = np.zeros((h, w), dtype=np.uint8)<br>    masks = result.masks.data.cpu().numpy()<br>    boxes = result.boxes<br>    <span class="hljs-keyword">for</span> i, m <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(masks):<br>        conf = <span class="hljs-built_in">float</span>(boxes.conf[i].item())<br>        cid = <span class="hljs-built_in">int</span>(boxes.cls[i].item())<br>        <span class="hljs-keyword">if</span> conf &lt; conf_thres:<br>            <span class="hljs-keyword">continue</span><br>        <span class="hljs-keyword">if</span> cls_id <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span> <span class="hljs-keyword">and</span> cid != cls_id:<br>            <span class="hljs-keyword">continue</span><br>        m = cv2.resize(m, (w, h), interpolation=cv2.INTER_NEAREST)<br>        out = cv2.bitwise_or(out, (m &gt; <span class="hljs-number">0.5</span>).astype(np.uint8) * <span class="hljs-number">255</span>)<br>    <span class="hljs-keyword">return</span> out<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">line_mask_overlap_ratio</span>(<span class="hljs-params">line, mask, samples=<span class="hljs-number">50</span></span>):<br>    x1, y1, x2, y2 = line<br>    h, w = mask.shape[:<span class="hljs-number">2</span>]<br>    xs = np.linspace(x1, x2, samples).astype(np.int32)<br>    ys = np.linspace(y1, y2, samples).astype(np.int32)<br>    valid = (xs &gt;= <span class="hljs-number">0</span>) &amp; (xs &lt; w) &amp; (ys &gt;= <span class="hljs-number">0</span>) &amp; (ys &lt; h)<br>    xs, ys = xs[valid], ys[valid]<br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(xs) == <span class="hljs-number">0</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0.0</span><br>    inside = np.count_nonzero(mask[ys, xs] &gt; <span class="hljs-number">0</span>)<br>    <span class="hljs-keyword">return</span> inside / <span class="hljs-built_in">len</span>(xs)<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">detect_lines_yoloseg_mlsd</span>(<span class="hljs-params">frame, yolo_model, cls_id=<span class="hljs-literal">None</span>, conf_thres=<span class="hljs-number">0.4</span>, mlsd_score_th=<span class="hljs-number">0.2</span></span>):<br>    vis = frame.copy()<br>    results = yolo_model.predict(frame, conf=conf_thres, verbose=<span class="hljs-literal">False</span>)<br>    result = results[<span class="hljs-number">0</span>]<br>    mask = build_binary_mask(result, cls_id=cls_id, conf_thres=conf_thres, img_shape=frame.shape)<br>    <span class="hljs-keyword">if</span> mask <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span> <span class="hljs-keyword">or</span> np.count_nonzero(mask) &lt; <span class="hljs-number">30</span>:<br>        <span class="hljs-keyword">return</span> [], vis, mask<br><br>    <span class="hljs-comment">#找ROI外接框（也可以多连通域逐个处理）</span><br>    ys, xs = np.where(mask &gt; <span class="hljs-number">0</span>)<br>    x_min, x_max = xs.<span class="hljs-built_in">min</span>(), xs.<span class="hljs-built_in">max</span>()<br>    y_min, y_max = ys.<span class="hljs-built_in">min</span>(), ys.<span class="hljs-built_in">max</span>()<br>    <span class="hljs-comment">#稍微扩边，避免截断线段</span><br>    pad = <span class="hljs-number">8</span><br>    h, w = frame.shape[:<span class="hljs-number">2</span>]<br>    x0 = <span class="hljs-built_in">max</span>(<span class="hljs-number">0</span>, x_min - pad); x1 = <span class="hljs-built_in">min</span>(w, x_max + pad)<br>    y0 = <span class="hljs-built_in">max</span>(<span class="hljs-number">0</span>, y_min - pad); y1 = <span class="hljs-built_in">min</span>(h, y_max + pad)<br>    roi = frame[y0:y1, x0:x1].copy()<br>    roi_mask = mask[y0:y1, x0:x1]<br>    <span class="hljs-comment">#只保留mask区域，降低误检</span><br>    roi_fg = cv2.bitwise_and(roi, roi, mask=roi_mask)<br>    <span class="hljs-comment">#M-LSD 推理（相对 roi 坐标）</span><br>    raw_lines = infer_mlsd(roi_fg)<br>    lines_final = []<br>    <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> raw_lines:<br>        <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(item) == <span class="hljs-number">5</span>:<br>            lx1, ly1, lx2, ly2, score = item<br>            <span class="hljs-keyword">if</span> score &lt; mlsd_score_th:<br>                <span class="hljs-keyword">continue</span><br>        <span class="hljs-keyword">else</span>:<br>            lx1, ly1, lx2, ly2 = item[:<span class="hljs-number">4</span>]<br>        <span class="hljs-comment">#映射回原图</span><br>        gx1, gy1 = <span class="hljs-built_in">int</span>(lx1 + x0), <span class="hljs-built_in">int</span>(ly1 + y0)<br>        gx2, gy2 = <span class="hljs-built_in">int</span>(lx2 + x0), <span class="hljs-built_in">int</span>(ly2 + y0)<br><br>        <span class="hljs-comment">#长度过滤</span><br>        length = np.hypot(gx2 - gx1, gy2 - gy1)<br>        <span class="hljs-keyword">if</span> length &lt; <span class="hljs-number">25</span>:<br>            <span class="hljs-keyword">continue</span><br><br>        <span class="hljs-comment">#mask一致性过滤</span><br>        overlap = line_mask_overlap_ratio((gx1, gy1, gx2, gy2), mask, samples=<span class="hljs-number">60</span>)<br>        <span class="hljs-keyword">if</span> overlap &lt; <span class="hljs-number">0.6</span>:<br>            <span class="hljs-keyword">continue</span><br><br>        <span class="hljs-comment">#角度过滤（示例：只保留接近水平或垂直）</span><br>        angle = <span class="hljs-built_in">abs</span>(np.degrees(np.arctan2(gy2 - gy1, gx2 - gx1)))<br>        <span class="hljs-comment"># if not (angle &lt; 15 or angle &gt; 75):</span><br>        <span class="hljs-comment">#     continue</span><br><br>        lines_final.append([gx1, gy1, gx2, gy2])<br><br>    <span class="hljs-comment">#可视化</span><br>    <span class="hljs-keyword">for</span> (x1_, y1_, x2_, y2_) <span class="hljs-keyword">in</span> lines_final:<br>        cv2.line(vis, (x1_, y1_), (x2_, y2_), (<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>), <span class="hljs-number">2</span>)<br><br>    <span class="hljs-keyword">return</span> lines_final, vis, mask<br></code></pre></td></tr></table></figure>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="category-chain-item">机器人</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/" class="category-chain-item">机器视觉</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/" class="print-no-link">#笔记</a>
+      
+        <a href="/tags/open-cv/" class="print-no-link">#open cv</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>OpenCV_Line_Detect</div>
+      <div>http://aleafofwutong.github.io/2026/04/06/opencv/opencv_line_detector/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>aleafofwutong</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>April 6, 2026</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Updated on</div>
+          <div>April 6, 2026</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="ND - No derivative works">
+                    <i class="iconfont icon-cc-nd"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/04/04/Linux/gdb/" title="gdb手册">
+                        <span class="hidden-mobile">gdb手册</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'aleafofwutong/aleafofwutong.github.io');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://github.com/aleafofwutong" target="_blank" rel="nofollow noopener"><span>my github profile</span></a> <i class="fab fa-github"></i> <span> | </span> <a href="https://buaa.edu.cn" target="_blank" rel="nofollow noopener"><span>BUAA</span></a> <br>  © 2026 aleafofwutong的个人博客 </br> <span id="runtime"></span> <script> function setRuntime() { let createTime = new Date("2026-04-01 15:22:45"); let nowTime = new Date(); let runTime = (nowTime - createTime) / 1000; let day = parseInt(runTime / 3600 / 24); let hour = parseInt((runTime / 3600) % 24); let minute = parseInt((runTime / 60) % 60); let second = parseInt(runTime % 60); document.getElementById("runtime").innerText = "博客已运行 " + day + " 天 " + hour + " 小时 " + minute + " 分 " + second + " 秒"; } setRuntime(); setInterval(setRuntime, 1000); </script> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  var relativeDate = function() {
+    var updatedTime = document.getElementById('updated-time');
+    if (updatedTime) {
+      var text = updatedTime.textContent;
+      var reg = /\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:Z|[+-]\d{2}:\d{2})/;
+      var matchs = text.match(reg);
+      if (matchs) {
+        var relativeTime = moment(matchs[0]).fromNow();
+        updatedTime.textContent = text.replace(reg, relativeTime);
+      }
+      updatedTime.style.display = '';
+    }
+  };
+  Fluid.utils.createScript('https://lib.baomitu.com/moment.js/2.29.4/moment.min.js', function() {
+    if (!'en'.startsWith('en')) {
+      Fluid.utils.createScript('https://lib.baomitu.com/moment.js/2.29.4/locale/en.min.js', function() {
+        relativeDate();
+      });
+    } else {
+      relativeDate();
+    }
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
