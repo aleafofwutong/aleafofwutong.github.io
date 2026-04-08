@@ -19,16 +19,16 @@
   <meta name="author" content="aleafofwutong">
   <meta name="keywords" content="">
   
-    <meta name="description" content="直线拟合-opencv基础部分视频流打开 用opencv调用打开  1234567891011121314151617181920import cv2import numpycolor_cap &#x3D; cv2.VideoCapture(0)            #0:自带摄像头            #1、2：外接摄像头            #-1：默认            #Video_pat">
+    <meta name="description" content="直线拟合-opencv本文讲述了如何用opencv及其他库实现RGB图像的直线检测与拟合">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OpenCV_Line_Detect">
 <meta property="og:url" content="http://aleafofwutong.github.io/2026/04/06/opencv/opencv_line_detector/index.html">
 <meta property="og:site_name" content="A Leaf of Wutong">
-<meta property="og:description" content="直线拟合-opencv基础部分视频流打开 用opencv调用打开  1234567891011121314151617181920import cv2import numpycolor_cap &#x3D; cv2.VideoCapture(0)            #0:自带摄像头            #1、2：外接摄像头            #-1：默认            #Video_pat">
+<meta property="og:description" content="直线拟合-opencv本文讲述了如何用opencv及其他库实现RGB图像的直线检测与拟合">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://aleafofwutong.github.io/img/qieerqian2.png">
 <meta property="article:published_time" content="2026-04-06T08:00:00.000Z">
-<meta property="article:modified_time" content="2026-04-06T11:59:42.340Z">
+<meta property="article:modified_time" content="2026-04-08T03:15:12.320Z">
 <meta property="article:author" content="aleafofwutong">
 <meta property="article:tag" content="open cv">
 <meta property="article:tag" content="笔记">
@@ -557,7 +557,7 @@
               <p id="updated-time" class="note note-info" style="display: none">
                 
                   
-                    Last updated on 2026-04-06T19:59:42+08:00
+                    Last updated on 2026-04-08T11:15:12+08:00
                   
                   
 
@@ -567,7 +567,9 @@
             
               <div class="markdown-body">
                 
-                <h1 id="直线拟合-opencv"><a href="#直线拟合-opencv" class="headerlink" title="直线拟合-opencv"></a>直线拟合-opencv</h1><h2 id="基础部分"><a href="#基础部分" class="headerlink" title="基础部分"></a>基础部分</h2><h3 id="视频流打开"><a href="#视频流打开" class="headerlink" title="视频流打开"></a>视频流打开</h3><blockquote>
+                <h1 id="直线拟合-opencv"><a href="#直线拟合-opencv" class="headerlink" title="直线拟合-opencv"></a>直线拟合-opencv</h1><p>本文讲述了如何用opencv及其他库实现RGB图像的直线检测与拟合</p>
+<span id="more"></span>
+<h2 id="基础部分"><a href="#基础部分" class="headerlink" title="基础部分"></a>基础部分</h2><h3 id="视频流打开"><a href="#视频流打开" class="headerlink" title="视频流打开"></a>视频流打开</h3><blockquote>
 <p>用opencv调用打开</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> numpy<br>color_cap = cv2.VideoCapture(<span class="hljs-number">0</span>)<br><br>            <span class="hljs-comment">#0:自带摄像头</span><br>            <span class="hljs-comment">#1、2：外接摄像头</span><br>            <span class="hljs-comment">#-1：默认</span><br><br>            <span class="hljs-comment">#Video_path = rgb.mp4</span><br>            <span class="hljs-comment">#cv2.VideoCapture(Video_path)</span><br><br>            <span class="hljs-comment">#cv2.VideoCapture(Video_path,cv2.V4L2)</span><br>            <span class="hljs-comment">#linux系统用，Video for Linux 2 </span><br>            <span class="hljs-comment">#cv2.VideoCapture(Video_path,cv2.CAP_DSHOW)</span><br>            <span class="hljs-comment">#windows系统，Capture DirectShow</span><br><br>            <span class="hljs-comment">#如果用realsense等相机,请参考官方文档</span><br><br><span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> color_cap.isOpened():<br>    <span class="hljs-keyword">raise</span> RuntimeError(<span class="hljs-string">f&quot;无法打开RGB视频: <span class="hljs-subst">&#123;color_path&#125;</span>&quot;</span>)<br></code></pre></td></tr></table></figure>
@@ -713,7 +715,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Updated on</div>
-          <div>April 6, 2026</div>
+          <div>April 8, 2026</div>
         </div>
       
       
@@ -756,12 +758,18 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2026/04/08/DM/%E4%B8%93%E9%A2%981/" title="离散数学专题1">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">离散数学专题1</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2026/04/04/Linux/gdb/" title="gdb手册">
-                        <span class="hidden-mobile">gdb手册</span>
+                      <a href="/2026/04/06/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="字符串的那些坑">
+                        <span class="hidden-mobile">字符串的那些坑</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

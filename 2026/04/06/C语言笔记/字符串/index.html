@@ -19,25 +19,24 @@
   <meta name="author" content="aleafofwutong">
   <meta name="keywords" content="">
   
-    <meta name="description" content="gdb调试工具gdb工具是能快速调试C&#x2F;C++的工具">
+    <meta name="description" content="字符串">
 <meta property="og:type" content="article">
-<meta property="og:title" content="gdb手册">
-<meta property="og:url" content="http://aleafofwutong.github.io/2026/04/04/Linux/gdb/index.html">
+<meta property="og:title" content="字符串的那些坑">
+<meta property="og:url" content="http://aleafofwutong.github.io/2026/04/06/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/%E5%AD%97%E7%AC%A6%E4%B8%B2/index.html">
 <meta property="og:site_name" content="A Leaf of Wutong">
-<meta property="og:description" content="gdb调试工具gdb工具是能快速调试C&#x2F;C++的工具">
+<meta property="og:description" content="字符串">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://aleafofwutong.github.io/img/akame4.jpg">
-<meta property="article:published_time" content="2026-04-03T16:40:35.000Z">
-<meta property="article:modified_time" content="2026-04-08T03:16:46.375Z">
+<meta property="og:image" content="http://aleafofwutong.github.io/img/akame9.jpg">
+<meta property="article:published_time" content="2026-04-06T06:00:00.000Z">
+<meta property="article:modified_time" content="2026-04-08T03:17:16.619Z">
 <meta property="article:author" content="aleafofwutong">
-<meta property="article:tag" content="C语言">
-<meta property="article:tag" content="linux">
+<meta property="article:tag" content="笔记，C语言">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://aleafofwutong.github.io/img/akame4.jpg">
+<meta name="twitter:image" content="http://aleafofwutong.github.io/img/akame9.jpg">
   
   
   
-  <title>gdb手册 - A Leaf of Wutong</title>
+  <title>字符串的那些坑 - A Leaf of Wutong</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -383,7 +382,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="gdb手册"></span>
+            <span id="subtitle" data-typed-text="字符串的那些坑"></span>
           
         </div>
 
@@ -394,8 +393,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-04-04 00:40" pubdate>
-          April 4, 2026 am
+        <time datetime="2026-04-06 14:00" pubdate>
+          April 6, 2026 pm
         </time>
       </span>
     
@@ -406,7 +405,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.9k words
+          3k words
         
       </span>
     
@@ -417,7 +416,7 @@
         
         
         
-          17 mins
+          25 mins
         
       </span>
     
@@ -468,17 +467,44 @@
     
     <div class="category row nomargin-x">
       <a class="category-item 
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="tools"
-        id="heading-4a931512ce65bdc9ca6808adf92d8783" role="tab" data-toggle="collapse" href="#collapse-4a931512ce65bdc9ca6808adf92d8783"
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="笔记"
+        id="heading-7051dc52c184c205e39aa54b4664ae9b" role="tab" data-toggle="collapse" href="#collapse-7051dc52c184c205e39aa54b4664ae9b"
         aria-expanded="true"
       >
-        tools
+        笔记
+        <span class="list-group-count">(4)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-7051dc52c184c205e39aa54b4664ae9b"
+           role="tabpanel" aria-labelledby="heading-7051dc52c184c205e39aa54b4664ae9b">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="C语言"
+        id="heading-d117f5dea6b7959c82d4fdb7490c555d" role="tab" data-toggle="collapse" href="#collapse-d117f5dea6b7959c82d4fdb7490c555d"
+        aria-expanded="true"
+      >
+        C语言
         <span class="list-group-count">(1)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-4a931512ce65bdc9ca6808adf92d8783"
-           role="tabpanel" aria-labelledby="heading-4a931512ce65bdc9ca6808adf92d8783">
+      <div class="category-collapse collapse show" id="collapse-d117f5dea6b7959c82d4fdb7490c555d"
+           role="tabpanel" aria-labelledby="heading-d117f5dea6b7959c82d4fdb7490c555d">
         
         
           
@@ -487,15 +513,74 @@
     
       
       
-        <a href="/2026/04/04/Linux/gdb/" title="gdb手册"
+        <a href="/2026/04/06/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="字符串的那些坑"
            class="list-group-item list-group-item-action
            active">
-          <span class="category-post">gdb手册</span>
+          <span class="category-post">字符串的那些坑</span>
         </a>
       
     
   </div>
 
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="DM"
+        id="heading-2ecda7a0252b442ac6ecf47462119f51" role="tab" data-toggle="collapse" href="#collapse-2ecda7a0252b442ac6ecf47462119f51"
+        aria-expanded="false"
+      >
+        DM
+        <span class="list-group-count">(3)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-2ecda7a0252b442ac6ecf47462119f51"
+           role="tabpanel" aria-labelledby="heading-2ecda7a0252b442ac6ecf47462119f51">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2026/04/08/DM/%E4%B8%93%E9%A2%981/" title="离散数学专题1"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">离散数学专题1</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/01/DM/charpter1/" title="离散数学第1章"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">离散数学第1章</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/01/DM/charpter2/" title="离散数学第2章"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">离散数学第2章</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
         
       </div>
     </div>
@@ -512,12 +597,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">gdb手册</h1>
+            <h1 id="seo-header">字符串的那些坑</h1>
             
               <p id="updated-time" class="note note-info" style="display: none">
                 
                   
-                    Last updated on 2026-04-08T11:16:46+08:00
+                    Last updated on 2026-04-08T11:17:16+08:00
                   
                   
 
@@ -527,63 +612,20 @@
             
               <div class="markdown-body">
                 
-                <h1 id="gdb调试工具"><a href="#gdb调试工具" class="headerlink" title="gdb调试工具"></a>gdb调试工具</h1><p>gdb工具是能快速调试C&#x2F;C++的工具</p>
-<span id="more"></span>
-
-<h2 id="生成含有调试信息的可执行文件"><a href="#生成含有调试信息的可执行文件" class="headerlink" title="生成含有调试信息的可执行文件"></a>生成含有调试信息的可执行文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">gcc -g -o0 main.c -o main <span class="hljs-comment">#建议linux系统使用，更方便</span><br>g++ -g -O0 main.cpp -o main<br><span class="hljs-comment"># -o0:不优化</span><br><span class="hljs-comment"># -g：输出调试信息</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="具体运行参数"><a href="#具体运行参数" class="headerlink" title="具体运行参数"></a>具体运行参数</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 基础格式</span><br>gdb [启动参数] 可执行文件 [core文件/进程PID]<br><br><span class="hljs-comment"># 1. 最常用核心参数</span><br>-tui             <span class="hljs-comment"># 开启可视化源码窗口（调试首选）</span><br>-q / --quiet     <span class="hljs-comment"># 安静启动，不显示版权冗余信息</span><br>--args           <span class="hljs-comment"># 给被调试程序传递参数（gdb --args ./main 10 20）</span><br>-p PID           <span class="hljs-comment"># 附加到正在运行的进程（gdb -p 12345）</span><br>-ex <span class="hljs-string">&quot;命令&quot;</span>       <span class="hljs-comment"># 启动后自动执行 GDB 命令（-ex &quot;b main&quot; -ex &quot;run&quot;）</span><br>-batch           <span class="hljs-comment"># 批处理模式，执行完自动退出（脚本用）</span><br><br><span class="hljs-comment"># 2. 高频组合命令（直接用）</span><br>gdb -q -tui ./main              <span class="hljs-comment"># 安静+可视化启动</span><br>gdb -q --args ./main 100 200    <span class="hljs-comment"># 带程序参数启动</span><br>gdb -q -tui -ex <span class="hljs-string">&quot;b main&quot;</span> -ex <span class="hljs-string">&quot;r&quot;</span> ./main  <span class="hljs-comment"># 可视化+自动断 main+运行</span><br>gdb ./main core.12345           <span class="hljs-comment"># 调试崩溃 core 文件</span><br></code></pre></td></tr></table></figure>
-
-
-<h2 id="具体使用"><a href="#具体使用" class="headerlink" title="具体使用"></a>具体使用</h2><ul>
-<li>基础功能</li>
+                <h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><span id="more"></span>
+<h2 id="字符串的输入"><a href="#字符串的输入" class="headerlink" title="字符串的输入"></a>字符串的输入</h2><p>长话短说</p>
+<h3 id="一行一行输入"><a href="#一行一行输入" class="headerlink" title="一行一行输入"></a>一行一行输入</h3><ul>
+<li>fgets</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#====#</span><br><span class="hljs-comment"># 最常用</span><br>r           <span class="hljs-comment"># ==run</span><br>n           <span class="hljs-comment"># ==next,下一行</span><br>c           <span class="hljs-comment"># ==continue,执行到第一个遇见的断点</span><br>p n         <span class="hljs-comment"># ==print n, 打印n的值</span><br>finish      <span class="hljs-comment"># 运行完当前函数，返回到调用处</span><br>b 行号      <span class="hljs-comment"># ==break，在某一行设置断点</span><br>q           <span class="hljs-comment"># ==quit,退出gdb</span><br>i b         <span class="hljs-comment"># ==info,查看断点</span><br><br><span class="hljs-comment"># 次级常用</span><br>p *arr@50       <span class="hljs-comment"># 打印数组前五十个（数组专用）</span><br><br>list            <span class="hljs-comment"># l，显示当前代码</span><br>list 行号       <span class="hljs-comment"># 显示某行附近代码</span><br><span class="hljs-comment"># 这俩不如带-tui来得划算</span><br>display 变量    <span class="hljs-comment"># 每步都自动打印</span><br>b 函数名        <span class="hljs-comment"># 在函数入口设置断点</span><br><span class="hljs-keyword">until</span> 行号      <span class="hljs-comment"># 执行到某一行（跳过循环神器</span><br><span class="hljs-built_in">kill</span>            <span class="hljs-comment"># 提前结束</span><br><br><span class="hljs-comment"># 其他不常用命令</span><br>info breakpoints  <span class="hljs-comment"># 查看所有断点</span><br>delete 断点编号    <span class="hljs-comment"># 删除指定断点</span><br>delete             <span class="hljs-comment"># 删除所有断点</span><br>b 文件名:行号       <span class="hljs-comment"># 多文件调试</span><br>info breakpoints   <span class="hljs-comment"># i b，查看所有断点</span><br><span class="hljs-built_in">disable</span> 断点编号    <span class="hljs-comment"># 禁用断点</span><br><span class="hljs-built_in">enable</span> 断点编号     <span class="hljs-comment"># 启用断点</span><br>list 函数名         <span class="hljs-comment"># 显示函数代码</span><br>disassemble 函数名  <span class="hljs-comment"># 查看汇编代码</span><br>p/x 变量            <span class="hljs-comment"># 十六进制</span><br>p/d 变量            <span class="hljs-comment"># 十进制</span><br>p/c 变量            <span class="hljs-comment"># 字符</span><br>p/f 变量            <span class="hljs-comment"># 浮点数</span><br>info display        <span class="hljs-comment"># 查看监控</span><br>undisplay 编号      <span class="hljs-comment"># 取消监控</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;string.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;ctype.h&gt;</span></span><br><span class="hljs-type">void</span> <span class="hljs-title function_">process</span><span class="hljs-params">(<span class="hljs-type">char</span>* s)</span>&#123;<br>    <span class="hljs-comment">/*TODO</span><br><span class="hljs-comment">     */</span><br>&#125;<br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>    <span class="hljs-type">char</span> s[<span class="hljs-number">1000</span>];<br>    <span class="hljs-keyword">while</span>(fgets(s,<span class="hljs-keyword">sizeof</span>(s),<span class="hljs-built_in">stdin</span>)!=<span class="hljs-literal">NULL</span>)&#123;<br>        s[<span class="hljs-built_in">strcspn</span>(s,<span class="hljs-string">&#x27;\n&#x27;</span>)]=<span class="hljs-string">&#x27;\0&#x27;</span>;<span class="hljs-comment">// 把最后一个&#x27;\n&#x27;换成&#x27;\0&#x27;</span><br>        process(s);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<ul>
-<li>进阶功能</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 栈</span><br>bt          <span class="hljs-comment"># 查看函数调用栈（哪里崩溃）</span><br>frame 编号  <span class="hljs-comment"># 跳转到某一层栈</span><br>up          <span class="hljs-comment"># 上一层栈</span><br>down        <span class="hljs-comment"># 下一层栈</span><br><br><span class="hljs-comment"># 内存</span><br>x /10xw 地址   <span class="hljs-comment"># 以16进制查看10个32位数据</span><br>x /20dw 地址   <span class="hljs-comment"># 以10进制查看20个</span><br>x /s 地址      <span class="hljs-comment"># 查看字符串</span><br><br><span class="hljs-comment"># 强行修改</span><br><span class="hljs-built_in">set</span> var 变量=值<br><span class="hljs-built_in">set</span> var i=10<br><span class="hljs-built_in">set</span> var arr[0]=100<br><br><span class="hljs-comment"># 多文件调试</span><br>info <span class="hljs-built_in">functions</span>    <span class="hljs-comment"># 查看所有函数</span><br>info variables    <span class="hljs-comment"># 查看全局变量</span><br><span class="hljs-built_in">cd</span> 目录           <span class="hljs-comment"># 切换目录</span><br>path 目录         <span class="hljs-comment"># 添加符号路径</span><br><br><span class="hljs-comment"># 崩溃调试</span><br><span class="hljs-built_in">ulimit</span> -c unlimited<br>gdb ./main core.xxx<br><br>bt full  <span class="hljs-comment"># 查看崩溃现场</span><br><span class="hljs-comment"># 当然，只能看代码的崩溃现场，不是调试时你的崩溃现场……</span><br></code></pre></td></tr></table></figure>
+<h3 id="每个空格做一个分割"><a href="#每个空格做一个分割" class="headerlink" title="每个空格做一个分割"></a>每个空格做一个分割</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-keyword">while</span>(<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%s&quot;</span>,&amp;word)==<span class="hljs-number">1</span>)&#123;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;[%s]\n&quot;</span>,word);<br>&#125;<br></code></pre></td></tr></table></figure>
 
+<h3 id="整篇的输入"><a href="#整篇的输入" class="headerlink" title="整篇的输入"></a>整篇的输入</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span> &#123;<br>    <span class="hljs-type">char</span> buf[<span class="hljs-number">2048</span>];<br>    <span class="hljs-type">char</span> *text = <span class="hljs-literal">NULL</span>;      <span class="hljs-comment">// 最终大字符串</span><br>    <span class="hljs-type">size_t</span> len = <span class="hljs-number">0</span>;         <span class="hljs-comment">// 当前长度（不含 &#x27;\0&#x27;）</span><br>    <span class="hljs-type">size_t</span> cap = <span class="hljs-number">0</span>;         <span class="hljs-comment">// 已分配容量</span><br><br>    <span class="hljs-keyword">while</span> (fgets(buf, <span class="hljs-keyword">sizeof</span>(buf), <span class="hljs-built_in">stdin</span>) != <span class="hljs-literal">NULL</span>) &#123;<br>        <span class="hljs-type">size_t</span> add = <span class="hljs-built_in">strlen</span>(buf);<br>        <span class="hljs-keyword">if</span> (len + add + <span class="hljs-number">1</span> &gt; cap) &#123;<br>            <span class="hljs-type">size_t</span> new_cap = (cap == <span class="hljs-number">0</span>) ? <span class="hljs-number">2048</span> : cap;<br>            <span class="hljs-keyword">while</span> (len + add + <span class="hljs-number">1</span> &gt; new_cap) new_cap *= <span class="hljs-number">2</span>;<br><br>            <span class="hljs-type">char</span> *p = <span class="hljs-built_in">realloc</span>(text, new_cap);<br>            <span class="hljs-keyword">if</span> (!p) &#123;<br>                <span class="hljs-built_in">free</span>(text);<br>                <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>, <span class="hljs-string">&quot;内存分配失败\n&quot;</span>);<br>                <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>            &#125;<br>            text = p;<br>            cap = new_cap;<br>        &#125;<br>        <span class="hljs-built_in">memcpy</span>(text + len, buf, add);<br>        len += add;<br>        text[len] = <span class="hljs-string">&#x27;\0&#x27;</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>set print array on</p>
-<blockquote>
-<p>设置数组打印格式</p>
-</blockquote>
-<p>set print sevenbit-strings on   </p>
-<blockquote>
-<p>字符串正常显示</p>
-</blockquote>
-<p>set print pretty on             </p>
-<blockquote>
-<p>结构体自动缩进、格式化（超级美观！）</p>
-</blockquote>
-<p>set print array-indexes on</p>
-<blockquote>
-<p>设置打印数组下标</p>
-</blockquote>
-<p>set print elements 200</p>
-<blockquote>
-<p>数组只打印前200个</p>
-</blockquote>
-<p>set print elements 0</p>
-<blockquote>
-<p>打印所有元素（不推荐，易刷屏）</p>
-</blockquote>
-<ul>
-<li><p>不常用</p>
-<p>  set print array-indexes on      # 显示数组下标 [0] [1]</p>
-<p>  set print repeats 0             # 连续相同值合并显示（比如 0x00… 100 times）</p>
-<p>  set print union on              # 联合体也美化</p>
-<p>  set print object on             # 指针自动解引用显示真实类型</p>
-<p>  set print static-members on     # 显示静态成员</p>
-<p>  set print vtbl on               # 显示虚函数表</p>
-<p>  set print demangle on           # 自动还原C++函数名</p>
-</li>
-</ul>
-<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">回车 = 重复上一条命令<br>Ctrl + L = 清屏<br>Ctrl + C = 中断程序<br></code></pre></td></tr></table></figure>
+<h3 id="建议模板"><a href="#建议模板" class="headerlink" title="建议模板"></a>建议模板</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string.h&gt;</span></span><br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * 读取一个“词”（以空白分隔）</span><br><span class="hljs-comment"> * 成功返回 1，失败/EOF 返回 0</span><br><span class="hljs-comment"> */</span><br><span class="hljs-type">int</span> <span class="hljs-title function_">input_word</span><span class="hljs-params">(<span class="hljs-type">char</span> *word, <span class="hljs-type">size_t</span> size，FILE *way)</span> &#123;<br>    <span class="hljs-keyword">if</span> (way == <span class="hljs-literal">NULL</span> || word == <span class="hljs-literal">NULL</span> || size == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br><br>    <span class="hljs-comment">// 生成格式串 &quot;%&lt;size-1&gt;s&quot;</span><br>    <span class="hljs-type">char</span> fmt[<span class="hljs-number">32</span>];<br>    <span class="hljs-built_in">snprintf</span>(fmt, <span class="hljs-keyword">sizeof</span>(fmt), <span class="hljs-string">&quot;%%%zus&quot;</span>, size - <span class="hljs-number">1</span>);<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">fscanf</span>(way, fmt, word) == <span class="hljs-number">1</span>;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * 读取一整行到 line（去掉末尾换行）</span><br><span class="hljs-comment"> * 成功返回 1，失败/EOF 返回 0</span><br><span class="hljs-comment"> */</span><br><span class="hljs-type">int</span> <span class="hljs-title function_">input_line</span><span class="hljs-params">(<span class="hljs-type">char</span> *line, <span class="hljs-type">size_t</span> size，FILE *way)</span> &#123;<br>    <span class="hljs-keyword">if</span> (line == <span class="hljs-literal">NULL</span> || size == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br><br>    <span class="hljs-keyword">if</span> (fgets(line, (<span class="hljs-type">int</span>)size, way) == <span class="hljs-literal">NULL</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br><br>    line[<span class="hljs-built_in">strcspn</span>(line, <span class="hljs-string">&quot;\n&quot;</span>)] = <span class="hljs-string">&#x27;\0&#x27;</span>;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * 读取“整篇文本”到 EOF（保留空格和换行）</span><br><span class="hljs-comment"> * 返回动态分配的字符串，失败返回 NULL</span><br><span class="hljs-comment"> * 使用完必须 free()</span><br><span class="hljs-comment"> */</span><br><span class="hljs-type">char</span> *<span class="hljs-title function_">input_text</span><span class="hljs-params">(FILE* way)</span> &#123;<br>    <span class="hljs-type">char</span> buf[<span class="hljs-number">1024</span>];<br>    <span class="hljs-type">char</span> *text = <span class="hljs-literal">NULL</span>;<br>    <span class="hljs-type">size_t</span> len = <span class="hljs-number">0</span>, cap = <span class="hljs-number">0</span>;<br><br>    <span class="hljs-keyword">while</span> (fgets(buf, <span class="hljs-keyword">sizeof</span>(buf), way) != <span class="hljs-literal">NULL</span>) &#123;<br>        <span class="hljs-type">size_t</span> add = <span class="hljs-built_in">strlen</span>(buf);<br><br>        <span class="hljs-keyword">if</span> (len + add + <span class="hljs-number">1</span> &gt; cap) &#123;<br>            <span class="hljs-type">size_t</span> new_cap = (cap == <span class="hljs-number">0</span>) ? <span class="hljs-number">2048</span> : cap;<br>            <span class="hljs-keyword">while</span> (len + add + <span class="hljs-number">1</span> &gt; new_cap) new_cap *= <span class="hljs-number">2</span>;<br><br>            <span class="hljs-type">char</span> *p = (<span class="hljs-type">char</span> *)<span class="hljs-built_in">realloc</span>(text, new_cap);<br>            <span class="hljs-keyword">if</span> (!p) &#123;<br>                <span class="hljs-built_in">free</span>(text);<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;<br>            &#125;<br>            text = p;<br>            cap = new_cap;<br>        &#125;<br><br>        <span class="hljs-built_in">memcpy</span>(text + len, buf, add);<br>        len += add;<br>        text[len] = <span class="hljs-string">&#x27;\0&#x27;</span>;<br>    &#125;<br><br>    <span class="hljs-comment">// 若一开始就 EOF，返回空串更实用</span><br>    <span class="hljs-keyword">if</span> (text == <span class="hljs-literal">NULL</span>) &#123;<br>        text = (<span class="hljs-type">char</span> *)<span class="hljs-built_in">malloc</span>(<span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">if</span> (!text) <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;<br>        text[<span class="hljs-number">0</span>] = <span class="hljs-string">&#x27;\0&#x27;</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> text;<br>&#125;<br><br><span class="hljs-comment">/* ------------------ 示例 ------------------ */</span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span> &#123;<br>    <span class="hljs-type">char</span> word[<span class="hljs-number">256</span>];<br>    <span class="hljs-type">char</span> line[<span class="hljs-number">256</span>];<br><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;请输入一个词: &quot;</span>);<br>    <span class="hljs-keyword">if</span> (input_word(word, <span class="hljs-keyword">sizeof</span>(word))) &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;word = [%s]\n&quot;</span>, word);<br>    &#125;<br><br>    <span class="hljs-comment">// 清理 input_word 留下的行尾（比如你按了回车）</span><br>    <span class="hljs-type">int</span> c;<br>    <span class="hljs-keyword">while</span> ((c = getchar()) != <span class="hljs-string">&#x27;\n&#x27;</span> &amp;&amp; c != EOF) &#123;&#125;<br><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;请输入一整行: &quot;</span>);<br>    <span class="hljs-keyword">if</span> (input_line(line, <span class="hljs-keyword">sizeof</span>(line))) &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;line = [%s]\n&quot;</span>, line);<br>    &#125;<br><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;请输入整篇文本，结束请按 EOF:\n&quot;</span>);<br>    <span class="hljs-type">char</span> *text = input_text();<br>    <span class="hljs-keyword">if</span> (text) &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;text = \n%s\n&quot;</span>, text);<br>        <span class="hljs-built_in">free</span>(text);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>, <span class="hljs-string">&quot;读取 text 失败\n&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-
+<h2 id="字符串的处理"><a href="#字符串的处理" class="headerlink" title="字符串的处理"></a>字符串的处理</h2>
                 
               </div>
             
@@ -601,8 +643,15 @@
     
       <span class="category-chain">
         
-  <a href="/categories/tools/" class="category-chain-item">tools</a>
+  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%AC%94%E8%AE%B0/C%E8%AF%AD%E8%A8%80/" class="category-chain-item">C语言</a>
+  
+  
+
   
 
       </span>
@@ -616,9 +665,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/linux/" class="print-no-link">#linux</a>
-      
-        <a href="/tags/C%E8%AF%AD%E8%A8%80/" class="print-no-link">#C语言</a>
+        <a href="/tags/%E7%AC%94%E8%AE%B0%EF%BC%8CC%E8%AF%AD%E8%A8%80/" class="print-no-link">#笔记，C语言</a>
       
     </div>
   
@@ -630,8 +677,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>gdb手册</div>
-      <div>http://aleafofwutong.github.io/2026/04/04/Linux/gdb/</div>
+      <div>字符串的那些坑</div>
+      <div>http://aleafofwutong.github.io/2026/04/06/C语言笔记/字符串/</div>
     </div>
     <div class="license-meta">
       
@@ -643,7 +690,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>April 4, 2026</div>
+          <div>April 6, 2026</div>
         </div>
       
       
@@ -692,9 +739,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2026/04/06/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="字符串的那些坑">
+                      <a href="/2026/04/06/opencv/opencv_line_detector/" title="OpenCV_Line_Detect">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">字符串的那些坑</span>
+                        <span class="hidden-mobile">OpenCV_Line_Detect</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -702,8 +749,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2026/04/02/Robot/ROS2%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="ROS2 常用命令">
-                        <span class="hidden-mobile">ROS2 常用命令</span>
+                      <a href="/2026/04/04/Linux/gdb/" title="gdb手册">
+                        <span class="hidden-mobile">gdb手册</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -796,6 +843,27 @@
 
   
 
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
 
 
 
@@ -1078,6 +1146,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script defer src="/js/openkounter.js" ></script>
 

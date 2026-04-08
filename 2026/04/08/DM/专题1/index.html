@@ -19,25 +19,25 @@
   <meta name="author" content="aleafofwutong">
   <meta name="keywords" content="">
   
-    <meta name="description" content="gdb调试工具gdb工具是能快速调试C&#x2F;C++的工具">
+    <meta name="description" content="题型与离散势不两立！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="gdb手册">
-<meta property="og:url" content="http://aleafofwutong.github.io/2026/04/04/Linux/gdb/index.html">
+<meta property="og:title" content="离散数学专题1">
+<meta property="og:url" content="http://aleafofwutong.github.io/2026/04/08/DM/%E4%B8%93%E9%A2%981/index.html">
 <meta property="og:site_name" content="A Leaf of Wutong">
-<meta property="og:description" content="gdb调试工具gdb工具是能快速调试C&#x2F;C++的工具">
+<meta property="og:description" content="题型与离散势不两立！">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://aleafofwutong.github.io/img/akame4.jpg">
-<meta property="article:published_time" content="2026-04-03T16:40:35.000Z">
-<meta property="article:modified_time" content="2026-04-08T03:16:46.375Z">
+<meta property="og:image" content="http://aleafofwutong.github.io/img/akame9.jpg">
+<meta property="article:published_time" content="2026-04-08T12:40:05.000Z">
+<meta property="article:modified_time" content="2026-04-08T14:36:02.312Z">
 <meta property="article:author" content="aleafofwutong">
-<meta property="article:tag" content="C语言">
-<meta property="article:tag" content="linux">
+<meta property="article:tag" content="DM">
+<meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://aleafofwutong.github.io/img/akame4.jpg">
+<meta name="twitter:image" content="http://aleafofwutong.github.io/img/akame9.jpg">
   
   
   
-  <title>gdb手册 - A Leaf of Wutong</title>
+  <title>离散数学专题1 - A Leaf of Wutong</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -383,7 +383,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="gdb手册"></span>
+            <span id="subtitle" data-typed-text="离散数学专题1"></span>
           
         </div>
 
@@ -394,8 +394,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-04-04 00:40" pubdate>
-          April 4, 2026 am
+        <time datetime="2026-04-08 20:40" pubdate>
+          April 8, 2026 pm
         </time>
       </span>
     
@@ -406,7 +406,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.9k words
+          2.1k words
         
       </span>
     
@@ -417,7 +417,7 @@
         
         
         
-          17 mins
+          18 mins
         
       </span>
     
@@ -468,17 +468,44 @@
     
     <div class="category row nomargin-x">
       <a class="category-item 
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="tools"
-        id="heading-4a931512ce65bdc9ca6808adf92d8783" role="tab" data-toggle="collapse" href="#collapse-4a931512ce65bdc9ca6808adf92d8783"
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="笔记"
+        id="heading-7051dc52c184c205e39aa54b4664ae9b" role="tab" data-toggle="collapse" href="#collapse-7051dc52c184c205e39aa54b4664ae9b"
         aria-expanded="true"
       >
-        tools
+        笔记
+        <span class="list-group-count">(4)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-7051dc52c184c205e39aa54b4664ae9b"
+           role="tabpanel" aria-labelledby="heading-7051dc52c184c205e39aa54b4664ae9b">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="C语言"
+        id="heading-d117f5dea6b7959c82d4fdb7490c555d" role="tab" data-toggle="collapse" href="#collapse-d117f5dea6b7959c82d4fdb7490c555d"
+        aria-expanded="false"
+      >
+        C语言
         <span class="list-group-count">(1)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-4a931512ce65bdc9ca6808adf92d8783"
-           role="tabpanel" aria-labelledby="heading-4a931512ce65bdc9ca6808adf92d8783">
+      <div class="category-collapse collapse " id="collapse-d117f5dea6b7959c82d4fdb7490c555d"
+           role="tabpanel" aria-labelledby="heading-d117f5dea6b7959c82d4fdb7490c555d">
         
         
           
@@ -487,15 +514,74 @@
     
       
       
-        <a href="/2026/04/04/Linux/gdb/" title="gdb手册"
+        <a href="/2026/04/06/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="字符串的那些坑"
            class="list-group-item list-group-item-action
-           active">
-          <span class="category-post">gdb手册</span>
+           ">
+          <span class="category-post">字符串的那些坑</span>
         </a>
       
     
   </div>
 
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="DM"
+        id="heading-2ecda7a0252b442ac6ecf47462119f51" role="tab" data-toggle="collapse" href="#collapse-2ecda7a0252b442ac6ecf47462119f51"
+        aria-expanded="true"
+      >
+        DM
+        <span class="list-group-count">(3)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-2ecda7a0252b442ac6ecf47462119f51"
+           role="tabpanel" aria-labelledby="heading-2ecda7a0252b442ac6ecf47462119f51">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2026/04/08/DM/%E4%B8%93%E9%A2%981/" title="离散数学专题1"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">离散数学专题1</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/01/DM/charpter1/" title="离散数学第1章"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">离散数学第1章</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/01/DM/charpter2/" title="离散数学第2章"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">离散数学第2章</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
         
       </div>
     </div>
@@ -512,12 +598,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">gdb手册</h1>
+            <h1 id="seo-header">离散数学专题1</h1>
             
               <p id="updated-time" class="note note-info" style="display: none">
                 
                   
-                    Last updated on 2026-04-08T11:16:46+08:00
+                    Last updated on 2026-04-08T22:36:02+08:00
                   
                   
 
@@ -527,62 +613,101 @@
             
               <div class="markdown-body">
                 
-                <h1 id="gdb调试工具"><a href="#gdb调试工具" class="headerlink" title="gdb调试工具"></a>gdb调试工具</h1><p>gdb工具是能快速调试C&#x2F;C++的工具</p>
+                <h1 id="题型"><a href="#题型" class="headerlink" title="题型"></a>题型</h1><p>与离散势不两立！</p>
 <span id="more"></span>
-
-<h2 id="生成含有调试信息的可执行文件"><a href="#生成含有调试信息的可执行文件" class="headerlink" title="生成含有调试信息的可执行文件"></a>生成含有调试信息的可执行文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">gcc -g -o0 main.c -o main <span class="hljs-comment">#建议linux系统使用，更方便</span><br>g++ -g -O0 main.cpp -o main<br><span class="hljs-comment"># -o0:不优化</span><br><span class="hljs-comment"># -g：输出调试信息</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="具体运行参数"><a href="#具体运行参数" class="headerlink" title="具体运行参数"></a>具体运行参数</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 基础格式</span><br>gdb [启动参数] 可执行文件 [core文件/进程PID]<br><br><span class="hljs-comment"># 1. 最常用核心参数</span><br>-tui             <span class="hljs-comment"># 开启可视化源码窗口（调试首选）</span><br>-q / --quiet     <span class="hljs-comment"># 安静启动，不显示版权冗余信息</span><br>--args           <span class="hljs-comment"># 给被调试程序传递参数（gdb --args ./main 10 20）</span><br>-p PID           <span class="hljs-comment"># 附加到正在运行的进程（gdb -p 12345）</span><br>-ex <span class="hljs-string">&quot;命令&quot;</span>       <span class="hljs-comment"># 启动后自动执行 GDB 命令（-ex &quot;b main&quot; -ex &quot;run&quot;）</span><br>-batch           <span class="hljs-comment"># 批处理模式，执行完自动退出（脚本用）</span><br><br><span class="hljs-comment"># 2. 高频组合命令（直接用）</span><br>gdb -q -tui ./main              <span class="hljs-comment"># 安静+可视化启动</span><br>gdb -q --args ./main 100 200    <span class="hljs-comment"># 带程序参数启动</span><br>gdb -q -tui -ex <span class="hljs-string">&quot;b main&quot;</span> -ex <span class="hljs-string">&quot;r&quot;</span> ./main  <span class="hljs-comment"># 可视化+自动断 main+运行</span><br>gdb ./main core.12345           <span class="hljs-comment"># 调试崩溃 core 文件</span><br></code></pre></td></tr></table></figure>
-
-
-<h2 id="具体使用"><a href="#具体使用" class="headerlink" title="具体使用"></a>具体使用</h2><ul>
-<li>基础功能</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#====#</span><br><span class="hljs-comment"># 最常用</span><br>r           <span class="hljs-comment"># ==run</span><br>n           <span class="hljs-comment"># ==next,下一行</span><br>c           <span class="hljs-comment"># ==continue,执行到第一个遇见的断点</span><br>p n         <span class="hljs-comment"># ==print n, 打印n的值</span><br>finish      <span class="hljs-comment"># 运行完当前函数，返回到调用处</span><br>b 行号      <span class="hljs-comment"># ==break，在某一行设置断点</span><br>q           <span class="hljs-comment"># ==quit,退出gdb</span><br>i b         <span class="hljs-comment"># ==info,查看断点</span><br><br><span class="hljs-comment"># 次级常用</span><br>p *arr@50       <span class="hljs-comment"># 打印数组前五十个（数组专用）</span><br><br>list            <span class="hljs-comment"># l，显示当前代码</span><br>list 行号       <span class="hljs-comment"># 显示某行附近代码</span><br><span class="hljs-comment"># 这俩不如带-tui来得划算</span><br>display 变量    <span class="hljs-comment"># 每步都自动打印</span><br>b 函数名        <span class="hljs-comment"># 在函数入口设置断点</span><br><span class="hljs-keyword">until</span> 行号      <span class="hljs-comment"># 执行到某一行（跳过循环神器</span><br><span class="hljs-built_in">kill</span>            <span class="hljs-comment"># 提前结束</span><br><br><span class="hljs-comment"># 其他不常用命令</span><br>info breakpoints  <span class="hljs-comment"># 查看所有断点</span><br>delete 断点编号    <span class="hljs-comment"># 删除指定断点</span><br>delete             <span class="hljs-comment"># 删除所有断点</span><br>b 文件名:行号       <span class="hljs-comment"># 多文件调试</span><br>info breakpoints   <span class="hljs-comment"># i b，查看所有断点</span><br><span class="hljs-built_in">disable</span> 断点编号    <span class="hljs-comment"># 禁用断点</span><br><span class="hljs-built_in">enable</span> 断点编号     <span class="hljs-comment"># 启用断点</span><br>list 函数名         <span class="hljs-comment"># 显示函数代码</span><br>disassemble 函数名  <span class="hljs-comment"># 查看汇编代码</span><br>p/x 变量            <span class="hljs-comment"># 十六进制</span><br>p/d 变量            <span class="hljs-comment"># 十进制</span><br>p/c 变量            <span class="hljs-comment"># 字符</span><br>p/f 变量            <span class="hljs-comment"># 浮点数</span><br>info display        <span class="hljs-comment"># 查看监控</span><br>undisplay 编号      <span class="hljs-comment"># 取消监控</span><br></code></pre></td></tr></table></figure>
-
+<h2 id="命题"><a href="#命题" class="headerlink" title="命题"></a>命题</h2><h3 id="命题的判断"><a href="#命题的判断" class="headerlink" title="命题的判断"></a>命题的判断</h3><p>$ <import graphicx> </p>
+<p>命题 $\xrightarrow{\text{符号抽象}} $ 命题公式 $\xrightarrow{\text{依据真值表最后一列分类为三种类型}} $ 重言式，矛盾式以及可满足式</p>
+<p>多个命题公式 $ \xrightarrow{\text{逻辑关系}} $ 等值式</p>
 <ul>
-<li>进阶功能</li>
+<li>X+Y&gt;5<br>无法确定，非命题</li>
+<li>一个数是整数<br>无法确定，非命题</li>
+<li>我正在说谎<br>这句话不是命题</li>
+<li>他是个好人<br>他和好人的定义无法确定和划分，真假有歧义，非命题</li>
+<li>21世纪有人住在月球上<br>这句话是命题，真假值是能确定的</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 栈</span><br>bt          <span class="hljs-comment"># 查看函数调用栈（哪里崩溃）</span><br>frame 编号  <span class="hljs-comment"># 跳转到某一层栈</span><br>up          <span class="hljs-comment"># 上一层栈</span><br>down        <span class="hljs-comment"># 下一层栈</span><br><br><span class="hljs-comment"># 内存</span><br>x /10xw 地址   <span class="hljs-comment"># 以16进制查看10个32位数据</span><br>x /20dw 地址   <span class="hljs-comment"># 以10进制查看20个</span><br>x /s 地址      <span class="hljs-comment"># 查看字符串</span><br><br><span class="hljs-comment"># 强行修改</span><br><span class="hljs-built_in">set</span> var 变量=值<br><span class="hljs-built_in">set</span> var i=10<br><span class="hljs-built_in">set</span> var arr[0]=100<br><br><span class="hljs-comment"># 多文件调试</span><br>info <span class="hljs-built_in">functions</span>    <span class="hljs-comment"># 查看所有函数</span><br>info variables    <span class="hljs-comment"># 查看全局变量</span><br><span class="hljs-built_in">cd</span> 目录           <span class="hljs-comment"># 切换目录</span><br>path 目录         <span class="hljs-comment"># 添加符号路径</span><br><br><span class="hljs-comment"># 崩溃调试</span><br><span class="hljs-built_in">ulimit</span> -c unlimited<br>gdb ./main core.xxx<br><br>bt full  <span class="hljs-comment"># 查看崩溃现场</span><br><span class="hljs-comment"># 当然，只能看代码的崩溃现场，不是调试时你的崩溃现场……</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>命题公式可被分类，分为<strong>重言式，矛盾式以及可满足式</strong></p>
+</blockquote>
+<h3 id="命题符号化"><a href="#命题符号化" class="headerlink" title="命题符号化"></a>命题符号化</h3><ul>
+<li>例题</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs text">1.将下列命题符号化:<br>(1)逻辑不是枯燥无味的<br>(2)我看见的既不是小张也不是老李<br>(3)他生于 1963 年或 1964 年<br>(4)只有不怕困难，才能战胜困难<br>(5)只要上街，我就去书店<br>(6)如果晚上做完了作业并且没有其他事情，小杨就看电视或听音乐<br>(7)如果林芳在家里，那么她不是在做作业就是在看电视<br>(8)三角形 3条边相等是3个角相等的充分必要条件<br>(9)我进城的必要条件是我有时间<br>(10)他唱歌的充分必要条件是心情愉悦<br>(11)小王总是在图书馆看书，除非他病了或者图书馆不开门<br></code></pre></td></tr></table></figure>
 
-
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>set print array on</p>
 <blockquote>
-<p>设置数组打印格式</p>
+<p>关键：(3)两个情况是互斥的，必须要用$\oplus$;</p>
 </blockquote>
-<p>set print sevenbit-strings on   </p>
 <blockquote>
-<p>字符串正常显示</p>
+<p>(4)只有$\cdots$才$\cdots$,前面的是必要条件，不这样不行</p>
 </blockquote>
-<p>set print pretty on             </p>
 <blockquote>
-<p>结构体自动缩进、格式化（超级美观！）</p>
+<p>(5)只要$\cdots$就，前面的是充分条件，这样一定行</p>
 </blockquote>
-<p>set print array-indexes on</p>
 <blockquote>
-<p>设置打印数组下标</p>
+<p>(6)两个情况可以并存，故用$\lor$</p>
 </blockquote>
-<p>set print elements 200</p>
-<blockquote>
-<p>数组只打印前200个</p>
-</blockquote>
-<p>set print elements 0</p>
-<blockquote>
-<p>打印所有元素（不推荐，易刷屏）</p>
-</blockquote>
-<ul>
-<li><p>不常用</p>
-<p>  set print array-indexes on      # 显示数组下标 [0] [1]</p>
-<p>  set print repeats 0             # 连续相同值合并显示（比如 0x00… 100 times）</p>
-<p>  set print union on              # 联合体也美化</p>
-<p>  set print object on             # 指针自动解引用显示真实类型</p>
-<p>  set print static-members on     # 显示静态成员</p>
-<p>  set print vtbl on               # 显示虚函数表</p>
-<p>  set print demangle on           # 自动还原C++函数名</p>
+<ol>
+<li>p:逻辑是枯燥无味的<br>$\ \neg p$</li>
+<li>p:我看见的人是小张 q:我看见的人是小李 $\\neg (p\lor q)$</li>
+<li>p:他生于1963年<br>q:他生于1964年<br>$\ p\oplus q$</li>
+<li>p:不怕困难<br>q:战胜困难<br>$\ q\rightarrow p$</li>
+<li>p:我上街<br>q:我去书店<br>$\ p\rightarrow q$</li>
+<li>p:晚上小杨做完了作业<br>q:晚上小杨没有其他的事情<br>r:晚上小杨看电视<br>s:晚上小杨听音乐<br>$\ p\land q \rightarrow r \lor s$</li>
+<li>r:小芳在家<br>p:小芳在看电视<br>q:小芳在做作业<br>$\  r \rightarrow p\land q$</li>
+<li>p:三角形三条边相等<br>q:三角形三个角相等<br>$\ p\leftrightarrow q$</li>
+<li>p:我进城<br>q:我有时间<br>$\ p\rightarrow q$</li>
+<li>p:他心情愉悦<br>q:他唱歌<br>$\ p\leftrightarrow q$</li>
+<li>p:小王在图书馆看书<br>q:小王生病了<br>r:图书馆没开门<br>$\ p\lor q \lor r$</li>
+</ol>
+<hr>
+<h3 id="逻辑对象、逻辑运算与逻辑关系，命题逻辑与谓词逻辑，命题合式公式与命题逻辑语言"><a href="#逻辑对象、逻辑运算与逻辑关系，命题逻辑与谓词逻辑，命题合式公式与命题逻辑语言" class="headerlink" title="逻辑对象、逻辑运算与逻辑关系，命题逻辑与谓词逻辑，命题合式公式与命题逻辑语言"></a>逻辑对象、逻辑运算与逻辑关系，命题逻辑与谓词逻辑，命题合式公式与命题逻辑语言</h3><p>逻辑对象：0,1</p>
+<p>逻辑运算&#x2F;联结词优先级：$\neg \land \lor \oplus \rightarrow \leftrightarrow$</p>
+<p>逻辑关系： $\vDash \Leftrightarrow$,等值与推论关系</p>
+<p>以上三者合称逻辑域</p>
+<hr>
+<p>命题变量：P，Q，R，S，T等取值为逻辑真值的变量</p>
+<p>逻辑常量&#x2F;逻辑真值：0,1</p>
+<p>简单命题&#x2F;原子命题 $\xrightarrow{\text{联结词}} $ 复合命题</p>
+<p>联结词 $\xrightarrow{\text{可看作}} $ 真值函数</p>
+<p>命题逻辑不再进一步分析简单命题的内部结构，但谓词逻辑分析可以</p>
+<hr>
+<p>所有的命题合式公式集合构成了命题逻辑语言</p>
+<h2 id="合式公式"><a href="#合式公式" class="headerlink" title="合式公式"></a>合式公式</h2><p>合式公式的定义依靠了有限次应用<br>见后文谓词逻辑语言-&gt;合式公式<br>合式公式有三种变换式：替换，代换，对偶</p>
+<h3 id="复杂度计算"><a href="#复杂度计算" class="headerlink" title="复杂度计算"></a>复杂度计算</h3><p>采用树形更佳<br><img src="/demo.jpg" srcset="/img/loading.gif" lazyload alt="示例"><br>可以保证结果不变的情况下通过改变运算次序这种方法来简化一些命题公式的复杂度</p>
+<h3 id="合式公式的替换-代换式"><a href="#合式公式的替换-代换式" class="headerlink" title="合式公式的替换&#x2F;代换式"></a>合式公式的替换&#x2F;代换式</h3><ul>
+<li><p>例题</p>
+<p>  求以下合式公式的替换式<br>  $\ (Q\rightarrow P)\rightarrow (\neg Q \rightarrow \neg \neg P)$</p>
+<p>  $((Q\land R)\rightarrow  (\neg Q \rightarrow P\lor Q))\land (R\rightarrow P) [Q\land R&#x2F;(Q\land \neg R) , \neg Q \rightarrow P &#x2F; P]$</p>
+</li>
+<li><p>答案</p>
+<p>  (1)<br>  $((Q\land \neg R)\rightarrow P)\rightarrow (\neg (Q\land \neg R) \rightarrow P)$</p>
+<p>  (2)<br>  $((Q\land \neg R)\rightarrow  P)\land (R\rightarrow P)$</p>
 </li>
 </ul>
-<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">回车 = 重复上一条命令<br>Ctrl + L = 清屏<br>Ctrl + C = 中断程序<br></code></pre></td></tr></table></figure>
-
+<blockquote>
+<p>替换后记得化简</p>
+</blockquote>
+<h3 id="变元的约束出现和自由出现，辖域"><a href="#变元的约束出现和自由出现，辖域" class="headerlink" title="变元的约束出现和自由出现，辖域"></a>变元的约束出现和自由出现，辖域</h3><p>约束出现：带$\forall 或者\exists$</p>
+<p>自由出现：相反地</p>
+<p>辖域：$\forall 或者\exists$后面的括号里面的东西</p>
+<h3 id="合式公式的对偶式"><a href="#合式公式的对偶式" class="headerlink" title="合式公式的对偶式"></a>合式公式的对偶式</h3><ul>
+<li>$ \forall 和 \exist $的置换</li>
+<li>1和0的置换</li>
+</ul>
+<h2 id="谓词逻辑语言"><a href="#谓词逻辑语言" class="headerlink" title="谓词逻辑语言"></a>谓词逻辑语言</h2><p>包括：</p>
+<ul>
+<li>逻辑符号：变元，联结词，量词(全称量词等)</li>
+<li>非逻辑符号： 常元，谓词，函词</li>
+<li>仅有个体变元（可分为自由变元和约束变元）：命题逻辑语言的命题变元，取自论域中的元素<blockquote>
+<p>谓词逻辑语言最终定义：谓词集合，函词集合，常元集合，联结词集合，量词集合</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="项"><a href="#项" class="headerlink" title="项"></a>项</h3><ul>
+<li>个体常元</li>
+<li>个体变元</li>
+<li>函词（个体变&#x2F;常元）</li>
+</ul>
+<h3 id="合式公式-1"><a href="#合式公式-1" class="headerlink" title="合式公式"></a>合式公式</h3><p>合式公式：谓词（项）+联结词的任序有限循环定义</p>
 
                 
               </div>
@@ -601,8 +726,15 @@
     
       <span class="category-chain">
         
-  <a href="/categories/tools/" class="category-chain-item">tools</a>
+  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%AC%94%E8%AE%B0/DM/" class="category-chain-item">DM</a>
+  
+  
+
   
 
       </span>
@@ -616,9 +748,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/linux/" class="print-no-link">#linux</a>
+        <a href="/tags/DM/" class="print-no-link">#DM</a>
       
-        <a href="/tags/C%E8%AF%AD%E8%A8%80/" class="print-no-link">#C语言</a>
+        <a href="/tags/%E7%AC%94%E8%AE%B0/" class="print-no-link">#笔记</a>
       
     </div>
   
@@ -630,8 +762,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>gdb手册</div>
-      <div>http://aleafofwutong.github.io/2026/04/04/Linux/gdb/</div>
+      <div>离散数学专题1</div>
+      <div>http://aleafofwutong.github.io/2026/04/08/DM/专题1/</div>
     </div>
     <div class="license-meta">
       
@@ -643,7 +775,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>April 4, 2026</div>
+          <div>April 8, 2026</div>
         </div>
       
       
@@ -692,18 +824,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2026/04/06/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="字符串的那些坑">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">字符串的那些坑</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2026/04/02/Robot/ROS2%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="ROS2 常用命令">
-                        <span class="hidden-mobile">ROS2 常用命令</span>
+                      <a href="/2026/04/06/opencv/opencv_line_detector/" title="OpenCV_Line_Detect">
+                        <span class="hidden-mobile">OpenCV_Line_Detect</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -796,6 +922,27 @@
 
   
 
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
 
 
 
@@ -1078,6 +1225,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script defer src="/js/openkounter.js" ></script>
 
