@@ -19,16 +19,16 @@
   <meta name="author" content="aleafofwutong">
   <meta name="keywords" content="">
   
-    <meta name="description" content="题型与离散势不两立！">
+    <meta name="description" content="题型 与离散势不两立！">
 <meta property="og:type" content="article">
 <meta property="og:title" content="离散数学专题1">
 <meta property="og:url" content="http://aleafofwutong.github.io/2026/04/08/DM/%E4%B8%93%E9%A2%981/index.html">
 <meta property="og:site_name" content="A Leaf of Wutong">
-<meta property="og:description" content="题型与离散势不两立！">
+<meta property="og:description" content="题型 与离散势不两立！">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://aleafofwutong.github.io/img/akame9.jpg">
 <meta property="article:published_time" content="2026-04-08T12:40:05.000Z">
-<meta property="article:modified_time" content="2026-04-08T14:36:02.312Z">
+<meta property="article:modified_time" content="2026-04-08T14:59:28.551Z">
 <meta property="article:author" content="aleafofwutong">
 <meta property="article:tag" content="DM">
 <meta property="article:tag" content="笔记">
@@ -48,6 +48,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
 
 
 
@@ -72,14 +74,14 @@
 
 
   
-<link rel="stylesheet" href="/.banner%20%7B%0A%20%20position:%20relative;%0A%7D%0A.banner::before%20%7B%0A%20%20content:%20'';%0A%20%20position:%20absolute;%0A%20%20top:%200;%0A%20%20left:%200;%0A%20%20width:%20100%25;%0A%20%20height:%20100%25;%0A%20%20background:%20linear-gradient(135deg,%20rgba(0,0,0,0.8),%20rgba(180,0,0,0.6));%0A%20%20z-index:%201;%0A%7D%0A.banner%20.content%20%7B%0A%20%20position:%20relative;%0A%20%20z-index:%202;%0A%7D%0A.css">
+<link rel="stylesheet" href="/css/custom.css">
 
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"aleafofwutong.github.io","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":true,"scope":["home","post","category","tag","page",404,"links","about"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"06a178930a799545e3c94c375a36ee13","google":{"measurement_id":"G-K6XQ7XRYB3"},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"aleafofwutong.github.io","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":["home","post","category","tag","page",404,"links","about"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"06a178930a799545e3c94c375a36ee13","google":{"measurement_id":"G-K6XQ7XRYB3"},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -135,7 +137,11 @@
 
 
   
-<meta name="generator" content="Hexo 8.1.1"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head>
 
 
 <body>
@@ -406,7 +412,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.1k words
+          2.3k words
         
       </span>
     
@@ -417,7 +423,7 @@
         
         
         
-          18 mins
+          20 mins
         
       </span>
     
@@ -473,7 +479,7 @@
         aria-expanded="true"
       >
         笔记
-        <span class="list-group-count">(4)</span>
+        <span class="list-group-count">(6)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
@@ -500,7 +506,7 @@
         aria-expanded="false"
       >
         C语言
-        <span class="list-group-count">(1)</span>
+        <span class="list-group-count">(2)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
@@ -514,10 +520,19 @@
     
       
       
-        <a href="/2026/04/06/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="字符串的那些坑"
+        <a href="/2026/04/10/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/%E5%AD%97%E7%AC%A6%E4%B8%B22/" title="字符串的操作"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">字符串的那些坑</span>
+          <span class="category-post">字符串的操作</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/06/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="字符串的输入输出"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">字符串的输入输出</span>
         </a>
       
     
@@ -582,6 +597,74 @@
       </div>
     </div>
   
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="数学"
+        id="heading-6e65831863dbf272b7a65cd8df1a440d" role="tab" data-toggle="collapse" href="#collapse-6e65831863dbf272b7a65cd8df1a440d"
+        aria-expanded="false"
+      >
+        数学
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-6e65831863dbf272b7a65cd8df1a440d"
+           role="tabpanel" aria-labelledby="heading-6e65831863dbf272b7a65cd8df1a440d">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="线性代数"
+        id="heading-4d08a6448db7cfb8b33bafbf40911872" role="tab" data-toggle="collapse" href="#collapse-4d08a6448db7cfb8b33bafbf40911872"
+        aria-expanded="false"
+      >
+        线性代数
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-4d08a6448db7cfb8b33bafbf40911872"
+           role="tabpanel" aria-labelledby="heading-4d08a6448db7cfb8b33bafbf40911872">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2026/04/11/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/1/" title="SVD矩阵分解"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">SVD矩阵分解</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
         
       </div>
     </div>
@@ -603,7 +686,7 @@
               <p id="updated-time" class="note note-info" style="display: none">
                 
                   
-                    Last updated on 2026-04-08T22:36:02+08:00
+                    Last updated on 2026-04-08T22:59:28+08:00
                   
                   
 
@@ -613,101 +696,150 @@
             
               <div class="markdown-body">
                 
-                <h1 id="题型"><a href="#题型" class="headerlink" title="题型"></a>题型</h1><p>与离散势不两立！</p>
+                <h1 id="题型">题型</h1>
+<p>与离散势不两立！</p>
 <span id="more"></span>
-<h2 id="命题"><a href="#命题" class="headerlink" title="命题"></a>命题</h2><h3 id="命题的判断"><a href="#命题的判断" class="headerlink" title="命题的判断"></a>命题的判断</h3><p>$ <import graphicx> </p>
+<h2 id="命题">命题</h2>
+<h3 id="命题的判断">命题的判断</h3>
+<p>$ <import graphicx></p>
 <p>命题 $\xrightarrow{\text{符号抽象}} $ 命题公式 $\xrightarrow{\text{依据真值表最后一列分类为三种类型}} $ 重言式，矛盾式以及可满足式</p>
 <p>多个命题公式 $ \xrightarrow{\text{逻辑关系}} $ 等值式</p>
 <ul>
-<li>X+Y&gt;5<br>无法确定，非命题</li>
-<li>一个数是整数<br>无法确定，非命题</li>
-<li>我正在说谎<br>这句话不是命题</li>
-<li>他是个好人<br>他和好人的定义无法确定和划分，真假有歧义，非命题</li>
-<li>21世纪有人住在月球上<br>这句话是命题，真假值是能确定的</li>
+<li>X+Y&gt;5<br>
+无法确定，非命题</li>
+<li>一个数是整数<br>
+无法确定，非命题</li>
+<li>我正在说谎<br>
+这句话不是命题</li>
+<li>他是个好人<br>
+他和好人的定义无法确定和划分，真假有歧义，非命题</li>
+<li>21世纪有人住在月球上<br>
+这句话是命题，真假值是能确定的</li>
 </ul>
 <blockquote>
 <p>命题公式可被分类，分为<strong>重言式，矛盾式以及可满足式</strong></p>
 </blockquote>
-<h3 id="命题符号化"><a href="#命题符号化" class="headerlink" title="命题符号化"></a>命题符号化</h3><ul>
+<h3 id="命题符号化">命题符号化</h3>
+<ul>
 <li>例题</li>
 </ul>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs text">1.将下列命题符号化:<br>(1)逻辑不是枯燥无味的<br>(2)我看见的既不是小张也不是老李<br>(3)他生于 1963 年或 1964 年<br>(4)只有不怕困难，才能战胜困难<br>(5)只要上街，我就去书店<br>(6)如果晚上做完了作业并且没有其他事情，小杨就看电视或听音乐<br>(7)如果林芳在家里，那么她不是在做作业就是在看电视<br>(8)三角形 3条边相等是3个角相等的充分必要条件<br>(9)我进城的必要条件是我有时间<br>(10)他唱歌的充分必要条件是心情愉悦<br>(11)小王总是在图书馆看书，除非他病了或者图书馆不开门<br></code></pre></td></tr></table></figure>
-
 <blockquote>
-<p>关键：(3)两个情况是互斥的，必须要用$\oplus$;</p>
+<p>关键：(3)两个情况是互斥的，必须要用<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⊕</mo></mrow><annotation encoding="application/x-tex">\oplus</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord">⊕</span></span></span></span>;</p>
 </blockquote>
 <blockquote>
-<p>(4)只有$\cdots$才$\cdots$,前面的是必要条件，不这样不行</p>
+<p>(4)只有<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⋯</mo></mrow><annotation encoding="application/x-tex">\cdots</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.313em;"></span><span class="minner">⋯</span></span></span></span>才<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⋯</mo></mrow><annotation encoding="application/x-tex">\cdots</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.313em;"></span><span class="minner">⋯</span></span></span></span>,前面的是必要条件，不这样不行</p>
 </blockquote>
 <blockquote>
-<p>(5)只要$\cdots$就，前面的是充分条件，这样一定行</p>
+<p>(5)只要<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⋯</mo></mrow><annotation encoding="application/x-tex">\cdots</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.313em;"></span><span class="minner">⋯</span></span></span></span>就，前面的是充分条件，这样一定行</p>
 </blockquote>
 <blockquote>
-<p>(6)两个情况可以并存，故用$\lor$</p>
+<p>(6)两个情况可以并存，故用<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∨</mo></mrow><annotation encoding="application/x-tex">\lor</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5556em;"></span><span class="mord">∨</span></span></span></span></p>
 </blockquote>
 <ol>
-<li>p:逻辑是枯燥无味的<br>$\ \neg p$</li>
-<li>p:我看见的人是小张 q:我看见的人是小李 $\\neg (p\lor q)$</li>
-<li>p:他生于1963年<br>q:他生于1964年<br>$\ p\oplus q$</li>
-<li>p:不怕困难<br>q:战胜困难<br>$\ q\rightarrow p$</li>
-<li>p:我上街<br>q:我去书店<br>$\ p\rightarrow q$</li>
-<li>p:晚上小杨做完了作业<br>q:晚上小杨没有其他的事情<br>r:晚上小杨看电视<br>s:晚上小杨听音乐<br>$\ p\land q \rightarrow r \lor s$</li>
-<li>r:小芳在家<br>p:小芳在看电视<br>q:小芳在做作业<br>$\  r \rightarrow p\land q$</li>
-<li>p:三角形三条边相等<br>q:三角形三个角相等<br>$\ p\leftrightarrow q$</li>
-<li>p:我进城<br>q:我有时间<br>$\ p\rightarrow q$</li>
-<li>p:他心情愉悦<br>q:他唱歌<br>$\ p\leftrightarrow q$</li>
-<li>p:小王在图书馆看书<br>q:小王生病了<br>r:图书馆没开门<br>$\ p\lor q \lor r$</li>
+<li>p:逻辑是枯燥无味的<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace linebreak="newline"></mspace><mi mathvariant="normal">¬</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">\\ \neg p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord">¬</span><span class="mord mathnormal">p</span></span></span></span></li>
+<li>p:我看见的人是小张 q:我看见的人是小李 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace linebreak="newline"></mspace><mi mathvariant="normal">¬</mi><mo stretchy="false">(</mo><mi>p</mi><mo>∨</mo><mi>q</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\\\neg (p\lor q)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="mspace newline"></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">¬</span><span class="mopen">(</span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∨</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">q</span><span class="mclose">)</span></span></span></span></li>
+<li>p:他生于1963年<br>
+q:他生于1964年<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace linebreak="newline"></mspace><mi>p</mi><mo>⊕</mo><mi>q</mi></mrow><annotation encoding="application/x-tex">\\ p\oplus q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">q</span></span></span></span></li>
+<li>p:不怕困难<br>
+q:战胜困难<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace linebreak="newline"></mspace><mi>q</mi><mo>→</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">\\ q\rightarrow p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">q</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span></li>
+<li>p:我上街<br>
+q:我去书店<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace linebreak="newline"></mspace><mi>p</mi><mo>→</mo><mi>q</mi></mrow><annotation encoding="application/x-tex">\\ p\rightarrow q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">q</span></span></span></span></li>
+<li>p:晚上小杨做完了作业<br>
+q:晚上小杨没有其他的事情<br>
+r:晚上小杨看电视<br>
+s:晚上小杨听音乐<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace linebreak="newline"></mspace><mi>p</mi><mo>∧</mo><mi>q</mi><mo>→</mo><mi>r</mi><mo>∨</mo><mi>s</mi></mrow><annotation encoding="application/x-tex">\\ p\land q \rightarrow r \lor s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.75em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">q</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.5556em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∨</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">s</span></span></span></span></li>
+<li>r:小芳在家<br>
+p:小芳在看电视<br>
+q:小芳在做作业<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace linebreak="newline"></mspace><mi>r</mi><mo>→</mo><mi>p</mi><mo>∧</mo><mi>q</mi></mrow><annotation encoding="application/x-tex">\\  r \rightarrow p\land q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.75em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">q</span></span></span></span></li>
+<li>p:三角形三条边相等<br>
+q:三角形三个角相等<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace linebreak="newline"></mspace><mi>p</mi><mo>↔</mo><mi>q</mi></mrow><annotation encoding="application/x-tex">\\ p\leftrightarrow q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">↔</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">q</span></span></span></span></li>
+<li>p:我进城<br>
+q:我有时间<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace linebreak="newline"></mspace><mi>p</mi><mo>→</mo><mi>q</mi></mrow><annotation encoding="application/x-tex">\\ p\rightarrow q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">q</span></span></span></span></li>
+<li>p:他心情愉悦<br>
+q:他唱歌<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace linebreak="newline"></mspace><mi>p</mi><mo>↔</mo><mi>q</mi></mrow><annotation encoding="application/x-tex">\\ p\leftrightarrow q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">↔</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">q</span></span></span></span></li>
+<li>p:小王在图书馆看书<br>
+q:小王生病了<br>
+r:图书馆没开门<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace linebreak="newline"></mspace><mi>p</mi><mo>∨</mo><mi>q</mi><mo>∨</mo><mi>r</mi></mrow><annotation encoding="application/x-tex">\\ p\lor q \lor r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.75em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∨</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.75em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">q</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∨</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span></span></span></span></li>
 </ol>
 <hr>
-<h3 id="逻辑对象、逻辑运算与逻辑关系，命题逻辑与谓词逻辑，命题合式公式与命题逻辑语言"><a href="#逻辑对象、逻辑运算与逻辑关系，命题逻辑与谓词逻辑，命题合式公式与命题逻辑语言" class="headerlink" title="逻辑对象、逻辑运算与逻辑关系，命题逻辑与谓词逻辑，命题合式公式与命题逻辑语言"></a>逻辑对象、逻辑运算与逻辑关系，命题逻辑与谓词逻辑，命题合式公式与命题逻辑语言</h3><p>逻辑对象：0,1</p>
-<p>逻辑运算&#x2F;联结词优先级：$\neg \land \lor \oplus \rightarrow \leftrightarrow$</p>
-<p>逻辑关系： $\vDash \Leftrightarrow$,等值与推论关系</p>
+<h3 id="逻辑对象、逻辑运算与逻辑关系，命题逻辑与谓词逻辑，命题合式公式与命题逻辑语言">逻辑对象、逻辑运算与逻辑关系，命题逻辑与谓词逻辑，命题合式公式与命题逻辑语言</h3>
+<p>逻辑对象：0,1</p>
+<p>逻辑运算/联结词优先级：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">¬</mi><mo>∧</mo><mo>∨</mo><mo>⊕</mo><mo>→</mo><mo>↔</mo></mrow><annotation encoding="application/x-tex">\neg \land \lor \oplus \rightarrow \leftrightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5556em;"></span><span class="mord">¬</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord">∨</span><span class="mord">⊕</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→↔</span></span></span></span></p>
+<p>逻辑关系： <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⊨</mo><mo>⇔</mo></mrow><annotation encoding="application/x-tex">\vDash \Leftrightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6922em;"></span><span class="mrel amsrm">⊨</span></span><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">⇔</span></span></span></span>,等值与推论关系</p>
 <p>以上三者合称逻辑域</p>
 <hr>
 <p>命题变量：P，Q，R，S，T等取值为逻辑真值的变量</p>
-<p>逻辑常量&#x2F;逻辑真值：0,1</p>
-<p>简单命题&#x2F;原子命题 $\xrightarrow{\text{联结词}} $ 复合命题</p>
+<p>逻辑常量/逻辑真值：0,1</p>
+<p>简单命题/原子命题 $\xrightarrow{\text{联结词}} $ 复合命题</p>
 <p>联结词 $\xrightarrow{\text{可看作}} $ 真值函数</p>
 <p>命题逻辑不再进一步分析简单命题的内部结构，但谓词逻辑分析可以</p>
 <hr>
 <p>所有的命题合式公式集合构成了命题逻辑语言</p>
-<h2 id="合式公式"><a href="#合式公式" class="headerlink" title="合式公式"></a>合式公式</h2><p>合式公式的定义依靠了有限次应用<br>见后文谓词逻辑语言-&gt;合式公式<br>合式公式有三种变换式：替换，代换，对偶</p>
-<h3 id="复杂度计算"><a href="#复杂度计算" class="headerlink" title="复杂度计算"></a>复杂度计算</h3><p>采用树形更佳<br><img src="/demo.jpg" srcset="/img/loading.gif" lazyload alt="示例"><br>可以保证结果不变的情况下通过改变运算次序这种方法来简化一些命题公式的复杂度</p>
-<h3 id="合式公式的替换-代换式"><a href="#合式公式的替换-代换式" class="headerlink" title="合式公式的替换&#x2F;代换式"></a>合式公式的替换&#x2F;代换式</h3><ul>
-<li><p>例题</p>
-<p>  求以下合式公式的替换式<br>  $\ (Q\rightarrow P)\rightarrow (\neg Q \rightarrow \neg \neg P)$</p>
-<p>  $((Q\land R)\rightarrow  (\neg Q \rightarrow P\lor Q))\land (R\rightarrow P) [Q\land R&#x2F;(Q\land \neg R) , \neg Q \rightarrow P &#x2F; P]$</p>
+<h2 id="合式公式">合式公式</h2>
+<p>合式公式的定义依靠了有限次应用<br>
+见后文谓词逻辑语言-&gt;合式公式<br>
+合式公式有三种变换式：替换，代换，对偶</p>
+<h3 id="复杂度计算">复杂度计算</h3>
+<p>采用树形更佳<br>
+<img src="demo.jpg" srcset="/img/loading.gif" lazyload alt="示例"><br>
+可以保证结果不变的情况下通过改变运算次序这种方法来简化一些命题公式的复杂度</p>
+<h3 id="合式公式的替换-代换式">合式公式的替换/代换式</h3>
+<ul>
+<li>
+<p>例题</p>
+<p>求以下合式公式的替换式<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace linebreak="newline"></mspace><mo stretchy="false">(</mo><mi>Q</mi><mo>→</mo><mi>P</mi><mo stretchy="false">)</mo><mo>→</mo><mo stretchy="false">(</mo><mi mathvariant="normal">¬</mi><mi>Q</mi><mo>→</mo><mi mathvariant="normal">¬</mi><mi mathvariant="normal">¬</mi><mi>P</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\\ (Q\rightarrow P)\rightarrow (\neg Q \rightarrow \neg \neg P)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="mspace newline"></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">Q</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">¬</span><span class="mord mathnormal">Q</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">¬¬</span><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="mclose">)</span></span></span></span></p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mo stretchy="false">(</mo><mi>Q</mi><mo>∧</mo><mi>R</mi><mo stretchy="false">)</mo><mo>→</mo><mo stretchy="false">(</mo><mi mathvariant="normal">¬</mi><mi>Q</mi><mo>→</mo><mi>P</mi><mo>∨</mo><mi>Q</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>∧</mo><mo stretchy="false">(</mo><mi>R</mi><mo>→</mo><mi>P</mi><mo stretchy="false">)</mo><mo stretchy="false">[</mo><mi>Q</mi><mo>∧</mo><mi>R</mi><mi mathvariant="normal">/</mi><mo stretchy="false">(</mo><mi>Q</mi><mo>∧</mo><mi mathvariant="normal">¬</mi><mi>R</mi><mo stretchy="false">)</mo><mo separator="true">,</mo><mi mathvariant="normal">¬</mi><mi>Q</mi><mo>→</mo><mi>P</mi><mi mathvariant="normal">/</mi><mi>P</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">((Q\land R)\rightarrow  (\neg Q \rightarrow P\lor Q))\land (R\rightarrow P) [Q\land R/(Q\land \neg R) , \neg Q \rightarrow P / P]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">((</span><span class="mord mathnormal">Q</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">¬</span><span class="mord mathnormal">Q</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∨</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">Q</span><span class="mclose">))</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="mclose">)</span><span class="mopen">[</span><span class="mord mathnormal">Q</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mord">/</span><span class="mopen">(</span><span class="mord mathnormal">Q</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">¬</span><span class="mord mathnormal">Q</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="mord">/</span><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="mclose">]</span></span></span></span></p>
 </li>
-<li><p>答案</p>
-<p>  (1)<br>  $((Q\land \neg R)\rightarrow P)\rightarrow (\neg (Q\land \neg R) \rightarrow P)$</p>
-<p>  (2)<br>  $((Q\land \neg R)\rightarrow  P)\land (R\rightarrow P)$</p>
+<li>
+<p>答案</p>
+<p>(1)<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mo stretchy="false">(</mo><mi>Q</mi><mo>∧</mo><mi mathvariant="normal">¬</mi><mi>R</mi><mo stretchy="false">)</mo><mo>→</mo><mi>P</mi><mo stretchy="false">)</mo><mo>→</mo><mo stretchy="false">(</mo><mi mathvariant="normal">¬</mi><mo stretchy="false">(</mo><mi>Q</mi><mo>∧</mo><mi mathvariant="normal">¬</mi><mi>R</mi><mo stretchy="false">)</mo><mo>→</mo><mi>P</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">((Q\land \neg R)\rightarrow P)\rightarrow (\neg (Q\land \neg R) \rightarrow P)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">((</span><span class="mord mathnormal">Q</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">¬</span><span class="mopen">(</span><span class="mord mathnormal">Q</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="mclose">)</span></span></span></span></p>
+<p>(2)<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mo stretchy="false">(</mo><mi>Q</mi><mo>∧</mo><mi mathvariant="normal">¬</mi><mi>R</mi><mo stretchy="false">)</mo><mo>→</mo><mi>P</mi><mo stretchy="false">)</mo><mo>∧</mo><mo stretchy="false">(</mo><mi>R</mi><mo>→</mo><mi>P</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">((Q\land \neg R)\rightarrow  P)\land (R\rightarrow P)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">((</span><span class="mord mathnormal">Q</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="mclose">)</span></span></span></span></p>
 </li>
 </ul>
 <blockquote>
 <p>替换后记得化简</p>
 </blockquote>
-<h3 id="变元的约束出现和自由出现，辖域"><a href="#变元的约束出现和自由出现，辖域" class="headerlink" title="变元的约束出现和自由出现，辖域"></a>变元的约束出现和自由出现，辖域</h3><p>约束出现：带$\forall 或者\exists$</p>
+<h3 id="变元的约束出现和自由出现，辖域">变元的约束出现和自由出现，辖域</h3>
+<p>约束出现：带<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∀</mi><mtext>或者</mtext><mi mathvariant="normal">∃</mi></mrow><annotation encoding="application/x-tex">\forall 或者\exists</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">∀</span><span class="mord cjk_fallback">或者</span><span class="mord">∃</span></span></span></span></p>
 <p>自由出现：相反地</p>
-<p>辖域：$\forall 或者\exists$后面的括号里面的东西</p>
-<h3 id="合式公式的对偶式"><a href="#合式公式的对偶式" class="headerlink" title="合式公式的对偶式"></a>合式公式的对偶式</h3><ul>
-<li>$ \forall 和 \exist $的置换</li>
+<p>辖域：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∀</mi><mtext>或者</mtext><mi mathvariant="normal">∃</mi></mrow><annotation encoding="application/x-tex">\forall 或者\exists</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">∀</span><span class="mord cjk_fallback">或者</span><span class="mord">∃</span></span></span></span>后面的括号里面的东西</p>
+<h3 id="合式公式的对偶式">合式公式的对偶式</h3>
+<ul>
+<li>$ \forall 和 \exists $的置换</li>
 <li>1和0的置换</li>
 </ul>
-<h2 id="谓词逻辑语言"><a href="#谓词逻辑语言" class="headerlink" title="谓词逻辑语言"></a>谓词逻辑语言</h2><p>包括：</p>
+<h2 id="谓词逻辑语言">谓词逻辑语言</h2>
+<p>包括：</p>
 <ul>
 <li>逻辑符号：变元，联结词，量词(全称量词等)</li>
 <li>非逻辑符号： 常元，谓词，函词</li>
-<li>仅有个体变元（可分为自由变元和约束变元）：命题逻辑语言的命题变元，取自论域中的元素<blockquote>
+<li>仅有个体变元（可分为自由变元和约束变元）：命题逻辑语言的命题变元，取自论域中的元素</li>
+</ul>
+<blockquote>
 <p>谓词逻辑语言最终定义：谓词集合，函词集合，常元集合，联结词集合，量词集合</p>
 </blockquote>
-</li>
-</ul>
-<h3 id="项"><a href="#项" class="headerlink" title="项"></a>项</h3><ul>
+<h3 id="项">项</h3>
+<ul>
 <li>个体常元</li>
 <li>个体变元</li>
-<li>函词（个体变&#x2F;常元）</li>
+<li>函词（个体变/常元）</li>
 </ul>
-<h3 id="合式公式-1"><a href="#合式公式-1" class="headerlink" title="合式公式"></a>合式公式</h3><p>合式公式：谓词（项）+联结词的任序有限循环定义</p>
+<h3 id="合式公式-2">合式公式</h3>
+<p>合式公式：谓词（项）+联结词的任序有限循环定义</p>
 
                 
               </div>
@@ -748,9 +880,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/DM/" class="print-no-link">#DM</a>
-      
         <a href="/tags/%E7%AC%94%E8%AE%B0/" class="print-no-link">#笔记</a>
+      
+        <a href="/tags/DM/" class="print-no-link">#DM</a>
       
     </div>
   
@@ -823,6 +955,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2026/04/09/Robot/ROS2%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" title="ROS2项目管理">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">ROS2项目管理</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
@@ -925,7 +1063,6 @@
 
   
   
-
 
 
 
@@ -1225,49 +1362,6 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
-
-  
-      <script>
-        if (!window.MathJax) {
-          window.MathJax = {
-            tex    : {
-              inlineMath: { '[+]': [['$', '$']] }
-            },
-            loader : {
-              load: ['ui/lazy']
-            },
-            options: {
-              renderActions: {
-                insertedScript: [200, () => {
-                  document.querySelectorAll('mjx-container').forEach(node => {
-                    let target = node.parentNode;
-                    if (target.nodeName.toLowerCase() === 'li') {
-                      target.parentNode.classList.add('has-jax');
-                    }
-                  });
-                }, '', false]
-              }
-            }
-          };
-        } else {
-          MathJax.startup.document.state(0);
-          MathJax.texReset();
-          MathJax.typeset();
-          MathJax.typesetPromise();
-        }
-
-        Fluid.events.registerRefreshCallback(function() {
-          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
-            MathJax.startup.document.state(0);
-            MathJax.texReset();
-            MathJax.typeset();
-            MathJax.typesetPromise();
-          }
-        });
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script defer src="/js/openkounter.js" ></script>
 

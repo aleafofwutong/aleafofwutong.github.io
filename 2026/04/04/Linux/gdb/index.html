@@ -19,16 +19,16 @@
   <meta name="author" content="aleafofwutong">
   <meta name="keywords" content="">
   
-    <meta name="description" content="gdb调试工具gdb工具是能快速调试C&#x2F;C++的工具">
+    <meta name="description" content="gdb调试工具 gdb工具是能快速调试C&#x2F;C++的工具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="gdb手册">
 <meta property="og:url" content="http://aleafofwutong.github.io/2026/04/04/Linux/gdb/index.html">
 <meta property="og:site_name" content="A Leaf of Wutong">
-<meta property="og:description" content="gdb调试工具gdb工具是能快速调试C&#x2F;C++的工具">
+<meta property="og:description" content="gdb调试工具 gdb工具是能快速调试C&#x2F;C++的工具">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://aleafofwutong.github.io/img/akame4.jpg">
 <meta property="article:published_time" content="2026-04-03T16:40:35.000Z">
-<meta property="article:modified_time" content="2026-04-08T03:16:46.375Z">
+<meta property="article:modified_time" content="2026-04-09T13:23:46.911Z">
 <meta property="article:author" content="aleafofwutong">
 <meta property="article:tag" content="C语言">
 <meta property="article:tag" content="linux">
@@ -72,14 +72,14 @@
 
 
   
-<link rel="stylesheet" href="/.banner%20%7B%0A%20%20position:%20relative;%0A%7D%0A.banner::before%20%7B%0A%20%20content:%20'';%0A%20%20position:%20absolute;%0A%20%20top:%200;%0A%20%20left:%200;%0A%20%20width:%20100%25;%0A%20%20height:%20100%25;%0A%20%20background:%20linear-gradient(135deg,%20rgba(0,0,0,0.8),%20rgba(180,0,0,0.6));%0A%20%20z-index:%201;%0A%7D%0A.banner%20.content%20%7B%0A%20%20position:%20relative;%0A%20%20z-index:%202;%0A%7D%0A.css">
+<link rel="stylesheet" href="/css/custom.css">
 
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"aleafofwutong.github.io","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":true,"scope":["home","post","category","tag","page",404,"links","about"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"06a178930a799545e3c94c375a36ee13","google":{"measurement_id":"G-K6XQ7XRYB3"},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"aleafofwutong.github.io","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":["home","post","category","tag","page",404,"links","about"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"06a178930a799545e3c94c375a36ee13","google":{"measurement_id":"G-K6XQ7XRYB3"},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -135,7 +135,11 @@
 
 
   
-<meta name="generator" content="Hexo 8.1.1"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head>
 
 
 <body>
@@ -468,6 +472,79 @@
     
     <div class="category row nomargin-x">
       <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Linux"
+        id="heading-edc9f0a5a5d57797bf68e37364743831" role="tab" data-toggle="collapse" href="#collapse-edc9f0a5a5d57797bf68e37364743831"
+        aria-expanded="true"
+      >
+        Linux
+        <span class="list-group-count">(2)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-edc9f0a5a5d57797bf68e37364743831"
+           role="tabpanel" aria-labelledby="heading-edc9f0a5a5d57797bf68e37364743831">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2026/04/09/Linux/bash/" title="bash手册"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">bash手册</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/04/Linux/gdb/" title="gdb手册"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">gdb手册</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="C"
+        id="heading-0d61f8370cad1d412f80b84d143e1257" role="tab" data-toggle="collapse" href="#collapse-0d61f8370cad1d412f80b84d143e1257"
+        aria-expanded="true"
+      >
+        C
+        <span class="list-group-count">(3)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-0d61f8370cad1d412f80b84d143e1257"
+           role="tabpanel" aria-labelledby="heading-0d61f8370cad1d412f80b84d143e1257">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="tools"
         id="heading-4a931512ce65bdc9ca6808adf92d8783" role="tab" data-toggle="collapse" href="#collapse-4a931512ce65bdc9ca6808adf92d8783"
         aria-expanded="true"
@@ -500,6 +577,87 @@
       </div>
     </div>
   
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="模板"
+        id="heading-59cf15fe6b8d659c9bd2f86143534a06" role="tab" data-toggle="collapse" href="#collapse-59cf15fe6b8d659c9bd2f86143534a06"
+        aria-expanded="false"
+      >
+        模板
+        <span class="list-group-count">(2)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-59cf15fe6b8d659c9bd2f86143534a06"
+           role="tabpanel" aria-labelledby="heading-59cf15fe6b8d659c9bd2f86143534a06">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="字符串"
+        id="heading-cc4dd1da7e1a754534215f02fb9ba85d" role="tab" data-toggle="collapse" href="#collapse-cc4dd1da7e1a754534215f02fb9ba85d"
+        aria-expanded="false"
+      >
+        字符串
+        <span class="list-group-count">(2)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-cc4dd1da7e1a754534215f02fb9ba85d"
+           role="tabpanel" aria-labelledby="heading-cc4dd1da7e1a754534215f02fb9ba85d">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2026/04/10/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/%E5%AD%97%E7%AC%A6%E4%B8%B22/" title="字符串的操作"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">字符串的操作</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/06/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="字符串的输入输出"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">字符串的输入输出</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
 </div>
 
 
@@ -517,7 +675,7 @@
               <p id="updated-time" class="note note-info" style="display: none">
                 
                   
-                    Last updated on 2026-04-08T11:16:46+08:00
+                    Last updated on 2026-04-09T21:23:46+08:00
                   
                   
 
@@ -527,34 +685,32 @@
             
               <div class="markdown-body">
                 
-                <h1 id="gdb调试工具"><a href="#gdb调试工具" class="headerlink" title="gdb调试工具"></a>gdb调试工具</h1><p>gdb工具是能快速调试C&#x2F;C++的工具</p>
+                <h1 id="gdb调试工具">gdb调试工具</h1>
+<p>gdb工具是能快速调试C/C++的工具</p>
 <span id="more"></span>
-
-<h2 id="生成含有调试信息的可执行文件"><a href="#生成含有调试信息的可执行文件" class="headerlink" title="生成含有调试信息的可执行文件"></a>生成含有调试信息的可执行文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">gcc -g -o0 main.c -o main <span class="hljs-comment">#建议linux系统使用，更方便</span><br>g++ -g -O0 main.cpp -o main<br><span class="hljs-comment"># -o0:不优化</span><br><span class="hljs-comment"># -g：输出调试信息</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="具体运行参数"><a href="#具体运行参数" class="headerlink" title="具体运行参数"></a>具体运行参数</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 基础格式</span><br>gdb [启动参数] 可执行文件 [core文件/进程PID]<br><br><span class="hljs-comment"># 1. 最常用核心参数</span><br>-tui             <span class="hljs-comment"># 开启可视化源码窗口（调试首选）</span><br>-q / --quiet     <span class="hljs-comment"># 安静启动，不显示版权冗余信息</span><br>--args           <span class="hljs-comment"># 给被调试程序传递参数（gdb --args ./main 10 20）</span><br>-p PID           <span class="hljs-comment"># 附加到正在运行的进程（gdb -p 12345）</span><br>-ex <span class="hljs-string">&quot;命令&quot;</span>       <span class="hljs-comment"># 启动后自动执行 GDB 命令（-ex &quot;b main&quot; -ex &quot;run&quot;）</span><br>-batch           <span class="hljs-comment"># 批处理模式，执行完自动退出（脚本用）</span><br><br><span class="hljs-comment"># 2. 高频组合命令（直接用）</span><br>gdb -q -tui ./main              <span class="hljs-comment"># 安静+可视化启动</span><br>gdb -q --args ./main 100 200    <span class="hljs-comment"># 带程序参数启动</span><br>gdb -q -tui -ex <span class="hljs-string">&quot;b main&quot;</span> -ex <span class="hljs-string">&quot;r&quot;</span> ./main  <span class="hljs-comment"># 可视化+自动断 main+运行</span><br>gdb ./main core.12345           <span class="hljs-comment"># 调试崩溃 core 文件</span><br></code></pre></td></tr></table></figure>
-
-
-<h2 id="具体使用"><a href="#具体使用" class="headerlink" title="具体使用"></a>具体使用</h2><ul>
+<h2 id="生成含有调试信息的可执行文件">生成含有调试信息的可执行文件</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">gcc -g -o0 main.c -o main <span class="hljs-comment">#建议linux系统使用，更方便</span><br>g++ -g -O0 main.cpp -o main<br><span class="hljs-comment"># -o0:不优化</span><br><span class="hljs-comment"># -g：输出调试信息</span><br></code></pre></td></tr></table></figure>
+<h2 id="具体运行参数">具体运行参数</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 基础格式</span><br>gdb [启动参数] 可执行文件 [core文件/进程PID]<br><br><span class="hljs-comment"># 1. 最常用核心参数</span><br>-tui             <span class="hljs-comment"># 开启可视化源码窗口（调试首选）</span><br>-q / --quiet     <span class="hljs-comment"># 安静启动，不显示版权冗余信息</span><br>--args           <span class="hljs-comment"># 给被调试程序传递参数（gdb --args ./main 10 20）</span><br>-p PID           <span class="hljs-comment"># 附加到正在运行的进程（gdb -p 12345）</span><br>-ex <span class="hljs-string">&quot;命令&quot;</span>       <span class="hljs-comment"># 启动后自动执行 GDB 命令（-ex &quot;b main&quot; -ex &quot;run&quot;）</span><br>-batch           <span class="hljs-comment"># 批处理模式，执行完自动退出（脚本用）</span><br><br><span class="hljs-comment"># 2. 高频组合命令（直接用）</span><br>gdb -q -tui ./main              <span class="hljs-comment"># 安静+可视化启动</span><br>gdb -q --args ./main 100 200    <span class="hljs-comment"># 带程序参数启动</span><br>gdb -q -tui -ex <span class="hljs-string">&quot;b main&quot;</span> -ex <span class="hljs-string">&quot;r&quot;</span> ./main  <span class="hljs-comment"># 可视化+自动断 main+运行</span><br>gdb ./main core.12345           <span class="hljs-comment"># 调试崩溃 core 文件</span><br></code></pre></td></tr></table></figure>
+<h2 id="具体使用">具体使用</h2>
+<ul>
 <li>基础功能</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#====#</span><br><span class="hljs-comment"># 最常用</span><br>r           <span class="hljs-comment"># ==run</span><br>n           <span class="hljs-comment"># ==next,下一行</span><br>c           <span class="hljs-comment"># ==continue,执行到第一个遇见的断点</span><br>p n         <span class="hljs-comment"># ==print n, 打印n的值</span><br>finish      <span class="hljs-comment"># 运行完当前函数，返回到调用处</span><br>b 行号      <span class="hljs-comment"># ==break，在某一行设置断点</span><br>q           <span class="hljs-comment"># ==quit,退出gdb</span><br>i b         <span class="hljs-comment"># ==info,查看断点</span><br><br><span class="hljs-comment"># 次级常用</span><br>p *arr@50       <span class="hljs-comment"># 打印数组前五十个（数组专用）</span><br><br>list            <span class="hljs-comment"># l，显示当前代码</span><br>list 行号       <span class="hljs-comment"># 显示某行附近代码</span><br><span class="hljs-comment"># 这俩不如带-tui来得划算</span><br>display 变量    <span class="hljs-comment"># 每步都自动打印</span><br>b 函数名        <span class="hljs-comment"># 在函数入口设置断点</span><br><span class="hljs-keyword">until</span> 行号      <span class="hljs-comment"># 执行到某一行（跳过循环神器</span><br><span class="hljs-built_in">kill</span>            <span class="hljs-comment"># 提前结束</span><br><br><span class="hljs-comment"># 其他不常用命令</span><br>info breakpoints  <span class="hljs-comment"># 查看所有断点</span><br>delete 断点编号    <span class="hljs-comment"># 删除指定断点</span><br>delete             <span class="hljs-comment"># 删除所有断点</span><br>b 文件名:行号       <span class="hljs-comment"># 多文件调试</span><br>info breakpoints   <span class="hljs-comment"># i b，查看所有断点</span><br><span class="hljs-built_in">disable</span> 断点编号    <span class="hljs-comment"># 禁用断点</span><br><span class="hljs-built_in">enable</span> 断点编号     <span class="hljs-comment"># 启用断点</span><br>list 函数名         <span class="hljs-comment"># 显示函数代码</span><br>disassemble 函数名  <span class="hljs-comment"># 查看汇编代码</span><br>p/x 变量            <span class="hljs-comment"># 十六进制</span><br>p/d 变量            <span class="hljs-comment"># 十进制</span><br>p/c 变量            <span class="hljs-comment"># 字符</span><br>p/f 变量            <span class="hljs-comment"># 浮点数</span><br>info display        <span class="hljs-comment"># 查看监控</span><br>undisplay 编号      <span class="hljs-comment"># 取消监控</span><br></code></pre></td></tr></table></figure>
-
 <ul>
 <li>进阶功能</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 栈</span><br>bt          <span class="hljs-comment"># 查看函数调用栈（哪里崩溃）</span><br>frame 编号  <span class="hljs-comment"># 跳转到某一层栈</span><br>up          <span class="hljs-comment"># 上一层栈</span><br>down        <span class="hljs-comment"># 下一层栈</span><br><br><span class="hljs-comment"># 内存</span><br>x /10xw 地址   <span class="hljs-comment"># 以16进制查看10个32位数据</span><br>x /20dw 地址   <span class="hljs-comment"># 以10进制查看20个</span><br>x /s 地址      <span class="hljs-comment"># 查看字符串</span><br><br><span class="hljs-comment"># 强行修改</span><br><span class="hljs-built_in">set</span> var 变量=值<br><span class="hljs-built_in">set</span> var i=10<br><span class="hljs-built_in">set</span> var arr[0]=100<br><br><span class="hljs-comment"># 多文件调试</span><br>info <span class="hljs-built_in">functions</span>    <span class="hljs-comment"># 查看所有函数</span><br>info variables    <span class="hljs-comment"># 查看全局变量</span><br><span class="hljs-built_in">cd</span> 目录           <span class="hljs-comment"># 切换目录</span><br>path 目录         <span class="hljs-comment"># 添加符号路径</span><br><br><span class="hljs-comment"># 崩溃调试</span><br><span class="hljs-built_in">ulimit</span> -c unlimited<br>gdb ./main core.xxx<br><br>bt full  <span class="hljs-comment"># 查看崩溃现场</span><br><span class="hljs-comment"># 当然，只能看代码的崩溃现场，不是调试时你的崩溃现场……</span><br></code></pre></td></tr></table></figure>
-
-
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>set print array on</p>
+<h2 id="配置">配置</h2>
+<p>set print array on</p>
 <blockquote>
 <p>设置数组打印格式</p>
 </blockquote>
-<p>set print sevenbit-strings on   </p>
+<p>set print sevenbit-strings on</p>
 <blockquote>
 <p>字符串正常显示</p>
 </blockquote>
-<p>set print pretty on             </p>
+<p>set print pretty on</p>
 <blockquote>
 <p>结构体自动缩进、格式化（超级美观！）</p>
 </blockquote>
@@ -571,18 +727,19 @@
 <p>打印所有元素（不推荐，易刷屏）</p>
 </blockquote>
 <ul>
-<li><p>不常用</p>
-<p>  set print array-indexes on      # 显示数组下标 [0] [1]</p>
-<p>  set print repeats 0             # 连续相同值合并显示（比如 0x00… 100 times）</p>
-<p>  set print union on              # 联合体也美化</p>
-<p>  set print object on             # 指针自动解引用显示真实类型</p>
-<p>  set print static-members on     # 显示静态成员</p>
-<p>  set print vtbl on               # 显示虚函数表</p>
-<p>  set print demangle on           # 自动还原C++函数名</p>
+<li>
+<p>不常用</p>
+<p>set print array-indexes on      # 显示数组下标 [0] [1]</p>
+<p>set print repeats 0             # 连续相同值合并显示（比如 0x00… 100 times）</p>
+<p>set print union on              # 联合体也美化</p>
+<p>set print object on             # 指针自动解引用显示真实类型</p>
+<p>set print static-members on     # 显示静态成员</p>
+<p>set print vtbl on               # 显示虚函数表</p>
+<p>set print demangle on           # 自动还原C++函数名</p>
 </li>
 </ul>
-<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">回车 = 重复上一条命令<br>Ctrl + L = 清屏<br>Ctrl + C = 中断程序<br></code></pre></td></tr></table></figure>
-
+<h2 id="快捷键">快捷键</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">回车 = 重复上一条命令<br>Ctrl + L = 清屏<br>Ctrl + C = 中断程序<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -601,8 +758,25 @@
     
       <span class="category-chain">
         
-  <a href="/categories/tools/" class="category-chain-item">tools</a>
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
   
+  
+
+      </span>
+    
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/C/tools/" class="category-chain-item">tools</a>
+  
+  
+
   
 
       </span>
@@ -616,9 +790,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/linux/" class="print-no-link">#linux</a>
-      
         <a href="/tags/C%E8%AF%AD%E8%A8%80/" class="print-no-link">#C语言</a>
+      
+        <a href="/tags/linux/" class="print-no-link">#linux</a>
       
     </div>
   
@@ -649,7 +823,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Updated on</div>
-          <div>April 8, 2026</div>
+          <div>April 9, 2026</div>
         </div>
       
       
@@ -692,9 +866,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2026/04/06/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="字符串的那些坑">
+                      <a href="/2026/04/06/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="字符串的输入输出">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">字符串的那些坑</span>
+                        <span class="hidden-mobile">字符串的输入输出</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     

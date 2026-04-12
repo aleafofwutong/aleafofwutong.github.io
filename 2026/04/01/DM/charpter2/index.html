@@ -72,14 +72,14 @@
 
 
   
-<link rel="stylesheet" href="/.banner%20%7B%0A%20%20position:%20relative;%0A%7D%0A.banner::before%20%7B%0A%20%20content:%20'';%0A%20%20position:%20absolute;%0A%20%20top:%200;%0A%20%20left:%200;%0A%20%20width:%20100%25;%0A%20%20height:%20100%25;%0A%20%20background:%20linear-gradient(135deg,%20rgba(0,0,0,0.8),%20rgba(180,0,0,0.6));%0A%20%20z-index:%201;%0A%7D%0A.banner%20.content%20%7B%0A%20%20position:%20relative;%0A%20%20z-index:%202;%0A%7D%0A.css">
+<link rel="stylesheet" href="/css/custom.css">
 
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"aleafofwutong.github.io","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":true,"scope":["home","post","category","tag","page",404,"links","about"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"06a178930a799545e3c94c375a36ee13","google":{"measurement_id":"G-K6XQ7XRYB3"},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"aleafofwutong.github.io","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":["home","post","category","tag","page",404,"links","about"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"06a178930a799545e3c94c375a36ee13","google":{"measurement_id":"G-K6XQ7XRYB3"},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -135,7 +135,11 @@
 
 
   
-<meta name="generator" content="Hexo 8.1.1"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head>
 
 
 <body>
@@ -406,7 +410,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          768 words
+          728 words
         
       </span>
     
@@ -473,7 +477,7 @@
         aria-expanded="true"
       >
         笔记
-        <span class="list-group-count">(4)</span>
+        <span class="list-group-count">(6)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
@@ -500,7 +504,7 @@
         aria-expanded="false"
       >
         C语言
-        <span class="list-group-count">(1)</span>
+        <span class="list-group-count">(2)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
@@ -514,10 +518,19 @@
     
       
       
-        <a href="/2026/04/06/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="字符串的那些坑"
+        <a href="/2026/04/10/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/%E5%AD%97%E7%AC%A6%E4%B8%B22/" title="字符串的操作"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">字符串的那些坑</span>
+          <span class="category-post">字符串的操作</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/06/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="字符串的输入输出"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">字符串的输入输出</span>
         </a>
       
     
@@ -582,6 +595,74 @@
       </div>
     </div>
   
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="数学"
+        id="heading-6e65831863dbf272b7a65cd8df1a440d" role="tab" data-toggle="collapse" href="#collapse-6e65831863dbf272b7a65cd8df1a440d"
+        aria-expanded="false"
+      >
+        数学
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-6e65831863dbf272b7a65cd8df1a440d"
+           role="tabpanel" aria-labelledby="heading-6e65831863dbf272b7a65cd8df1a440d">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="线性代数"
+        id="heading-4d08a6448db7cfb8b33bafbf40911872" role="tab" data-toggle="collapse" href="#collapse-4d08a6448db7cfb8b33bafbf40911872"
+        aria-expanded="false"
+      >
+        线性代数
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-4d08a6448db7cfb8b33bafbf40911872"
+           role="tabpanel" aria-labelledby="heading-4d08a6448db7cfb8b33bafbf40911872">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2026/04/11/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/1/" title="SVD矩阵分解"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">SVD矩阵分解</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
         
       </div>
     </div>
@@ -613,68 +694,83 @@
             
               <div class="markdown-body">
                 
-                <h1 id="命题逻辑语义"><a href="#命题逻辑语义" class="headerlink" title="命题逻辑语义"></a>命题逻辑语义</h1><span id="more"></span> 
-<h2 id="2-1-命题合式公式语义"><a href="#2-1-命题合式公式语义" class="headerlink" title="2.1 命题合式公式语义"></a>2.1 命题合式公式语义</h2><h3 id="命题逻辑公式的真值"><a href="#命题逻辑公式的真值" class="headerlink" title="命题逻辑公式的真值"></a>命题逻辑公式的真值</h3><blockquote>
+                <h1 id="命题逻辑语义">命题逻辑语义</h1>
+<span id="more"></span> 
+<h2 id="2-1-命题合式公式语义">2.1 命题合式公式语义</h2>
+<h3 id="命题逻辑公式的真值">命题逻辑公式的真值</h3>
+<blockquote>
 <p>P∧Q的真值</p>
 </blockquote>
 <ul>
-<li><p>def 2.1.1</p>
+<li>
+<p>def 2.1.1</p>
 <ul>
 <li>指派函数，简称指派，是一种从合式公式到集合{0,1}的函数，记作σ</li>
 <li>σ:Q→ {0,1}</li>
 </ul>
 </li>
-<li><p>def 2.1.2</p>
+<li>
+<p>def 2.1.2</p>
 <ul>
-<li>Q是命题变元，则Q的语义是指Q的真值。即σ(Q)&#x3D;Q^{σ},其中Q^σ∈{0,1}</li>
+<li>Q是命题变元，则Q的语义是指Q的真值。即σ(Q)=Q^{σ},其中Q^σ∈{0,1}</li>
 </ul>
 </li>
-<li><p>def 2.1.3 </p>
+<li>
+<p>def 2.1.3</p>
 <ul>
-<li>Q,R是命题变元，σ 是指派，合式公式联结词的语义指定为对应的逻辑运算<ul>
-<li>.e.g (¬ Q)是合式公式，σ (¬ Q)&#x3D;¬σ(Q)</li>
+<li>Q,R是命题变元，σ 是指派，合式公式联结词的语义指定为对应的逻辑运算
+<ul>
+<li>.e.g (¬ Q)是合式公式，σ (¬ Q)=¬σ(Q)</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>def 2.1.4</p>
+<li>
+<p>def 2.1.4</p>
 <ul>
-<li>若Q，R是合式公式，σ(Q⊨R)&#x3D;σ(Q)⊨σ(R)</li>
+<li>若Q，R是合式公式，σ(Q⊨R)=σ(Q)⊨σ®</li>
 </ul>
 </li>
-<li><p>def  2.1.5</p>
+<li>
+<p>def  2.1.5</p>
 <ul>
-<li>若Q，R是合式公式，σ(Q⇔R)&#x3D;σ(Q)⇔σ(R)</li>
+<li>若Q，R是合式公式，σ(Q⇔R)=σ(Q)⇔σ®</li>
 </ul>
 </li>
-<li><p>def 2.1.6</p>
+<li>
+<p>def 2.1.6</p>
 <ul>
-<li>如果真值指派σ使得σ(Q)&#x3D;1,则称σ满足Q</li>
+<li>如果真值指派σ使得σ(Q)=1,则称σ满足Q</li>
 <li>如果每个真值指派都满足Q，那么Q是有效式，永真式，重言式。</li>
 <li>如果每个真值指派都不满足Q，那么Q是矛盾式，永假式，不可满足式。</li>
 <li>如果至少有1个真值指派都满足Q，那么Q是可满足式。</li>
 </ul>
 </li>
 </ul>
-<h3 id="合式公式真值语义求值方法"><a href="#合式公式真值语义求值方法" class="headerlink" title="合式公式真值语义求值方法"></a>合式公式真值语义求值方法</h3><ul>
+<h3 id="合式公式真值语义求值方法">合式公式真值语义求值方法</h3>
+<ul>
 <li>指派函数求真值法</li>
 <li>真值表求真值法</li>
 <li>python程序求真值法</li>
 </ul>
-<h2 id="2-2推论式与等价式的语义"><a href="#2-2推论式与等价式的语义" class="headerlink" title="2.2推论式与等价式的语义"></a>2.2推论式与等价式的语义</h2><ul>
-<li><p>def 2.2.1</p>
+<h2 id="2-2推论式与等价式的语义">2.2推论式与等价式的语义</h2>
 <ul>
-<li>设Q和R都是合式公式,Q⊨R是推论式，若对于任意指派函数σ,σ(Q)⊨σ(R) 皆为真，则称Q语义推出R</li>
+<li>
+<p>def 2.2.1</p>
+<ul>
+<li>设Q和R都是合式公式,Q⊨R是推论式，若对于任意指派函数σ,σ(Q)⊨σ® 皆为真，则称Q语义推出R</li>
 </ul>
 </li>
-<li><p>def 2.2.2</p>
+<li>
+<p>def 2.2.2</p>
 <ul>
-<li>设Γ是合式公式合集，R是合式公式，Γ⊨R是推论式，若对于任意指派函数σ,σ(Γ)⊨σ(R)</li>
+<li>设Γ是合式公式合集，R是合式公式，Γ⊨R是推论式，若对于任意指派函数σ,σ(Γ)⊨σ®</li>
 </ul>
 </li>
-<li><p>def 2.2.3</p>
+<li>
+<p>def 2.2.3</p>
 <ul>
-<li>设Q_{1},Q_{2},Q_{3},⋯,Q_{n}是命题公式，Γ&#x3D;{Q_{1},Q_{2},⋯ Q_{n}},若对于任意指派函数σ,如果σ(Q_1),σ(Q_2),⋯,σ(Q_n)皆为真，则Γ(R)为真，则称Q_{1},Q_{2},Q_{3},⋯ ,Q_{n}语义推出R,记为Q_{1},Q_{2},Q_{3},⋯ ,Q_{n}⊨ R(也是推论式)。若R为空集，记作⊨ R。</li>
+<li>设Q_{1},Q_{2},Q_{3},⋯,Q_{n}是命题公式，Γ={Q_{1},Q_{2},⋯ Q_{n}},若对于任意指派函数σ,如果σ(Q_1),σ(Q_2),⋯,σ(Q_n)皆为真，则Γ®为真，则称Q_{1},Q_{2},Q_{3},⋯ ,Q_{n}语义推出R,记为Q_{1},Q_{2},Q_{3},⋯ ,Q_{n}⊨ R(也是推论式)。若R为空集，记作⊨ R。</li>
 </ul>
 </li>
 </ul>
@@ -718,9 +814,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/DM/" class="print-no-link">#DM</a>
-      
         <a href="/tags/%E7%AC%94%E8%AE%B0/" class="print-no-link">#笔记</a>
+      
+        <a href="/tags/DM/" class="print-no-link">#DM</a>
       
     </div>
   
