@@ -4,58 +4,6 @@
   
   
   <entry>
-    <title></title>
-    <link href="/2026/04/14/Robot/"/>
-    <url>/2026/04/14/Robot/</url>
-    
-    <content type="html"><![CDATA[<p>[[ROS2常用命令]][[ROS2项目管理]]</p>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title></title>
-    <link href="/2026/04/14/opencv/"/>
-    <url>/2026/04/14/opencv/</url>
-    
-    <content type="html"><![CDATA[<p>[[opencv_line_detector]]</p>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title></title>
-    <link href="/2026/04/14/Linux/"/>
-    <url>/2026/04/14/Linux/</url>
-    
-    <content type="html"><![CDATA[<p>[[bash]][[gdb]]</p>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title></title>
-    <link href="/2026/04/14/DM/"/>
-    <url>/2026/04/14/DM/</url>
-    
-    <content type="html"><![CDATA[<p>[[提升1]]<br>[[专题1]]<br>[[charpter1]]<br>[[charpter2]]</p>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>离散数学提升1</title>
     <link href="/2026/04/12/DM/%E6%8F%90%E5%8D%871/"/>
     <url>/2026/04/12/DM/%E6%8F%90%E5%8D%871/</url>
@@ -108,9 +56,9 @@
       
       <category>笔记</category>
       
-      <category>数学</category>
-      
       <category>课外</category>
+      
+      <category>数学</category>
       
       <category>线性代数</category>
       
@@ -289,9 +237,9 @@
       
       <category>科学技术</category>
       
-      <category>机器人</category>
-      
       <category>笔记</category>
+      
+      <category>机器人</category>
       
       <category>计算机视觉</category>
       
