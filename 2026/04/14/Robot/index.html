@@ -19,19 +19,17 @@
   <meta name="author" content="aleafofwutong">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1 	 		&#x2F;* Basic styles for readability *&#x2F; 		body { 			font-family: sans-serif; 			max-width: 800px; 			margin: 2em auto; 			padding: 0 1em; 			line-height: 1.6; 		} 		img { max-width: 100%; hei">
+    <meta name="description" content="[[ROS2常用命令]][[ROS2项目管理]]">
 <meta property="og:type" content="article">
 <meta property="og:title" content="A Leaf of Wutong">
-<meta property="og:url" content="http://aleafofwutong.github.io/2026/04/11/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/index/index.html">
+<meta property="og:url" content="http://aleafofwutong.github.io/2026/04/14/Robot/index.html">
 <meta property="og:site_name" content="A Leaf of Wutong">
-<meta property="og:description" content="1 	 		&#x2F;* Basic styles for readability *&#x2F; 		body { 			font-family: sans-serif; 			max-width: 800px; 			margin: 2em auto; 			padding: 0 1em; 			line-height: 1.6; 		} 		img { max-width: 100%; hei">
+<meta property="og:description" content="[[ROS2常用命令]][[ROS2项目管理]]">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://aleafofwutong.github.io/img/Linear_algebra/1/1.jpeg">
-<meta property="article:published_time" content="2026-04-11T12:59:36.909Z">
-<meta property="article:modified_time" content="2026-04-11T13:01:18.188Z">
+<meta property="article:published_time" content="2026-04-14T05:27:15.832Z">
+<meta property="article:modified_time" content="2026-04-14T05:27:21.723Z">
 <meta property="article:author" content="aleafofwutong">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://aleafofwutong.github.io/img/Linear_algebra/1/1.jpeg">
   
   
   
@@ -396,8 +394,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-04-11 20:59" pubdate>
-          April 11, 2026 pm
+        <time datetime="2026-04-14 13:27" pubdate>
+          April 14, 2026 pm
         </time>
       </span>
     
@@ -408,7 +406,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.3k words
+          24 words
         
       </span>
     
@@ -419,7 +417,7 @@
         
         
         
-          20 mins
+          1 mins
         
       </span>
     
@@ -467,7 +465,7 @@
               <p id="updated-time" class="note note-info" style="display: none">
                 
                   
-                    Last updated on 2026-04-11T21:01:18+08:00
+                    Last updated on 2026-04-14T13:27:21+08:00
                   
                   
 
@@ -477,169 +475,8 @@
             
               <div class="markdown-body">
                 
-                <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>1</title>
-	<style>
-		/* Basic styles for readability */
-		body {
-			font-family: sans-serif;
-			max-width: 800px;
-			margin: 2em auto;
-			padding: 0 1em;
-			line-height: 1.6;
-		}
-		img { max-width: 100%; height: auto; }
-		pre { background-color: #f4f4f4; padding: 1em; overflow-x: auto; }
-		code { font-family: monospace; }
-	</style>
-</head>
-<body>
-	<hr>
-<h2>title: SVD矩阵分解
-date: 2026-04-11 20:26:52
-categories: [笔记,数学,线性代数]
-category_bar: true
-tags: [课外, 笔记]
-mathjax: true
-index_img: /img/akame9.jpg
-katex: true
-math: true</h2>
-<h1 id="default"></h1>
-<h2>奇异值的分解</h2>
-<!-- $A=\begin{pmatrix}1 & 2 \\ 3 & 4\end{pmatrix}$ -->
-<p>$$</p>
-<table>
-    <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-    </tr>
-    <tr>
-        <td>4</td>
-        <td>5</td>
-        <td>6</td>
-    </tr>
-    <tr>
-        <td>7</td>
-        <td>8</td>
-        <td>9</td>
-    </tr>
-</table>
-<p>$$</p>
-<p>$$
-AA^T = \begin{bmatrix}
-32 &amp; 0 \
-0 &amp; 18
-\end{bmatrix}
-$$
-$ A=\begin{pmatrix} 1 &amp; 2  \ 2 &amp; 3  \end{pmatrix} $</p>
-<p>$A=\begin{pmatrix}  5 \ 6  \end{pmatrix}$
-$$
-A=U\Sigma V^T
-$$</p>
-<p>$ U $ 是左奇异矩阵，$V$是右奇异矩阵，$\Sigma$是奇异值矩阵</p>
-<p>$U$是$AA^T$的特征向量矩阵,$V$是$A^TA$的特征向量矩阵，$\Sigma$是对角矩阵，对角线上的元素是$A$的奇异值，且奇异值从大到小排列。</p>
-<h2>奇异值分解的具体步骤</h2>
-<ol>
-<li>对 $A^TA$ 进行谱分解，对 $AA^T$ 进行谱分解</li>
-<li>对 $A^TA$ 的特征值取平方根，得到 $A$ 的奇异值</li>
-<li>将 $A$ 的奇异值按从大到小的顺序排列，得到 $\Sigma$</li>
-<li>根据 $A^TA$ 和 $AA^T$ 的特征向量，得到 $U$ 和 $V$</li>
-</ol>
-<h2>示例</h2>
-<pre><code class="language-Markdown">AA^T=\begin{bmatrix}
-32 &amp; 0
-\\\\
-0 &amp; 18
-\end{bmatrix}
-</code></pre>
-<p>$$
-A=\left[\begin{array}{cc}
-4 &amp; 4 \
--3 &amp; 3
-\end{array}\right]
-$$</p>
-<p>[
-A=
-\begin{bmatrix}
-4 &amp; 4 \
--3 &amp; 3
-\end{bmatrix}
-]
-$$
-A^T=
-\begin{bmatrix}
-4 &amp; -3\
-4 &amp; 3
-\end{bmatrix}
-$$</p>
-<p>$$
-AA^T=\begin{bmatrix}
-32 &amp; 0
-\
-0 &amp; 18
-\end{bmatrix}
-$$</p>
-<p>$$
-A^TA=\begin{bmatrix}
-25&amp; 7\
-7 &amp; 25<br>
-\end{bmatrix}
-$$</p>
-<p>$$
-\lambda_1=32,\lambda_2=18 \vDash
-\Sigma\begin{bmatrix}
-\sqrt{32} &amp; 0\
-0 &amp; \sqrt{18}
-\end{bmatrix}
-$$</p>
-<p>$$
-\lambda_1=25,\lambda_2=25 \vDash
-U\begin{bmatrix}
-\sqrt{25} &amp; 0\
-0 &amp; \sqrt{25}
-\end{bmatrix}
-$$</p>
-<p>$$
-\lambda_1=25,\lambda_2=25 \vDash
-V\begin{bmatrix}
-\sqrt{25} &amp; 0\
-0 &amp; \sqrt{25}
-\end{bmatrix}
-$$</p>
-<p>其中 $U$ 和 $V$ 是正交矩阵，$\Sigma$ 是对角矩阵，对角线上的元素是 $A$ 的奇异值，且奇异值从大到小排列。</p>
-<p>对于正定矩阵 $A$，其奇异值分解和对角化是等价的。</p>
-<p>矩阵值$XA$的奇异值是$A$的$|X|$倍</p>
-<h2>奇异值分解的应用</h2>
-<p>奇异值分解在许多领域都有广泛的应用，包括：</p>
-<ol>
-<li>数据压缩：通过奇异值分解，可以将矩阵 $A$ 表示为 $U\Sigma V^T$，其中 $U$ 和 $V$ 是正交矩阵，$\Sigma$ 是对角矩阵。通过保留 $\Sigma$ 中较大的奇异值，可以有效地减少矩阵的秩，从而实现数据压缩。</li>
-<li>图像处理：在图像处理中，奇异值分解可以用于图像压缩、去噪和增强等任务。通过奇异值分解，可以将图像表示为一系列低秩矩阵，从而实现图像的压缩和去噪。</li>
-<li>机器学习：在机器学习中，奇异值分解可以用于主成分分析（PCA）等算法。通过奇异值分解，可以将数据表示为一系列主成分，从而实现数据的降维和特征提取。</li>
-<li>线性代数：在线性代数中，奇异值分解可以用于求解线性方程组、特征值问题等。通过奇异值分解，可以将矩阵 $A$ 表示为一系列低秩矩阵，从而简化计算。</li>
-<li>数据挖掘：在数据挖掘中，奇异值分解可以用于聚类、分类等任务。通过奇异值分解，可以将数据表示为一系列低秩矩阵，从而实现数据的降维和特征提取。</li>
-<li>信号处理：在信号处理中，奇异值分解可以用于信号去噪、特征提取等任务。通过奇异值分解，可以将信号表示为一系列低秩矩阵，从而实现信号的压缩和去噪。</li>
-</ol>
-<ul>
-<li>主成分分析（PCA）
-将数据投影到主成分上，从而实现数据的降维和特征提取。
-通过保留低阶主成分，可以有效地减少数据的维度，同时保留数据的主要特征。因为有用的特征具有较大的方差，所以保留方差较大的主成分，可以保留数据的主要特征。
-<ul>
-<li>Q：如何判断主成分的个数？</li>
-<li>A1：人为指定法，人工选取时选取前k个最重要的成分</li>
-<li>A2：累积贡献率法，选取前k个主成分，使得前k个主成分的方差和占总方差的比例大于某个阈值（如90%），则选取前k个主成分。</li>
-<li>A3：保留差异性法：平均平方误差公式为ASPE=</li>
-<li>A4：碎石检验法：是 PCA（主成分分析）中一种直观、可视化的方法，用来判断应该保留多少个主成分，核心是看特征值下降的 “拐点”。</li>
-</ul>
-  <center> <img src="/img/Linear_algebra/1/1.jpeg" srcset="/img/loading.gif" lazyload> </center></li>
-</ul>
+                <p>[[ROS2常用命令]][[ROS2项目管理]]</p>
 
-</body>
-</html>
                 
               </div>
             
@@ -657,7 +494,7 @@ $$</p>
   <div class="license-box my-3">
     <div class="license-title">
       <div></div>
-      <div>http://aleafofwutong.github.io/2026/04/11/线性代数/index/</div>
+      <div>http://aleafofwutong.github.io/2026/04/14/Robot/</div>
     </div>
     <div class="license-meta">
       
@@ -669,13 +506,13 @@ $$</p>
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>April 11, 2026</div>
+          <div>April 14, 2026</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>Updated on</div>
-          <div>April 11, 2026</div>
+          <div>April 14, 2026</div>
         </div>
       
       
@@ -722,8 +559,8 @@ $$</p>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2026/04/11/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/1/" title="SVD矩阵分解">
-                        <span class="hidden-mobile">SVD矩阵分解</span>
+                      <a href="/2026/04/14/opencv/" title="">
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
