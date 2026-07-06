@@ -1,0 +1,1804 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/i.jpg">
+  <link rel="icon" href="/img/1.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="aleafofwutong">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="栈和队列">
+<meta property="og:type" content="article">
+<meta property="og:title" content="栈和队列">
+<meta property="og:url" content="http://aleafofwutong.github.io/2026/04/22/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/index.html">
+<meta property="og:site_name" content="A Leaf of Wutong">
+<meta property="og:description" content="栈和队列">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://aleafofwutong.github.io/img/akame8.png">
+<meta property="article:published_time" content="2026-04-22T10:41:28.000Z">
+<meta property="article:modified_time" content="2026-04-25T18:06:44.461Z">
+<meta property="article:author" content="aleafofwutong">
+<meta property="article:tag" content="C语言">
+<meta property="article:tag" content="栈和队列">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://aleafofwutong.github.io/img/akame8.png">
+  
+  
+  
+  <title>栈和队列 - A Leaf of Wutong</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"aleafofwutong.github.io","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":["home","post","category","tag","page",404,"links","about"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"06a178930a799545e3c94c375a36ee13","google":{"measurement_id":"G-K6XQ7XRYB3"},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?06a178930a799545e3c94c375a36ee13";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=G-K6XQ7XRYB3", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', 'G-K6XQ7XRYB3');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 95vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>A Leaf of Wutong</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>Links</span>
+              </a>
+            </li>
+          
+        
+          
+          
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>Home</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>Archives</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>Categories</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>Tags</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>About</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/links/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-link-fill"></i>
+                  <span>Links</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>Search</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="Light"
+               data-label-dark="Dark">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">Dark</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/infinity-8748795.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="栈和队列"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-04-22 18:41" pubdate>
+          April 22, 2026 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          10k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          83 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="总目录"
+        id="heading-bf7740035178f87b27cbd75bcb0f6294" role="tab" data-toggle="collapse" href="#collapse-bf7740035178f87b27cbd75bcb0f6294"
+        aria-expanded="true"
+      >
+        总目录
+        <span class="list-group-count">(16)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-bf7740035178f87b27cbd75bcb0f6294"
+           role="tabpanel" aria-labelledby="heading-bf7740035178f87b27cbd75bcb0f6294">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="传送门"
+        id="heading-cc2b4ecf0f5c39c0d2d57eacc3f831bb" role="tab" data-toggle="collapse" href="#collapse-cc2b4ecf0f5c39c0d2d57eacc3f831bb"
+        aria-expanded="false"
+      >
+        传送门
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-cc2b4ecf0f5c39c0d2d57eacc3f831bb"
+           role="tabpanel" aria-labelledby="heading-cc2b4ecf0f5c39c0d2d57eacc3f831bb">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2026/04/29/roadmap/map/" title="神奇的传送门"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">神奇的传送门</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="科学技术"
+        id="heading-d762fd94a92b62a2face99392b35bc6b" role="tab" data-toggle="collapse" href="#collapse-d762fd94a92b62a2face99392b35bc6b"
+        aria-expanded="true"
+      >
+        科学技术
+        <span class="list-group-count">(15)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-d762fd94a92b62a2face99392b35bc6b"
+           role="tabpanel" aria-labelledby="heading-d762fd94a92b62a2face99392b35bc6b">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2026/04/06/opencv/opencv_line_detector/" title="OpenCV_Line_Detect"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">OpenCV_Line_Detect</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/02/Robot/ROS2%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="ROS2 常用命令"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">ROS2 常用命令</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/09/Robot/ROS2%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" title="ROS2项目管理"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">ROS2项目管理</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/11/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/SVD%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/" title="SVD矩阵分解"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">SVD矩阵分解</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/09/Linux/bash/" title="bash手册"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">bash手册</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/04/Linux/gdb/" title="gdb手册"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">gdb手册</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/15/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E5%86%85%E7%A7%AF%E7%A9%BA%E9%97%B4/" title="几个空间"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">几个空间</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/10/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/%E5%AD%97%E7%AC%A6%E4%B8%B22/" title="字符串的操作"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">字符串的操作</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/06/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="字符串的输入输出"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">字符串的输入输出</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/22/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/" title="栈和队列"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">栈和队列</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/08/DM/%E4%B8%93%E9%A2%981/" title="离散数学专题1"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">离散数学专题1</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/12/DM/%E6%8F%90%E5%8D%871/" title="离散数学提升1"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">离散数学提升1</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/01/DM/charpter1/" title="离散数学第1章"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">离散数学第1章</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/01/DM/charpter2/" title="离散数学第2章"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">离散数学第2章</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/25/Linux/net/" title="网络调试命令"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">网络调试命令</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="笔记"
+        id="heading-7051dc52c184c205e39aa54b4664ae9b" role="tab" data-toggle="collapse" href="#collapse-7051dc52c184c205e39aa54b4664ae9b"
+        aria-expanded="true"
+      >
+        笔记
+        <span class="list-group-count">(13)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-7051dc52c184c205e39aa54b4664ae9b"
+           role="tabpanel" aria-labelledby="heading-7051dc52c184c205e39aa54b4664ae9b">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="C语言"
+        id="heading-d117f5dea6b7959c82d4fdb7490c555d" role="tab" data-toggle="collapse" href="#collapse-d117f5dea6b7959c82d4fdb7490c555d"
+        aria-expanded="true"
+      >
+        C语言
+        <span class="list-group-count">(3)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-d117f5dea6b7959c82d4fdb7490c555d"
+           role="tabpanel" aria-labelledby="heading-d117f5dea6b7959c82d4fdb7490c555d">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2026/04/10/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/%E5%AD%97%E7%AC%A6%E4%B8%B22/" title="字符串的操作"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">字符串的操作</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/06/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="字符串的输入输出"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">字符串的输入输出</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/22/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/" title="栈和队列"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">栈和队列</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="DM"
+        id="heading-2ecda7a0252b442ac6ecf47462119f51" role="tab" data-toggle="collapse" href="#collapse-2ecda7a0252b442ac6ecf47462119f51"
+        aria-expanded="false"
+      >
+        DM
+        <span class="list-group-count">(4)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-2ecda7a0252b442ac6ecf47462119f51"
+           role="tabpanel" aria-labelledby="heading-2ecda7a0252b442ac6ecf47462119f51">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2026/04/08/DM/%E4%B8%93%E9%A2%981/" title="离散数学专题1"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">离散数学专题1</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/12/DM/%E6%8F%90%E5%8D%871/" title="离散数学提升1"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">离散数学提升1</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/01/DM/charpter1/" title="离散数学第1章"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">离散数学第1章</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/01/DM/charpter2/" title="离散数学第2章"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">离散数学第2章</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Linux"
+        id="heading-edc9f0a5a5d57797bf68e37364743831" role="tab" data-toggle="collapse" href="#collapse-edc9f0a5a5d57797bf68e37364743831"
+        aria-expanded="false"
+      >
+        Linux
+        <span class="list-group-count">(3)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-edc9f0a5a5d57797bf68e37364743831"
+           role="tabpanel" aria-labelledby="heading-edc9f0a5a5d57797bf68e37364743831">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2026/04/09/Linux/bash/" title="bash手册"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">bash手册</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/04/Linux/gdb/" title="gdb手册"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">gdb手册</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/25/Linux/net/" title="网络调试命令"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">网络调试命令</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="计算机视觉"
+        id="heading-ffb93bb549a2b51b3ec4bfbb5d0f67be" role="tab" data-toggle="collapse" href="#collapse-ffb93bb549a2b51b3ec4bfbb5d0f67be"
+        aria-expanded="false"
+      >
+        计算机视觉
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-ffb93bb549a2b51b3ec4bfbb5d0f67be"
+           role="tabpanel" aria-labelledby="heading-ffb93bb549a2b51b3ec4bfbb5d0f67be">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2026/04/06/opencv/opencv_line_detector/" title="OpenCV_Line_Detect"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">OpenCV_Line_Detect</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="课外"
+        id="heading-421ed1a3b1b038055e7d5a74b98b8ca2" role="tab" data-toggle="collapse" href="#collapse-421ed1a3b1b038055e7d5a74b98b8ca2"
+        aria-expanded="false"
+      >
+        课外
+        <span class="list-group-count">(2)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-421ed1a3b1b038055e7d5a74b98b8ca2"
+           role="tabpanel" aria-labelledby="heading-421ed1a3b1b038055e7d5a74b98b8ca2">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2026/04/11/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/SVD%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/" title="SVD矩阵分解"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">SVD矩阵分解</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/15/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E5%86%85%E7%A7%AF%E7%A9%BA%E9%97%B4/" title="几个空间"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">几个空间</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="C"
+        id="heading-0d61f8370cad1d412f80b84d143e1257" role="tab" data-toggle="collapse" href="#collapse-0d61f8370cad1d412f80b84d143e1257"
+        aria-expanded="true"
+      >
+        C
+        <span class="list-group-count">(4)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-0d61f8370cad1d412f80b84d143e1257"
+           role="tabpanel" aria-labelledby="heading-0d61f8370cad1d412f80b84d143e1257">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="tools"
+        id="heading-4a931512ce65bdc9ca6808adf92d8783" role="tab" data-toggle="collapse" href="#collapse-4a931512ce65bdc9ca6808adf92d8783"
+        aria-expanded="false"
+      >
+        tools
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-4a931512ce65bdc9ca6808adf92d8783"
+           role="tabpanel" aria-labelledby="heading-4a931512ce65bdc9ca6808adf92d8783">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2026/04/04/Linux/gdb/" title="gdb手册"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">gdb手册</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="模板"
+        id="heading-59cf15fe6b8d659c9bd2f86143534a06" role="tab" data-toggle="collapse" href="#collapse-59cf15fe6b8d659c9bd2f86143534a06"
+        aria-expanded="true"
+      >
+        模板
+        <span class="list-group-count">(3)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-59cf15fe6b8d659c9bd2f86143534a06"
+           role="tabpanel" aria-labelledby="heading-59cf15fe6b8d659c9bd2f86143534a06">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="字符串"
+        id="heading-cc4dd1da7e1a754534215f02fb9ba85d" role="tab" data-toggle="collapse" href="#collapse-cc4dd1da7e1a754534215f02fb9ba85d"
+        aria-expanded="false"
+      >
+        字符串
+        <span class="list-group-count">(2)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-cc4dd1da7e1a754534215f02fb9ba85d"
+           role="tabpanel" aria-labelledby="heading-cc4dd1da7e1a754534215f02fb9ba85d">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2026/04/10/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/%E5%AD%97%E7%AC%A6%E4%B8%B22/" title="字符串的操作"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">字符串的操作</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2026/04/06/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="字符串的输入输出"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">字符串的输入输出</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="栈和队列"
+        id="heading-260c0aaadab1366825948b3b65d0fa95" role="tab" data-toggle="collapse" href="#collapse-260c0aaadab1366825948b3b65d0fa95"
+        aria-expanded="true"
+      >
+        栈和队列
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-260c0aaadab1366825948b3b65d0fa95"
+           role="tabpanel" aria-labelledby="heading-260c0aaadab1366825948b3b65d0fa95">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2026/04/22/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/" title="栈和队列"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">栈和队列</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">栈和队列</h1>
+            
+              <p id="updated-time" class="note note-info" style="display: none">
+                
+                  
+                    Last updated on 2026-04-26T02:06:44+08:00
+                  
+                  
+
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="栈和队列">栈和队列</h1>
+<span id="more"></span>
+<h2 id="栈">栈</h2>
+<p>栈是一种先进后出的数据结构，它只允许在一端进行插入和删除操作。栈的基本操作包括压栈（push）、弹栈（pop）和查看栈顶元素（top）。</p>
+<h3 id="基础实现">基础实现</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX_SIZE 100</span><br><br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> _<span class="hljs-title">Stack</span>&#123;</span><br>    <span class="hljs-type">int</span> data[MAX_SIZE];<br>    <span class="hljs-type">int</span> top;<br>&#125; S,* Sp;<br><span class="hljs-type">void</span> <span class="hljs-title function_">init</span><span class="hljs-params">(Sp s)</span>&#123;<br>    s-&gt;top=<span class="hljs-number">-1</span>;<br>&#125;<br><span class="hljs-type">int</span> <span class="hljs-title function_">empty</span><span class="hljs-params">(Sp s)</span>&#123;<br>    <span class="hljs-keyword">return</span> s-&gt;top==<span class="hljs-number">-1</span>;<br>&#125;<br><span class="hljs-type">int</span> <span class="hljs-title function_">full</span><span class="hljs-params">(Sp s)</span>&#123;<br>    <span class="hljs-keyword">return</span> s-&gt;top==MAX_SIZE<span class="hljs-number">-1</span>;<br>&#125;<br><span class="hljs-type">void</span> <span class="hljs-title function_">push</span><span class="hljs-params">(Sp s,<span class="hljs-type">int</span> x)</span>&#123;<br>    <span class="hljs-keyword">if</span>(full(s))&#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Stack overflow\n&quot;</span>);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    s-&gt;data[++s-&gt;top]=x;<br>&#125;<br><span class="hljs-type">int</span> <span class="hljs-title function_">pop</span><span class="hljs-params">(Sp s)</span>&#123;<br>    <span class="hljs-keyword">if</span>(empty(s))&#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Stack underflow\n&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>; <span class="hljs-comment">// 返回-1表示栈空</span><br>    &#125;<br>    <span class="hljs-keyword">return</span> s-&gt;data[s-&gt;top--];<br>&#125;<br><span class="hljs-type">int</span> <span class="hljs-title function_">top</span><span class="hljs-params">(Sp s)</span>&#123;<br>    <span class="hljs-keyword">if</span>(empty(s))&#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Stack is empty\n&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>; <span class="hljs-comment">// 返回-1表示栈空</span><br>    &#125;<br>    <span class="hljs-keyword">return</span> s-&gt;data[s-&gt;top];<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="示例">示例</h3>
+<ol>
+<li>计算器的实现</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string.h&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX_SIZE 100</span><br><br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> _<span class="hljs-title">Stack</span>&#123;</span><br>    <span class="hljs-type">int</span> data[MAX_SIZE];<br>    <span class="hljs-type">int</span> top;<br>&#125; S,* Sp;<br><span class="hljs-type">void</span> <span class="hljs-title function_">init</span><span class="hljs-params">(Sp s)</span>&#123;<br>    s-&gt;top=<span class="hljs-number">-1</span>;<br>&#125;<br><span class="hljs-type">int</span> <span class="hljs-title function_">empty</span><span class="hljs-params">(Sp s)</span>&#123;<br>    <span class="hljs-keyword">return</span> s-&gt;top==<span class="hljs-number">-1</span>;<br>&#125;<br><span class="hljs-type">int</span> <span class="hljs-title function_">full</span><span class="hljs-params">(Sp s)</span>&#123;<br>    <span class="hljs-keyword">return</span> s-&gt;top==MAX_SIZE<span class="hljs-number">-1</span>;<br>&#125;<br><span class="hljs-type">void</span> <span class="hljs-title function_">push</span><span class="hljs-params">(Sp s,<span class="hljs-type">int</span> x)</span>&#123;<br>    <span class="hljs-keyword">if</span>(full(s))&#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Stack overflow\n&quot;</span>);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    s-&gt;data[++s-&gt;top]=x;<br>&#125;<br><span class="hljs-type">int</span> <span class="hljs-title function_">pop</span><span class="hljs-params">(Sp s)</span>&#123;<br>    <span class="hljs-keyword">if</span>(empty(s))&#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Stack underflow\n&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>; <span class="hljs-comment">// 返回-1表示栈空</span><br>    &#125;<br>    <span class="hljs-keyword">return</span> s-&gt;data[s-&gt;top--];<br>&#125;<br><span class="hljs-type">int</span> <span class="hljs-title function_">top</span><span class="hljs-params">(Sp s)</span>&#123;<br>    <span class="hljs-keyword">if</span>(empty(s))&#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Stack is empty\n&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>; <span class="hljs-comment">// 返回-1表示栈空</span><br>    &#125;<br>    <span class="hljs-keyword">return</span> s-&gt;data[s-&gt;top];<br>&#125;<br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>    S s;<br>    init(&amp;s);<br>    <span class="hljs-type">char</span> str[<span class="hljs-number">100</span>];<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%s&quot;</span>,str);<br>    <span class="hljs-type">int</span> len=<span class="hljs-built_in">strlen</span>(str);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;len;i++)&#123;<br>        <span class="hljs-keyword">if</span>(str[i]&gt;=<span class="hljs-string">&#x27;0&#x27;</span>&amp;&amp;str[i]&lt;=<span class="hljs-string">&#x27;9&#x27;</span>)&#123;<br>            push(&amp;s,str[i]-<span class="hljs-string">&#x27;0&#x27;</span>);<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            <span class="hljs-type">int</span> a=pop(&amp;s);<br>            <span class="hljs-type">int</span> b=pop(&amp;s);<br>            <span class="hljs-keyword">switch</span>(str[i])&#123;<br>                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;+&#x27;</span>: push(&amp;s,b+a); <span class="hljs-keyword">break</span>;<br>                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;-&#x27;</span>: push(&amp;s,b-a); <span class="hljs-keyword">break</span>;<br>                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;*&#x27;</span>: push(&amp;s,b*a); <span class="hljs-keyword">break</span>;<br>                <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;/&#x27;</span>: push(&amp;s,b/a); <span class="hljs-keyword">break</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Result: %d\n&quot;</span>,pop(&amp;s));<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<ol start="2">
+<li>计算器的实现·疯狂版</li>
+</ol>
+<details>
+<summary>点击展开代码,胆小者勿入</summary>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br></pre></td><td class="code"><pre><code class="hljs c"><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;string.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;ctype.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;math.h&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> DIVISION_KEEP_DECIMAL</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> DIVISION_KEEP_DECIMAL 0</span><br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> M_E</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> M_E 2.71828182845904523536</span><br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> INPUT_SIZE 10001</span><br><br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> &#123;</span><br>	<span class="hljs-type">const</span> <span class="hljs-type">char</span>* input;<br>	<span class="hljs-type">int</span> pos;<br>&#125; Parser;<br><br><span class="hljs-type">double</span> <span class="hljs-title function_">op_add</span><span class="hljs-params">(<span class="hljs-type">double</span> left,<span class="hljs-type">double</span> right)</span>&#123;<br>	<span class="hljs-keyword">return</span> left+right;<br>&#125;<br><br><span class="hljs-type">double</span> <span class="hljs-title function_">op_sub</span><span class="hljs-params">(<span class="hljs-type">double</span> left,<span class="hljs-type">double</span> right)</span>&#123;<br>	<span class="hljs-keyword">return</span> left-right;<br>&#125;<br><br><span class="hljs-type">double</span> <span class="hljs-title function_">op_mul</span><span class="hljs-params">(<span class="hljs-type">double</span> left,<span class="hljs-type">double</span> right)</span>&#123;<br>	<span class="hljs-keyword">return</span> left*right;<br>&#125;<br><br><span class="hljs-type">double</span> <span class="hljs-title function_">op_div</span><span class="hljs-params">(<span class="hljs-type">double</span> left,<span class="hljs-type">double</span> right)</span>&#123;<br>	<span class="hljs-keyword">if</span>(DIVISION_KEEP_DECIMAL)&#123;<br>		<span class="hljs-keyword">return</span> left/right;<br>	&#125;<br>	<span class="hljs-keyword">return</span> (<span class="hljs-type">double</span>)((<span class="hljs-type">long</span> <span class="hljs-type">long</span>)(left/right));<br>&#125;<br><br><span class="hljs-type">double</span> <span class="hljs-title function_">op_pow</span><span class="hljs-params">(<span class="hljs-type">double</span> left,<span class="hljs-type">double</span> right)</span>&#123;<br>	<span class="hljs-keyword">return</span> <span class="hljs-built_in">pow</span>(left,right);<br>&#125;<br><br><span class="hljs-type">double</span> <span class="hljs-title function_">op_sqrt</span><span class="hljs-params">(<span class="hljs-type">double</span> value)</span>&#123;<br>	<span class="hljs-keyword">return</span> <span class="hljs-built_in">sqrt</span>(value);<br>&#125;<br><br><span class="hljs-type">double</span> <span class="hljs-title function_">op_ln</span><span class="hljs-params">(<span class="hljs-type">double</span> value)</span>&#123;<br>	<span class="hljs-keyword">return</span> <span class="hljs-built_in">log</span>(value);<br>&#125;<br><br><span class="hljs-type">double</span> <span class="hljs-title function_">op_log</span><span class="hljs-params">(<span class="hljs-type">double</span> base,<span class="hljs-type">double</span> value)</span>&#123;<br>	<span class="hljs-keyword">return</span> op_ln(value)/op_ln(base);<br>&#125;<br><br><span class="hljs-type">double</span> <span class="hljs-title function_">op_sin</span><span class="hljs-params">(<span class="hljs-type">double</span> value)</span>&#123;<br>	<span class="hljs-keyword">return</span> <span class="hljs-built_in">sin</span>(value);<br>&#125;<br><br><span class="hljs-type">double</span> <span class="hljs-title function_">op_cos</span><span class="hljs-params">(<span class="hljs-type">double</span> value)</span>&#123;<br>	<span class="hljs-keyword">return</span> <span class="hljs-built_in">cos</span>(value);<br>&#125;<br><br><span class="hljs-type">double</span> <span class="hljs-title function_">op_tan</span><span class="hljs-params">(<span class="hljs-type">double</span> value)</span>&#123;<br>	<span class="hljs-keyword">return</span> <span class="hljs-built_in">tan</span>(value);<br>&#125;<br><br><span class="hljs-type">double</span> <span class="hljs-title function_">op_cot</span><span class="hljs-params">(<span class="hljs-type">double</span> value)</span>&#123;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">1.0</span>/<span class="hljs-built_in">tan</span>(value);<br>&#125;<br><br><span class="hljs-type">double</span> <span class="hljs-title function_">op_sec</span><span class="hljs-params">(<span class="hljs-type">double</span> value)</span>&#123;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">1.0</span>/<span class="hljs-built_in">cos</span>(value);<br>&#125;<br><br><span class="hljs-type">double</span> <span class="hljs-title function_">op_csc</span><span class="hljs-params">(<span class="hljs-type">double</span> value)</span>&#123;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">1.0</span>/<span class="hljs-built_in">sin</span>(value);<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">parse_error</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">char</span>* message)</span>&#123;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s\n&quot;</span>,message);<br>	<span class="hljs-built_in">exit</span>(<span class="hljs-number">1</span>);<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">skip_spaces</span><span class="hljs-params">(Parser* parser)</span>&#123;<br>	<span class="hljs-keyword">while</span>(parser-&gt;input[parser-&gt;pos]&amp;&amp;<span class="hljs-built_in">isspace</span>((<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span>)parser-&gt;input[parser-&gt;pos]))&#123;<br>		parser-&gt;pos++;<br>	&#125;<br>&#125;<br><br><span class="hljs-type">int</span> <span class="hljs-title function_">match_char</span><span class="hljs-params">(Parser* parser,<span class="hljs-type">char</span> ch)</span>&#123;<br>	skip_spaces(parser);<br>	<span class="hljs-keyword">if</span>(parser-&gt;input[parser-&gt;pos]==ch)&#123;<br>		parser-&gt;pos++;<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-type">int</span> <span class="hljs-title function_">starts_with_word</span><span class="hljs-params">(Parser* parser,<span class="hljs-type">const</span> <span class="hljs-type">char</span>* word)</span>&#123;<br>	<span class="hljs-type">int</span> len=(<span class="hljs-type">int</span>)<span class="hljs-built_in">strlen</span>(word);<br>	<span class="hljs-keyword">return</span> <span class="hljs-built_in">strncmp</span>(&amp;parser-&gt;input[parser-&gt;pos],word,len)==<span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-type">double</span> <span class="hljs-title function_">parse_expression</span><span class="hljs-params">(Parser* parser)</span>;<br><span class="hljs-type">double</span> <span class="hljs-title function_">parse_unary</span><span class="hljs-params">(Parser* parser)</span>;<br><br><span class="hljs-type">double</span> <span class="hljs-title function_">parse_function_arg</span><span class="hljs-params">(Parser* parser)</span>&#123;<br>	skip_spaces(parser);<br>	<span class="hljs-keyword">if</span>(match_char(parser,<span class="hljs-string">&#x27;(&#x27;</span>))&#123;<br>		<span class="hljs-type">double</span> value=parse_expression(parser);<br>		<span class="hljs-keyword">if</span>(!match_char(parser,<span class="hljs-string">&#x27;)&#x27;</span>))&#123;<br>			parse_error(<span class="hljs-string">&quot;mismatched parentheses&quot;</span>);<br>		&#125;<br>		<span class="hljs-keyword">return</span> value;<br>	&#125;<br>	<span class="hljs-keyword">return</span> parse_unary(parser);<br>&#125;<br><br><span class="hljs-type">double</span> <span class="hljs-title function_">parse_primary</span><span class="hljs-params">(Parser* parser)</span>&#123;<br>	<span class="hljs-type">char</span>* end_ptr;<br>	<span class="hljs-type">double</span> value;<br>	skip_spaces(parser);<br><br>	<span class="hljs-keyword">if</span>(match_char(parser,<span class="hljs-string">&#x27;(&#x27;</span>))&#123;<br>		value=parse_expression(parser);<br>		<span class="hljs-keyword">if</span>(!match_char(parser,<span class="hljs-string">&#x27;)&#x27;</span>))&#123;<br>			parse_error(<span class="hljs-string">&quot;mismatched parentheses&quot;</span>);<br>		&#125;<br>		<span class="hljs-keyword">return</span> value;<br>	&#125;<br><br>	<span class="hljs-keyword">if</span>(starts_with_word(parser,<span class="hljs-string">&quot;sqrt&quot;</span>))&#123;<br>		parser-&gt;pos+=<span class="hljs-number">4</span>;<br>		value=parse_function_arg(parser);<br>		<span class="hljs-keyword">if</span>(value&lt;<span class="hljs-number">0</span>)&#123;<br>			parse_error(<span class="hljs-string">&quot;sqrt domain error&quot;</span>);<br>		&#125;<br>		<span class="hljs-keyword">return</span> op_sqrt(value);<br>	&#125;<br><br>	<span class="hljs-keyword">if</span>(starts_with_word(parser,<span class="hljs-string">&quot;ln&quot;</span>))&#123;<br>		parser-&gt;pos+=<span class="hljs-number">2</span>;<br>		value=parse_function_arg(parser);<br>		<span class="hljs-keyword">if</span>(value&lt;=<span class="hljs-number">0</span>)&#123;<br>			parse_error(<span class="hljs-string">&quot;ln domain error&quot;</span>);<br>		&#125;<br>		<span class="hljs-keyword">return</span> op_ln(value);<br>	&#125;<br><br>	<span class="hljs-keyword">if</span>(starts_with_word(parser,<span class="hljs-string">&quot;sin&quot;</span>))&#123;<br>		parser-&gt;pos+=<span class="hljs-number">3</span>;<br>		value=parse_function_arg(parser);<br>		<span class="hljs-keyword">return</span> op_sin(value);<br>	&#125;<br><br>	<span class="hljs-keyword">if</span>(starts_with_word(parser,<span class="hljs-string">&quot;cos&quot;</span>))&#123;<br>		parser-&gt;pos+=<span class="hljs-number">3</span>;<br>		value=parse_function_arg(parser);<br>		<span class="hljs-keyword">return</span> op_cos(value);<br>	&#125;<br><br>	<span class="hljs-keyword">if</span>(starts_with_word(parser,<span class="hljs-string">&quot;tan&quot;</span>))&#123;<br>		parser-&gt;pos+=<span class="hljs-number">3</span>;<br>		value=parse_function_arg(parser);<br>		<span class="hljs-keyword">return</span> op_tan(value);<br>	&#125;<br><br>	<span class="hljs-keyword">if</span>(starts_with_word(parser,<span class="hljs-string">&quot;cot&quot;</span>))&#123;<br>		parser-&gt;pos+=<span class="hljs-number">3</span>;<br>		value=parse_function_arg(parser);<br>		<span class="hljs-keyword">if</span>(<span class="hljs-built_in">fabs</span>(op_tan(value))&lt;<span class="hljs-number">1e-12</span>)&#123;<br>			parse_error(<span class="hljs-string">&quot;cot domain error&quot;</span>);<br>		&#125;<br>		<span class="hljs-keyword">return</span> op_cot(value);<br>	&#125;<br><br>	<span class="hljs-keyword">if</span>(starts_with_word(parser,<span class="hljs-string">&quot;sec&quot;</span>))&#123;<br>		parser-&gt;pos+=<span class="hljs-number">3</span>;<br>		value=parse_function_arg(parser);<br>		<span class="hljs-keyword">if</span>(<span class="hljs-built_in">fabs</span>(op_cos(value))&lt;<span class="hljs-number">1e-12</span>)&#123;<br>			parse_error(<span class="hljs-string">&quot;sec domain error&quot;</span>);<br>		&#125;<br>		<span class="hljs-keyword">return</span> op_sec(value);<br>	&#125;<br><br>	<span class="hljs-keyword">if</span>(starts_with_word(parser,<span class="hljs-string">&quot;csc&quot;</span>))&#123;<br>		parser-&gt;pos+=<span class="hljs-number">3</span>;<br>		value=parse_function_arg(parser);<br>		<span class="hljs-keyword">if</span>(<span class="hljs-built_in">fabs</span>(op_sin(value))&lt;<span class="hljs-number">1e-12</span>)&#123;<br>			parse_error(<span class="hljs-string">&quot;csc domain error&quot;</span>);<br>		&#125;<br>		<span class="hljs-keyword">return</span> op_csc(value);<br>	&#125;<br><br>	<span class="hljs-keyword">if</span>(starts_with_word(parser,<span class="hljs-string">&quot;log&quot;</span>))&#123;<br>		<span class="hljs-type">double</span> base;<br>		<span class="hljs-type">double</span> target;<br>		parser-&gt;pos+=<span class="hljs-number">3</span>;<br>		skip_spaces(parser);<br>		<span class="hljs-keyword">if</span>(match_char(parser,<span class="hljs-string">&#x27;_&#x27;</span>))&#123;<br>			base=parse_unary(parser);<br>			<span class="hljs-keyword">if</span>(!match_char(parser,<span class="hljs-string">&#x27;^&#x27;</span>))&#123;<br>				parse_error(<span class="hljs-string">&quot;log_a^n format error&quot;</span>);<br>			&#125;<br>			target=parse_unary(parser);<br>		&#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(match_char(parser,<span class="hljs-string">&#x27;(&#x27;</span>))&#123;<br>			base=parse_expression(parser);<br>			<span class="hljs-keyword">if</span>(!match_char(parser,<span class="hljs-string">&#x27;,&#x27;</span>))&#123;<br>				parse_error(<span class="hljs-string">&quot;log(a,n) format error&quot;</span>);<br>			&#125;<br>			target=parse_expression(parser);<br>			<span class="hljs-keyword">if</span>(!match_char(parser,<span class="hljs-string">&#x27;)&#x27;</span>))&#123;<br>				parse_error(<span class="hljs-string">&quot;mismatched parentheses&quot;</span>);<br>			&#125;<br>		&#125;<span class="hljs-keyword">else</span>&#123;<br>			parse_error(<span class="hljs-string">&quot;log format error&quot;</span>);<br>		&#125;<br>		<span class="hljs-keyword">if</span>(base&lt;=<span class="hljs-number">0</span>||<span class="hljs-built_in">fabs</span>(base<span class="hljs-number">-1.0</span>)&lt;<span class="hljs-number">1e-12</span>||target&lt;=<span class="hljs-number">0</span>)&#123;<br>			parse_error(<span class="hljs-string">&quot;log domain error&quot;</span>);<br>		&#125;<br>		<span class="hljs-keyword">return</span> op_log(base,target);<br>	&#125;<br><br>	<span class="hljs-keyword">if</span>(parser-&gt;input[parser-&gt;pos]==<span class="hljs-string">&#x27;e&#x27;</span>&amp;&amp;!<span class="hljs-built_in">isalpha</span>((<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span>)parser-&gt;input[parser-&gt;pos+<span class="hljs-number">1</span>]))&#123;<br>		parser-&gt;pos++;<br>		<span class="hljs-keyword">return</span> M_E;<br>	&#125;<br><br>	<span class="hljs-keyword">if</span>(<span class="hljs-built_in">isdigit</span>((<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span>)parser-&gt;input[parser-&gt;pos])||parser-&gt;input[parser-&gt;pos]==<span class="hljs-string">&#x27;.&#x27;</span>)&#123;<br>		value=strtod(&amp;parser-&gt;input[parser-&gt;pos],&amp;end_ptr);<br>		<span class="hljs-keyword">if</span>(end_ptr==&amp;parser-&gt;input[parser-&gt;pos])&#123;<br>			parse_error(<span class="hljs-string">&quot;invalid number&quot;</span>);<br>		&#125;<br>		parser-&gt;pos=(<span class="hljs-type">int</span>)(end_ptr-parser-&gt;input);<br>		<span class="hljs-keyword">return</span> value;<br>	&#125;<br><br>	parse_error(<span class="hljs-string">&quot;invalid character&quot;</span>);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-type">double</span> <span class="hljs-title function_">parse_unary</span><span class="hljs-params">(Parser* parser)</span>&#123;<br>	skip_spaces(parser);<br>	<span class="hljs-keyword">if</span>(match_char(parser,<span class="hljs-string">&#x27;+&#x27;</span>))&#123;<br>		<span class="hljs-keyword">return</span> parse_unary(parser);<br>	&#125;<br>	<span class="hljs-keyword">if</span>(match_char(parser,<span class="hljs-string">&#x27;-&#x27;</span>))&#123;<br>		<span class="hljs-keyword">return</span> -parse_unary(parser);<br>	&#125;<br>	<span class="hljs-keyword">return</span> parse_primary(parser);<br>&#125;<br><br><span class="hljs-type">double</span> <span class="hljs-title function_">parse_power</span><span class="hljs-params">(Parser* parser)</span>&#123;<br>	<span class="hljs-type">double</span> left=parse_unary(parser);<br>	skip_spaces(parser);<br>	<span class="hljs-keyword">if</span>(match_char(parser,<span class="hljs-string">&#x27;^&#x27;</span>))&#123;<br>		<span class="hljs-type">double</span> right=parse_power(parser);<br>		<span class="hljs-keyword">return</span> op_pow(left,right);<br>	&#125;<br>	<span class="hljs-keyword">return</span> left;<br>&#125;<br><br><span class="hljs-type">double</span> <span class="hljs-title function_">parse_term</span><span class="hljs-params">(Parser* parser)</span>&#123;<br>	<span class="hljs-type">double</span> value=parse_power(parser);<br>	<span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br>		skip_spaces(parser);<br>		<span class="hljs-keyword">if</span>(match_char(parser,<span class="hljs-string">&#x27;*&#x27;</span>))&#123;<br>			value=op_mul(value,parse_power(parser));<br>		&#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(match_char(parser,<span class="hljs-string">&#x27;/&#x27;</span>))&#123;<br>			<span class="hljs-type">double</span> right=parse_power(parser);<br>			<span class="hljs-keyword">if</span>(<span class="hljs-built_in">fabs</span>(right)&lt;<span class="hljs-number">1e-12</span>)&#123;<br>				parse_error(<span class="hljs-string">&quot;division by zero&quot;</span>);<br>			&#125;<br>			value=op_div(value,right);<br>		&#125;<span class="hljs-keyword">else</span>&#123;<br>			<span class="hljs-keyword">break</span>;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span> value;<br>&#125;<br><br><span class="hljs-type">double</span> <span class="hljs-title function_">parse_expression</span><span class="hljs-params">(Parser* parser)</span>&#123;<br>	<span class="hljs-type">double</span> value=parse_term(parser);<br>	<span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br>		skip_spaces(parser);<br>		<span class="hljs-keyword">if</span>(match_char(parser,<span class="hljs-string">&#x27;+&#x27;</span>))&#123;<br>			value=op_add(value,parse_term(parser));<br>		&#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(match_char(parser,<span class="hljs-string">&#x27;-&#x27;</span>))&#123;<br>			value=op_sub(value,parse_term(parser));<br>		&#125;<span class="hljs-keyword">else</span>&#123;<br>			<span class="hljs-keyword">break</span>;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span> value;<br>&#125;<br><br><span class="hljs-type">double</span> <span class="hljs-title function_">eval_expr</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">char</span>* input)</span>&#123;<br>	Parser parser;<br>	<span class="hljs-type">double</span> result;<br>	parser.input=input;<br>	parser.pos=<span class="hljs-number">0</span>;<br>	result=parse_expression(&amp;parser);<br>	skip_spaces(&amp;parser);<br>	<span class="hljs-keyword">if</span>(parser.input[parser.pos]!=<span class="hljs-string">&#x27;\0&#x27;</span>)&#123;<br>		parse_error(<span class="hljs-string">&quot;invalid expression&quot;</span>);<br>	&#125;<br>	<span class="hljs-keyword">return</span> result;<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">get_line</span><span class="hljs-params">(<span class="hljs-type">char</span>* input,FILE* in)</span>&#123;<br>	fgets(input,INPUT_SIZE,in);<br>	input[<span class="hljs-built_in">strcspn</span>(input,<span class="hljs-string">&quot;\n&quot;</span>)]=<span class="hljs-string">&#x27;\0&#x27;</span>;<br>&#125;<br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>	<span class="hljs-type">char</span> input[INPUT_SIZE];<br>	<span class="hljs-type">double</span> result;<br>	get_line(input,<span class="hljs-built_in">stdin</span>);<br>	result=eval_expr(input);<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%.10g\n&quot;</span>,result);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+</details>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%80%BB%E7%9B%AE%E5%BD%95/" class="category-chain-item">总目录</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%80%BB%E7%9B%AE%E5%BD%95/%E7%A7%91%E5%AD%A6%E6%8A%80%E6%9C%AF/" class="category-chain-item">科学技术</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%AC%94%E8%AE%B0/C%E8%AF%AD%E8%A8%80/" class="category-chain-item">C语言</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/C/%E6%A8%A1%E6%9D%BF/" class="category-chain-item">模板</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/C/%E6%A8%A1%E6%9D%BF/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/" class="category-chain-item">栈和队列</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/" class="print-no-link">#笔记</a>
+      
+        <a href="/tags/C%E8%AF%AD%E8%A8%80/" class="print-no-link">#C语言</a>
+      
+        <a href="/tags/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/" class="print-no-link">#栈和队列</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>栈和队列</div>
+      <div>http://aleafofwutong.github.io/2026/04/22/C语言笔记/栈和队列/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>aleafofwutong</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>April 22, 2026</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Updated on</div>
+          <div>April 26, 2026</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="ND - No derivative works">
+                    <i class="iconfont icon-cc-nd"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/04/25/Linux/net/" title="网络调试命令">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">网络调试命令</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/04/15/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E5%86%85%E7%A7%AF%E7%A9%BA%E9%97%B4/" title="几个空间">
+                        <span class="hidden-mobile">几个空间</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'aleafofwutong/aleafofwutong.github.io');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://github.com/aleafofwutong" target="_blank" rel="nofollow noopener"><span>my github profile</span></a> <i class="fab fa-github"></i> <span> | </span> <a href="https://buaa.edu.cn" target="_blank" rel="nofollow noopener"><span>BUAA</span></a> <br>  © 2026 aleafofwutong的个人博客 </br> <span id="runtime"></span> <script> function setRuntime() { let createTime = new Date("2026-04-01 15:22:45"); let nowTime = new Date(); let runTime = (nowTime - createTime) / 1000; let day = parseInt(runTime / 3600 / 24); let hour = parseInt((runTime / 3600) % 24); let minute = parseInt((runTime / 60) % 60); let second = parseInt(runTime % 60); document.getElementById("runtime").innerText = "博客已运行 " + day + " 天 " + hour + " 小时 " + minute + " 分 " + second + " 秒"; } setRuntime(); setInterval(setRuntime, 1000); </script> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  var relativeDate = function() {
+    var updatedTime = document.getElementById('updated-time');
+    if (updatedTime) {
+      var text = updatedTime.textContent;
+      var reg = /\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:Z|[+-]\d{2}:\d{2})/;
+      var matchs = text.match(reg);
+      if (matchs) {
+        var relativeTime = moment(matchs[0]).fromNow();
+        updatedTime.textContent = text.replace(reg, relativeTime);
+      }
+      updatedTime.style.display = '';
+    }
+  };
+  Fluid.utils.createScript('https://lib.baomitu.com/moment.js/2.29.4/moment.min.js', function() {
+    if (!'en'.startsWith('en')) {
+      Fluid.utils.createScript('https://lib.baomitu.com/moment.js/2.29.4/locale/en.min.js', function() {
+        relativeDate();
+      });
+    } else {
+      relativeDate();
+    }
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
