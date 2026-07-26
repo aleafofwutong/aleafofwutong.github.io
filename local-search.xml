@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>gdb手册</title>
+    <link href="/2026/07/26/Linux/ubuntu%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE/"/>
+    <url>/2026/07/26/Linux/ubuntu%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE/</url>
+    
+    <content type="html"><![CDATA[<h1 id="default"></h1><p>22.04版本：</p><p>中文输入法安装</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> -i<br>apt install fcitx5<br>apt install fcitx5-chinese-addons<br>apt install fcitx5-frontend-gtk3 fcitx5-frontend-gtk2<br>apt install fcitx5-frontend-qt5 kde-config-fcitx5<br>apt-get --purge remove ibus<br></code></pre></td></tr></table></figure><p>重启</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> -i<br>apt install ficitx5 ficitx5-*<br>apt-get install parcellite<br>apt install copyq<br>apt install gnome-tweaks<br></code></pre></td></tr></table></figure><p>在gnome-tweaks里面把ficitx5添加到开机启动，再次重启即可</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>总目录</category>
+      
+      <category>科学技术</category>
+      
+      <category>笔记</category>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>神奇的传送门</title>
     <link href="/2026/04/29/roadmap/map/"/>
     <url>/2026/04/29/roadmap/map/</url>
