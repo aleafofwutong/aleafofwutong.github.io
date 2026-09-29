@@ -4,7 +4,85 @@
   
   
   <entry>
-    <title>ubuntu settings</title>
+    <title>Hello World</title>
+    <link href="/2026/09/30/hello-world/"/>
+    <url>/2026/09/30/hello-world/</url>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start">Quick Start</h2><h3 id="Create-a-new-post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p><hr><blockquote><p>date:2026/09/30 02:43:16</p></blockquote><h2 id=""></h2><p>hexo 最近的提交链接因为buaa的网络的改动不能用hexo d命令提交了（悲）<br>现在给出了git push的解决方案</p><h3 id="关于hexo的提交原理">关于hexo的提交原理</h3><p>hexo是把工作空间下的.deploy_git/里面的内容作为git push的内容的<br>于是有了</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ruby">hexo d<br><span class="hljs-comment"># 等价于</span><br>cd ./.deploy_git<br>git push (<span class="hljs-variable">$&#123;</span>url&#125; <span class="hljs-variable constant_">HEAD</span><span class="hljs-symbol">:gh-pages</span>)<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>学科/领域</category>
+      
+      <category>计算机</category>
+      
+      <category>网站建设</category>
+      
+      <category>类型/功能</category>
+      
+      <category>教程</category>
+      
+      <category>层级/依赖</category>
+      
+      <category>食用方法</category>
+      
+      <category>L4工具/库</category>
+      
+      <category>hexo</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>思维方法</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>交叉分类法</title>
+    <link href="/2026/09/30/%E4%BA%A4%E5%8F%89%E5%88%86%E7%B1%BB%E6%B3%95/"/>
+    <url>/2026/09/30/%E4%BA%A4%E5%8F%89%E5%88%86%E7%B1%BB%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<h1 id="default"></h1><p>随着blog的数量的增加，梧桐一叶整理不过来了喵～（悲<br>于是就不得不实践了<strong>交叉分类法</strong><br>总共三套分类系统，整理如下</p><h2 id="学科领域分类">学科领域分类</h2><p>嗯，最简单的一种，但对于blog很难全部概括下来。</p><h2 id="类型-功能分类">类型/功能分类</h2><p>前期大致分类如下</p><ol><li><p>理论<br>数学：线性代数、概率统计、微积分、优化理论<br>系统：操作系统原理、计算机组成、编译原理、网络原理<br>控制：经典控制、现代控制、状态估计<br>视觉：多视图几何、摄影测量、图像形成模型</p></li><li><p>方法<br>算法：搜索、排序、动态规划、图算法<br>优化：最小二乘、梯度下降、凸优化、非线性优化<br>感知：特征匹配、滤波、SLAM、目标检测<br>规划：A*、RRT、轨迹优化、路径规划<br>模型：状态空间、马尔可夫、神经网络、图模型</p></li><li><p>语言<br>语法：C 语法、C++ 语法、Python 语法<br>标准库：C 标准库、STL、Python 标准库<br>构建描述：CMake、Makefile、YAML、XML</p></li><li><p>系统<br>OS：Linux、Ubuntu、进程、权限、文件系统<br>驱动：串口、CAN、GPIO、设备树<br>网络：TCP/IP、SSH、DDS、ROS 通信<br>环境配置：环境变量、apt、pip、conda</p></li><li><p>框架<br>中间件：ROS、ROS2、DDS<br>仿真：Gazebo、Isaac Sim、CoppeliaSim<br>导航：Navigation2、MoveIt<br>深度学习：PyTorch、TensorFlow</p></li><li><p>库/API<br>视觉：OpenCV、PCL、Eigen<br>数学：NumPy、SciPy<br>机器人：TF、URDF、KDL</p></li><li><p>工具<br>调试：GDB、LLDB、Valgrind、strace<br>构建：CMake、colcon、catkin、make<br>版本控制：Git、GitHub<br>终端：tmux、grep、sed、awk</p></li><li><p>教程<br>安装：Ubuntu 安装、ROS 安装<br>入门：C 语言入门、OpenCV 入门<br>食用方法：OpenCV 食用方法、GDB 食用方法<br>使用技巧：系统配置<br>踩坑：报错解决、兼容性问题</p></li><li><p>模板<br>工程常用代码：直线检测代码<br>数据结构模板：链表模板</p></li><li><p>参考<br>API：OpenCV API、ROS API<br>手册：man page、官方文档<br>速查：cheatsheet、命令速查</p></li><li><p>经验<br>调试：断点、崩溃分析、内存泄漏<br>性能：加速、内存优化、实时性<br>工程：代码规范、项目结构、协作</p></li><li><p>索引<br>MOC：内容地图<br>链接推荐：资源聚合<br>路线图：学习路径</p></li><li><p>应用/研究<br>项目：机器人系统、自动驾驶、机械臂<br>部署：Docker、CI/CD、GitHub Actions<br>论文：综述、经典论文、复现<br>创新：新算法、新架构</p></li></ol><h2 id="第一性原理分类">第一性原理分类</h2><table><thead><tr><th style="text-align:center">层级</th><th style="text-align:center">名称</th><th style="text-align:center">内容</th></tr></thead><tbody><tr><td style="text-align:center">L0</td><td style="text-align:center">入口</td><td style="text-align:center">索引、路线图、术语表、链接推荐</td></tr><tr><td style="text-align:center">L1</td><td style="text-align:center">环境预备</td><td style="text-align:center">Ubuntu 安装、Linux 命令、Shell、Git、编辑器、包管理</td></tr><tr><td style="text-align:center">L2</td><td style="text-align:center">基础理论</td><td style="text-align:center">数学、C 语言、数据结构、计算机原理</td></tr><tr><td style="text-align:center">L3</td><td style="text-align:center">核心方法</td><td style="text-align:center">算法、数值计算、控制、视觉基础</td></tr><tr><td style="text-align:center">L4</td><td style="text-align:center">工具/库</td><td style="text-align:center">GDB、OpenCV、Eigen、CMake、ROS 基础</td></tr><tr><td style="text-align:center">L5</td><td style="text-align:center">系统集成</td><td style="text-align:center">ROS 节点、TF、URDF、仿真、硬件接口</td></tr><tr><td style="text-align:center">L6</td><td style="text-align:center">领域应用</td><td style="text-align:center">SLAM、导航、抓取、检测、自动驾驶</td></tr><tr><td style="text-align:center">L7</td><td style="text-align:center">项目实战</td><td style="text-align:center">完整机器人项目、部署、调试、优化</td></tr><tr><td style="text-align:center">L8</td><td style="text-align:center">研究创新</td><td style="text-align:center">论文复现、算法改进、新架构</td></tr></tbody></table>]]></content>
+    
+    
+    <categories>
+      
+      <category>学科/领域</category>
+      
+      <category>其他</category>
+      
+      <category>类型/功能</category>
+      
+      <category>索引</category>
+      
+      <category>层级/依赖</category>
+      
+      <category>L2基础理论</category>
+      
+      <category>认知方法</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>思维方法</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>ubuntu 的小tricks</title>
     <link href="/2026/07/26/Linux/ubuntu%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE/"/>
     <url>/2026/07/26/Linux/ubuntu%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE/</url>
     
@@ -13,13 +91,27 @@
     
     <categories>
       
-      <category>总目录</category>
+      <category>学科/领域</category>
       
-      <category>科学技术</category>
+      <category>计算机</category>
       
-      <category>笔记</category>
+      <category>操作系统</category>
       
-      <category>Linux</category>
+      <category>类型/功能</category>
+      
+      <category>linux</category>
+      
+      <category>教程</category>
+      
+      <category>层级/依赖</category>
+      
+      <category>使用技巧</category>
+      
+      <category>系统配置</category>
+      
+      <category>L2环境预备</category>
+      
+      <category>ubuntu配置</category>
       
     </categories>
     
@@ -27,6 +119,8 @@
     <tags>
       
       <tag>linux</tag>
+      
+      <tag>ubuntu</tag>
       
     </tags>
     
@@ -44,9 +138,23 @@
     
     <categories>
       
-      <category>总目录</category>
+      <category>学科/领域</category>
+      
+      <category>其他</category>
+      
+      <category>类型/功能</category>
       
       <category>传送门</category>
+      
+      <category>索引</category>
+      
+      <category>层级/依赖</category>
+      
+      <category>链接推荐</category>
+      
+      <category>L0入口</category>
+      
+      <category>索引</category>
       
     </categories>
     
@@ -55,7 +163,7 @@
       
       <tag>传送门</tag>
       
-      <tag>AI</tag>
+      <tag>链接</tag>
       
     </tags>
     
@@ -73,22 +181,34 @@
     
     <categories>
       
-      <category>总目录</category>
+      <category>学科/领域</category>
       
-      <category>科学技术</category>
+      <category>计算机</category>
       
-      <category>笔记</category>
+      <category>计算机网络</category>
       
-      <category>Linux</category>
+      <category>类型/功能</category>
+      
+      <category>教程</category>
+      
+      <category>层级/依赖</category>
+      
+      <category>使用技巧</category>
+      
+      <category>系统配置</category>
+      
+      <category>L2环境预备</category>
+      
+      <category>ubuntu配置</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>C语言</tag>
-      
       <tag>linux</tag>
+      
+      <tag>bash</tag>
       
     </tags>
     
@@ -106,30 +226,32 @@
     
     <categories>
       
-      <category>总目录</category>
+      <category>学科/领域</category>
       
-      <category>科学技术</category>
+      <category>计算机</category>
       
-      <category>笔记</category>
+      <category>数据结构</category>
       
-      <category>C语言</category>
+      <category>类型/功能</category>
       
-      <category>C</category>
+      <category>理论</category>
       
-      <category>模板</category>
+      <category>层级/依赖</category>
       
-      <category>栈和队列</category>
+      <category>数据结构</category>
+      
+      <category>L2基础理论</category>
+      
+      <category>数据结构</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>笔记</tag>
-      
       <tag>C语言</tag>
       
-      <tag>栈和队列</tag>
+      <tag>数据结构</tag>
       
     </tags>
     
@@ -147,28 +269,36 @@
     
     <categories>
       
-      <category>总目录</category>
-      
-      <category>科学技术</category>
-      
-      <category>笔记</category>
-      
-      <category>课外</category>
+      <category>学科/领域</category>
       
       <category>数学</category>
       
-      <category>线性代数</category>
+      <category>类型/功能</category>
+      
+      <category>理论</category>
+      
+      <category>数学</category>
+      
+      <category>层级/依赖</category>
+      
+      <category>L2基础理论</category>
+      
+      <category>数学</category>
+      
+      <category>泛函分析</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>笔记</tag>
-      
       <tag>线性代数</tag>
       
-      <tag>科学技术</tag>
+      <tag>矩阵论</tag>
+      
+      <tag>机器学习</tag>
+      
+      <tag>泛函分析</tag>
       
     </tags>
     
@@ -186,26 +316,32 @@
     
     <categories>
       
-      <category>总目录</category>
-      
-      <category>科学技术</category>
-      
-      <category>笔记</category>
-      
-      <category>DM</category>
+      <category>学科/领域</category>
       
       <category>数学</category>
       
       <category>离散数学</category>
+      
+      <category>类型/功能</category>
+      
+      <category>理论</category>
+      
+      <category>数学</category>
+      
+      <category>层级/依赖</category>
+      
+      <category>L2基础理论</category>
+      
+      <category>数学</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>笔记</tag>
+      <tag>数学</tag>
       
-      <tag>DM</tag>
+      <tag>离散数学</tag>
       
     </tags>
     
@@ -223,13 +359,19 @@
     
     <categories>
       
-      <category>总目录</category>
+      <category>学科/领域</category>
       
-      <category>科学技术</category>
+      <category>数学</category>
       
-      <category>笔记</category>
+      <category>类型/功能</category>
       
-      <category>课外</category>
+      <category>理论</category>
+      
+      <category>数学</category>
+      
+      <category>层级/依赖</category>
+      
+      <category>L2基础理论</category>
       
       <category>数学</category>
       
@@ -240,11 +382,11 @@
     
     <tags>
       
-      <tag>笔记</tag>
-      
       <tag>线性代数</tag>
       
-      <tag>科学技术</tag>
+      <tag>矩阵论</tag>
+      
+      <tag>机器学习</tag>
       
     </tags>
     
@@ -262,30 +404,32 @@
     
     <categories>
       
-      <category>总目录</category>
+      <category>学科/领域</category>
       
-      <category>科学技术</category>
+      <category>计算机</category>
       
-      <category>笔记</category>
+      <category>编程基础</category>
+      
+      <category>类型/功能</category>
       
       <category>C语言</category>
       
-      <category>C</category>
+      <category>理论</category>
       
-      <category>模板</category>
+      <category>层级/依赖</category>
       
-      <category>字符串</category>
+      <category>C语言</category>
+      
+      <category>L2基础理论</category>
+      
+      <category>语言基础</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>笔记</tag>
-      
       <tag>C语言</tag>
-      
-      <tag>字符串</tag>
       
     </tags>
     
@@ -303,13 +447,25 @@
     
     <categories>
       
-      <category>总目录</category>
+      <category>学科/领域</category>
       
-      <category>科学技术</category>
+      <category>计算机</category>
       
-      <category>笔记</category>
+      <category>操作系统</category>
       
-      <category>Linux</category>
+      <category>类型/功能</category>
+      
+      <category>教程</category>
+      
+      <category>层级/依赖</category>
+      
+      <category>食用方法</category>
+      
+      <category>bash终端</category>
+      
+      <category>L1环境预备</category>
+      
+      <category>bash终端</category>
       
     </categories>
     
@@ -336,20 +492,32 @@
     
     <categories>
       
-      <category>总目录</category>
-      
-      <category>科学技术</category>
+      <category>学科/领域</category>
       
       <category>机器人</category>
       
-      <category>ROS系统</category>
+      <category>类型/功能</category>
+      
+      <category>ROS</category>
+      
+      <category>框架</category>
+      
+      <category>层级/依赖</category>
+      
+      <category>中间件</category>
+      
+      <category>ROS</category>
+      
+      <category>L5系统集成</category>
+      
+      <category>ROS</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>ROS2</tag>
+      <tag>ROS/ROS2</tag>
       
       <tag>机器人</tag>
       
@@ -369,26 +537,32 @@
     
     <categories>
       
-      <category>总目录</category>
-      
-      <category>科学技术</category>
-      
-      <category>笔记</category>
-      
-      <category>DM</category>
+      <category>学科/领域</category>
       
       <category>数学</category>
       
       <category>离散数学</category>
+      
+      <category>类型/功能</category>
+      
+      <category>理论</category>
+      
+      <category>数学</category>
+      
+      <category>层级/依赖</category>
+      
+      <category>L2基础理论</category>
+      
+      <category>数学</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>笔记</tag>
+      <tag>数学</tag>
       
-      <tag>DM</tag>
+      <tag>离散数学</tag>
       
     </tags>
     
@@ -397,7 +571,7 @@
   
   
   <entry>
-    <title>OpenCV_Line_Detect</title>
+    <title>OpenCV_Cube_Detect</title>
     <link href="/2026/04/06/opencv/opencv_cube_detector/"/>
     <url>/2026/04/06/opencv/opencv_cube_detector/</url>
     
@@ -406,30 +580,34 @@
     
     <categories>
       
-      <category>总目录</category>
+      <category>学科/领域</category>
       
-      <category>科学技术</category>
-      
-      <category>笔记</category>
-      
-      <category>机器人</category>
+      <category>计算机</category>
       
       <category>计算机视觉</category>
       
-      <category>机器视觉</category>
+      <category>类型/功能</category>
       
-      <category>视觉算法</category>
+      <category>模板</category>
       
-      <category>open-cv</category>
+      <category>层级/依赖</category>
+      
+      <category>工程代码模板</category>
+      
+      <category>视觉检测</category>
+      
+      <category>L6领域应用</category>
+      
+      <category>opencv</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>笔记</tag>
-      
       <tag>open cv</tag>
+      
+      <tag>笔记</tag>
       
     </tags>
     
@@ -447,30 +625,34 @@
     
     <categories>
       
-      <category>总目录</category>
+      <category>学科/领域</category>
       
-      <category>科学技术</category>
-      
-      <category>笔记</category>
-      
-      <category>机器人</category>
+      <category>计算机</category>
       
       <category>计算机视觉</category>
       
-      <category>机器视觉</category>
+      <category>类型/功能</category>
       
-      <category>视觉算法</category>
+      <category>模板</category>
       
-      <category>open-cv</category>
+      <category>层级/依赖</category>
+      
+      <category>工程代码模板</category>
+      
+      <category>视觉检测</category>
+      
+      <category>L6领域应用</category>
+      
+      <category>opencv</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>笔记</tag>
-      
       <tag>open cv</tag>
+      
+      <tag>笔记</tag>
       
     </tags>
     
@@ -488,30 +670,32 @@
     
     <categories>
       
-      <category>总目录</category>
+      <category>学科/领域</category>
       
-      <category>科学技术</category>
+      <category>计算机</category>
       
-      <category>笔记</category>
+      <category>编程基础</category>
+      
+      <category>类型/功能</category>
       
       <category>C语言</category>
       
-      <category>C</category>
+      <category>理论</category>
       
-      <category>模板</category>
+      <category>层级/依赖</category>
       
-      <category>字符串</category>
+      <category>C语言</category>
+      
+      <category>L2基础理论</category>
+      
+      <category>语言基础</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>笔记</tag>
-      
       <tag>C语言</tag>
-      
-      <tag>字符串</tag>
       
     </tags>
     
@@ -529,17 +713,27 @@
     
     <categories>
       
-      <category>总目录</category>
+      <category>学科/领域</category>
       
-      <category>科学技术</category>
+      <category>计算机</category>
       
-      <category>笔记</category>
+      <category>类型/功能</category>
       
-      <category>Linux</category>
+      <category>教程</category>
       
-      <category>C</category>
+      <category>层级/依赖</category>
       
-      <category>tools</category>
+      <category>食用方法</category>
+      
+      <category>L4工具/库</category>
+      
+      <category>编程语言</category>
+      
+      <category>C/C++</category>
+      
+      <category>gdb</category>
+      
+      <category>gdb</category>
       
     </categories>
     
@@ -566,20 +760,32 @@
     
     <categories>
       
-      <category>总目录</category>
-      
-      <category>科学技术</category>
+      <category>学科/领域</category>
       
       <category>机器人</category>
       
-      <category>ROS系统</category>
+      <category>类型/功能</category>
+      
+      <category>ROS</category>
+      
+      <category>框架</category>
+      
+      <category>层级/依赖</category>
+      
+      <category>中间件</category>
+      
+      <category>ROS</category>
+      
+      <category>L5系统集成</category>
+      
+      <category>ROS</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>ROS2</tag>
+      <tag>ROS/ROS2</tag>
       
       <tag>机器人</tag>
       
@@ -599,26 +805,32 @@
     
     <categories>
       
-      <category>总目录</category>
-      
-      <category>科学技术</category>
-      
-      <category>笔记</category>
-      
-      <category>DM</category>
+      <category>学科/领域</category>
       
       <category>数学</category>
       
       <category>离散数学</category>
+      
+      <category>类型/功能</category>
+      
+      <category>理论</category>
+      
+      <category>数学</category>
+      
+      <category>层级/依赖</category>
+      
+      <category>L2基础理论</category>
+      
+      <category>数学</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>笔记</tag>
+      <tag>数学</tag>
       
-      <tag>DM</tag>
+      <tag>离散数学</tag>
       
     </tags>
     
@@ -636,41 +848,34 @@
     
     <categories>
       
-      <category>总目录</category>
-      
-      <category>科学技术</category>
-      
-      <category>笔记</category>
-      
-      <category>DM</category>
+      <category>学科/领域</category>
       
       <category>数学</category>
       
       <category>离散数学</category>
+      
+      <category>类型/功能</category>
+      
+      <category>理论</category>
+      
+      <category>数学</category>
+      
+      <category>层级/依赖</category>
+      
+      <category>L2基础理论</category>
+      
+      <category>数学</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>笔记</tag>
+      <tag>数学</tag>
       
-      <tag>DM</tag>
+      <tag>离散数学</tag>
       
     </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="/2026/04/01/hello-world/"/>
-    <url>/2026/04/01/hello-world/</url>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start">Quick Start</h2><h3 id="Create-a-new-post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
     
   </entry>
   
